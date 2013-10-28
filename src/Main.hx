@@ -36,8 +36,9 @@ class Main
 	public static function login() {
 		var acc = beluga.getModuleInstance(Account);
 		var loginBox : Widget = acc.getWidget("login"); //Generic method for all modules
-		loginBox.context.username = "Toto"; // For instance, it would fill the username field with Toto
+		loginBox.context.login = "Toto"; // For instance, it would fill the username field with Toto
 		var html : String = loginBox.render();
+		var subscribeBox : Widget = acc.getWidget("subscribe");
 		Sys.print(html);
 	}
 

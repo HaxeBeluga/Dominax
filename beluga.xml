@@ -3,6 +3,15 @@
 	<templo bin="temploc2.exe" output="bin/views/" />
 </install>
 
+<database>
+	<host>localhost</host>
+	<!-- <port></port> -->
+	<user>root</user>
+	<pass></pass>
+	<database>belugaDemo</database>
+	<!-- <socket></socket> -->
+</database>
+
 <!-- List of active modules -->
 <module name="account" config="account.xml" />
 
