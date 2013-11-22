@@ -3,6 +3,7 @@ package ;
 import beluga.core.Beluga;
 import beluga.core.Widget;
 import beluga.module.account.Account;
+import beluga.core.BelugaException;
 
 /**
  * Beluga #1
@@ -13,22 +14,23 @@ import beluga.module.account.Account;
 
 class Main 
 {
-	static var beluga = new Beluga();
+	static var beluga;
 
 	static function main() 
 	{
-		var acc = beluga.getModuleInstance(Account, "");
-//		acc.test();
-//		trace(acc);
-//		AccountImpl.getInstance().test();
-//		trace(acc.a);
-		beluga.run();
+//		try {
+			beluga = new Beluga();
+			var acc = beluga.getModuleInstance(Account);
+			beluga.run();
+		//} catch (e : BelugaException) {
+			//trace(e);
+		//}
 	}
 
 //	public static function index(isLogged : Bool) {
 	public static function index() {
 		trace("You are logged in");
-		var acc = beluga.getModuleInstance(Account, "");
+		var acc = beluga.getModuleInstance(Account);
 		if (!acc.isLogged())
 			beluga.webDispatcher.redirect('login');
 	}
@@ -37,8 +39,9 @@ class Main
 		var acc = beluga.getModuleInstance(Account);
 		var loginBox : Widget = acc.getWidget("login"); //Generic method for all modules
 		loginBox.context.login = "Toto"; // For instance, it would fill the username field with Toto
-		var html : String = loginBox.render();
 		var subscribeBox : Widget = acc.getWidget("subscribe");
+		
+		var html : String = loginBox.render() + subscribeBox.render();
 		Sys.print(html);
 	}
 
