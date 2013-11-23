@@ -1,7 +1,4 @@
 <!-- Beluga general config -->
-<install path="../../../lib/beluga/0,1,0/beluga"> <!-- Relative to this file -->
-	<templo bin="temploc2.exe" output="bin/views/" />
-</install>
 
 <database>
 	<host>localhost</host>
