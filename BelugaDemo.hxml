@@ -1,0 +1,5 @@
+-cp src
+-cp ../../../lib/beluga/0,1,0/beluga
+-lib beluga
+-php bin
+-main Main
