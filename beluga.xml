@@ -12,4 +12,16 @@
 <!-- List of active modules -->
 <module name="account" config="account.xml" />
 
-<include path="triggers.xml" />
+<!-- List of custom triggers and routes -->
+<trigger name="index">
+	<route class="Main" method="index" access="static">
+		<param name="isLogged" type="Bool" value="${account.isLogged}" />
+	</route>
+</trigger>
+
+<trigger name="login">
+	<route class="Main" method="login" access="static">
+	</route>
+</trigger>
+
+<!-- <include path="triggers.xml" /> -->
