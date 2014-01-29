@@ -32,7 +32,7 @@ class Main
 		trace("You are logged in");
 		var acc = beluga.getModuleInstance(Account);
 		if (!acc.isLogged())
-			beluga.webDispatcher.redirect('login');
+			beluga.triggerDispatcher.redirect('login');
 	}
 	
 	public static function login() {
