@@ -6,7 +6,7 @@ before_script:
   - sudo apt-get install haxe -y
   - mkdir ~/haxelib
   - haxelib setup ~/haxelib
-  - haxelib git https://github.com/HaxeBeluga/Beluga
+  - haxelib git beluga https://github.com/HaxeBeluga/Beluga
 
 script:
   - haxe BelugaDemo.hxml
