@@ -1,9 +1,12 @@
 package ;
 
 import beluga.core.Beluga;
+import beluga.core.BelugaApi;
 import beluga.core.Widget;
 import beluga.module.account.Account;
 import beluga.core.BelugaException;
+import haxe.web.Dispatch;
+import php.Web;
 
 /**
  * Beluga #1
@@ -14,35 +17,30 @@ import beluga.core.BelugaException;
 
 class Main 
 {
-	static var beluga;
+	static var beluga : Beluga;
+
 
 	static function main() 
 	{
-//		try {
+		try {
 			beluga = new Beluga();
-			var acc = beluga.getModuleInstance(Account);
-			beluga.run();
-		//} catch (e : BelugaException) {
-			//trace(e);
-		//}
+			trace("Uri:" + Web.getURI());
+			Dispatch.run(Web.getURI(), Web.getParams(), new Main());
+		} catch (e : BelugaException) {
+			trace(e);
+		}
 	}
 
-//	public static function index(isLogged : Bool) {
-	public static function index() {
-		trace("You are logged in");
-		var acc = beluga.getModuleInstance(Account);
-		if (!acc.isLogged())
-			beluga.webDispatcher.redirect('login');
+	public function new() {
+
 	}
-	
-	public static function login() {
-		var acc = beluga.getModuleInstance(Account);
-		var loginBox : Widget = acc.getWidget("login"); //Generic method for all modules
-		loginBox.context.login = "Toto"; // For instance, it would fill the username field with Toto
-		var subscribeBox : Widget = acc.getWidget("subscribe");
-		
-		var html : String = loginBox.render() + subscribeBox.render();
-		Sys.print(html);
+
+	public function doDefault(d : Dispatch) {
+		doBeluga(d);
+	}
+
+	public function doBeluga(d : Dispatch) {
+		d.dispatch(new BelugaApi(beluga));
 	}
 
 }
