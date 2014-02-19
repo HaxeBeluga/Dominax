@@ -7,6 +7,7 @@ import beluga.module.account.Account;
 import beluga.core.BelugaException;
 import haxe.web.Dispatch;
 import php.Web;
+import haxe.crypto.Md5;
 
 /**
  * Beluga #1
@@ -41,6 +42,11 @@ class Main
 
 	public function doBeluga(d : Dispatch) {
 		d.dispatch(new BelugaApi(beluga));
+	}
+
+	public function doDebug() {
+		//Fonction test things
+		trace(haxe.crypto.Md5.encode("toto"));
 	}
 
 }
