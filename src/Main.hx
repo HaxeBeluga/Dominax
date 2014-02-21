@@ -21,7 +21,7 @@ class Main
 	static var beluga : Beluga;
 
 
-	static function main() 
+	static function main()
 	{
 		try {
 			beluga = new Beluga();
