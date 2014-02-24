@@ -1,10 +1,7 @@
 package ;
 
 import beluga.core.Beluga;
-<<<<<<< HEAD
 import beluga.core.api.BelugaApi;
-=======
->>>>>>> 0da8e59247b1876c9c6d19657e1ddf3838b179f4
 import beluga.core.Widget;
 import beluga.core.BelugaException;
 import haxe.web.Dispatch;
