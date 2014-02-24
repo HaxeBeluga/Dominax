@@ -9,19 +9,15 @@
 	<!-- <socket></socket> -->
 </database>
 
-<!-- List of active modules -->
-<module name="account" config="account.xml" />
+<module name="account"/>
 
-<!-- List of custom triggers and routes -->
-<trigger name="index">
-	<route class="Main" method="index" access="static">
-		<param name="isLogged" type="Bool" value="${account.isLogged}" />
+<!-- <include path="Account.xml" />
+ --><trigger name="beluga_account_subscribe_success">
+	<route class="Account" method="doSubscribeSuccess" access="static">
 	</route>
 </trigger>
 
-<trigger name="login">
-	<route class="Main" method="login" access="static">
+<trigger name="beluga_account_subscribe_fail">
+	<route class="Account" method="doSubscribeFail" access="static">
 	</route>
 </trigger>
-
-<!-- <include path="triggers.xml" /> -->

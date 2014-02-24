@@ -1,13 +1,14 @@
 package ;
 
 import beluga.core.Beluga;
-import beluga.core.BelugaApi;
+import beluga.core.api.BelugaApi;
 import beluga.core.Widget;
-import beluga.module.account.Account;
 import beluga.core.BelugaException;
 import haxe.web.Dispatch;
 import php.Web;
 import haxe.crypto.Md5;
+import beluga.module.account.model.User;
+import beluga.module.account.SubscribeFailCause;
 
 /**
  * Beluga #1
@@ -18,13 +19,13 @@ import haxe.crypto.Md5;
 
 class Main 
 {
-	static var beluga : Beluga;
+	public static var beluga : Beluga;
 
 
 	static function main()
 	{
 		try {
-			beluga = new Beluga();
+			beluga = Beluga.getInstance();
 			trace("Uri:" + Web.getURI());
 			Dispatch.run(Web.getURI(), Web.getParams(), new Main());
 		} catch (e : BelugaException) {
@@ -42,6 +43,10 @@ class Main
 
 	public function doBeluga(d : Dispatch) {
 		d.dispatch(new BelugaApi(beluga));
+	}
+
+	public function doAccount(d : Dispatch) {
+		d.dispatch(new AccountDemo(beluga));
 	}
 
 	public function doDebug() {
