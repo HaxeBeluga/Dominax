@@ -1,0 +1,13 @@
+::use htmlbody::
+	<header>
+		Header
+	</header>
+	
+	<section>
+		::raw __content__::
+	</section>
+
+	<footer>
+		Footer
+	</footer>
+::end::
