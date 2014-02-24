@@ -1,7 +1,10 @@
 package ;
 
 import beluga.core.Beluga;
+<<<<<<< HEAD
 import beluga.core.api.BelugaApi;
+=======
+>>>>>>> 0da8e59247b1876c9c6d19657e1ddf3838b179f4
 import beluga.core.Widget;
 import beluga.core.BelugaException;
 import haxe.web.Dispatch;
@@ -26,8 +29,7 @@ class Main
 	{
 		try {
 			beluga = Beluga.getInstance();
-			trace("Uri:" + Web.getURI());
-			Dispatch.run(Web.getURI(), Web.getParams(), new Main());
+			Dispatch.run(Web.getParamsString(), Web.getParams(), new Main());
 		} catch (e : BelugaException) {
 			trace(e);
 		}
@@ -39,10 +41,13 @@ class Main
 
 	public function doDefault(d : Dispatch) {
 		doBeluga(d);
+		
+		//Display index page
+		
 	}
 
 	public function doBeluga(d : Dispatch) {
-		d.dispatch(new BelugaApi(beluga));
+		d.dispatch(beluga.api);
 	}
 
 	public function doAccount(d : Dispatch) {
