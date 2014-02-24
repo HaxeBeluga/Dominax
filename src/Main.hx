@@ -1,7 +1,6 @@
 package ;
 
 import beluga.core.Beluga;
-import beluga.core.BelugaApi;
 import beluga.core.Widget;
 import beluga.module.account.Account;
 import beluga.core.BelugaException;
@@ -24,8 +23,7 @@ class Main
 	{
 		try {
 			beluga = new Beluga();
-			trace("Uri:" + Web.getURI());
-			Dispatch.run(Web.getURI(), Web.getParams(), new Main());
+			Dispatch.run(Web.getParamsString(), Web.getParams(), new Main());
 		} catch (e : BelugaException) {
 			trace(e);
 		}
@@ -37,10 +35,13 @@ class Main
 
 	public function doDefault(d : Dispatch) {
 		doBeluga(d);
+		
+		//Display index page
+		
 	}
 
 	public function doBeluga(d : Dispatch) {
-		d.dispatch(new BelugaApi(beluga));
+		d.dispatch(beluga.api);
 	}
 
 }
