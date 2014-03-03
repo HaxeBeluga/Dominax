@@ -1,6 +1,7 @@
 package ;
 
 import beluga.core.Beluga;
+import beluga.core.Trigger;
 import beluga.core.Widget;
 import beluga.module.account.Account;
 import beluga.core.BelugaException;
@@ -24,9 +25,32 @@ class Main
 		try {
 			beluga = new Beluga();
 			Dispatch.run(Web.getParamsString(), Web.getParams(), new Main());
+			
+			//Custom trigger
+			var route : Array<Dynamic> = [
+				{object: new Main(), method:"customTrigger", access: INSTANCE },
+				{object: Main, method:"customTriggerStatic", access: STATIC }
+			];
+			beluga.triggerDispatcher.register(new Trigger({action: "customTrigger", route: route}));
+
+			beluga.triggerDispatcher.dispatch("customTrigger");
+			
+			beluga.triggerDispatcher.dispatch("login_request");
+			
+			beluga.cleanup();
 		} catch (e : BelugaException) {
 			trace(e);
 		}
+	}
+	
+	public function customTrigger()
+	{
+		Sys.println("<br />Custom non-static");
+	}
+	
+	public function customTriggerStatic()
+	{
+		Sys.println("<br />Custom static");
 	}
 
 	public function new() {
