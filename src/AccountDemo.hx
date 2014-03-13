@@ -8,6 +8,7 @@ import beluga.module.account.Account;
 import haxe.web.Dispatch;
 import php.Web;
 import haxe.Resource;
+import src.view.Renderer;
 
 /**
  * Beluga #1
@@ -39,17 +40,10 @@ class AccountDemo
 
 	public function doSubscribePage() {
         var subscribeWidget = acc.getWidget("subscribe").render();
-		var accueil = (new haxe.Template(Resource.getString("page_subscribe"))).execute( {
+		var html = Renderer.renderDefault("page_subscribe", "Inscription", {
 			subscribeWidget: subscribeWidget
 		});
-		var templatelayout = (new haxe.Template(Resource.getString("template_default_layout"))).execute( {
-			content: accueil
-		});
-		var bodyhtml = (new haxe.Template(Resource.getString("html_body"))).execute( {
-			content: templatelayout,
-			title: "Accueil"
-		});
-		Sys.print(bodyhtml);
+		Sys.print(html);
 	}
 
 	public function doDefault(d : Dispatch) {

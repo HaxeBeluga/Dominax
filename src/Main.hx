@@ -60,7 +60,7 @@ class Main
 	}
 
 	public function doAccueil() {
-			var html = Renderer.renderDefault("page_accueil", {});
+			var html = Renderer.renderDefault("page_accueil", "Accueil",{});
 			Sys.print(html);
 	}
 

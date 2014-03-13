@@ -17,7 +17,7 @@ class Renderer
 	/*
 	 * Render a page with the default template
 	 */
-	public static function renderDefault(page : String, ctx : Dynamic) {
+	public static function renderDefault(page : String, title:String,ctx : Dynamic) {
 		var accueil = (new haxe.Template(Resource.getString(page))).execute(ctx);
 		var templateheader = (new haxe.Template(Resource.getString("template_default_header"))).execute({});
 		var templatefooter = (new haxe.Template(Resource.getString("template_default_footer"))).execute({});
@@ -28,7 +28,7 @@ class Renderer
 		});
 		var bodyhtml = (new haxe.Template(Resource.getString("html_body"))).execute({
 			content: templatelayout,
-			title: "Accueil"
+			title: title
 		});
 		return bodyhtml;
 	}
