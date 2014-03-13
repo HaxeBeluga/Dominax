@@ -1,13 +1,11 @@
-::use htmlbody::
-	<header>
-		Header
-	</header>
-	
-	<section>
-		::raw __content__::
-	</section>
+<header>
+	Header
+</header>
 
-	<footer>
-		Footer
-	</footer>
-::end::
+<section>
+	::content::
+</section>
+
+<footer>
+	Footer
+</footer>

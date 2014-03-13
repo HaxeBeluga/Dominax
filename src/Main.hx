@@ -6,6 +6,7 @@ import beluga.core.Widget;
 import beluga.core.BelugaException;
 import haxe.web.Dispatch;
 import php.Web;
+import haxe.Resource;
 import haxe.crypto.Md5;
 import beluga.module.account.model.User;
 import AccountDemo;
@@ -40,13 +41,30 @@ class Main
 		d.dispatch(beluga.api);
 	}
 
-	public function doDebug() {
+	public function doDebug(d : Dispatch) {
 		//Fonction test things
-		trace(haxe.crypto.Md5.encode("toto"));
+		trace(d.parts);
 	}
 
 	public function doDefault(d : Dispatch) {
+		if (d.parts.length > 0) {
+			d.dispatch(beluga.api);
+		} else {
+			doAccueil();
+		}
 		d.dispatch(beluga.api);
+	}
+	
+	public function doAccueil() {
+			var accueil = (new haxe.Template(Resource.getString("page_accueil"))).execute({});
+			var templatelayout = (new haxe.Template(Resource.getString("template_default_layout"))).execute( {
+				content: accueil
+			});
+			var bodyhtml = (new haxe.Template(Resource.getString("html_body"))).execute( {
+				content: templatelayout,
+				title: "Accueil"
+			});
+			Sys.print(bodyhtml);
 	}
 
 }
