@@ -2,6 +2,7 @@ package ;
 
 import beluga.core.Beluga;
 import beluga.core.api.BelugaApi;
+import beluga.core.Trigger;
 import beluga.core.Widget;
 import beluga.core.BelugaException;
 import haxe.web.Dispatch;
@@ -29,9 +30,32 @@ class Main
 		try {
 			beluga = Beluga.getInstance();
 			Dispatch.run(Web.getURI(), Web.getParams(), new Main());
+			//Dispatch.run(Web.getParamsString(), Web.getParams(), new Main());
+			
+			//Custom trigger a déplacer dans des tests unitaire
+			/*
+			var route : Array<Dynamic> = [
+				{object: new Main(), method:"customTrigger", access: INSTANCE },
+				{object: Main, method:"customTriggerStatic", access: STATIC }
+			];
+			beluga.triggerDispatcher.register(new Trigger({action: "customTrigger", route: route}));
+			beluga.triggerDispatcher.dispatch("customTrigger");
+			beluga.triggerDispatcher.dispatch("login_request");
+			*/
+			beluga.cleanup();
 		} catch (e : BelugaException) {
 			trace(e);
 		}
+	}
+	
+	public function customTrigger()
+	{
+		Sys.println("<br />Custom non-static");
+	}
+	
+	public function customTriggerStatic()
+	{
+		Sys.println("<br />Custom static");
 	}
 
 	public function new() {
@@ -43,8 +67,8 @@ class Main
 	}
 
 	public function doDebug(d : Dispatch) {
-		//Fonction test things
-		trace(d.parts);
+		Web.setHeader("Content-Type", "text/plain");
+		trace(Web.getParamsString());
 	}
 
 	public function doDefault(d : Dispatch) {
