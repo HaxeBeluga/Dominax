@@ -8,7 +8,7 @@ import haxe.web.Dispatch;
 import php.Web;
 import haxe.crypto.Md5;
 import beluga.module.account.model.User;
-import beluga.module.account.SubscribeFailCause;
+import AccountDemo;
 
 /**
  * Beluga #1
@@ -26,7 +26,7 @@ class Main
 	{
 		try {
 			beluga = Beluga.getInstance();
-			Dispatch.run(Web.getParamsString(), Web.getParams(), new Main());
+			Dispatch.run(Web.getURI(), Web.getParams(), new Main());
 		} catch (e : BelugaException) {
 			trace(e);
 		}
@@ -36,24 +36,17 @@ class Main
 
 	}
 
-	public function doDefault(d : Dispatch) {
-		doBeluga(d);
-		
-		//Display index page
-		
-	}
-
 	public function doBeluga(d : Dispatch) {
 		d.dispatch(beluga.api);
-	}
-
-	public function doAccount(d : Dispatch) {
-		d.dispatch(new AccountDemo(beluga));
 	}
 
 	public function doDebug() {
 		//Fonction test things
 		trace(haxe.crypto.Md5.encode("toto"));
+	}
+
+	public function doDefault(d : Dispatch) {
+		d.dispatch(beluga.api);
 	}
 
 }

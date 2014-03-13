@@ -5,6 +5,7 @@ import beluga.core.Widget;
 import beluga.module.account.model.User;
 import beluga.module.account.SubscribeFailCause;
 import beluga.module.account.Account;
+import php.Web;
 
 /**
  * Beluga #1
@@ -23,11 +24,15 @@ class AccountDemo
 	}
 
 	public static function doSubscribeSuccess(user : User) {
-		Sys.println("AccountHandler.doSubscribeSuccess");
+		Web.setHeader("Content-Type", "application/json");
+		Sys.println("{
+			\"state\":success
+		}");
 	}
 
 	public static function doSubscribeFail(cause : SubscribeFailCause, login : String, password : String) {
-		Sys.println("AccountHandler.doSubscribeFail");
+		Web.setHeader("Content-Type", "text/plain");
+		Sys.println("AccountDemo.doSubscribeFail " + cause);
 	}
 
 	public function doSubscribePage() {

@@ -11,13 +11,13 @@
 
 <module name="account"/>
 
-<!-- <include path="Account.xml" />
- --><trigger name="beluga_account_subscribe_success">
-	<route class="Account" method="doSubscribeSuccess" access="static">
+<!-- <include path="Account.xml" /> -->
+ <trigger name="beluga_account_subscribe_success">
+	<route class="AccountDemo" method="doSubscribeSuccess" >
 	</route>
 </trigger>
 
 <trigger name="beluga_account_subscribe_fail">
-	<route class="Account" method="doSubscribeFail" access="static">
+	<route class="AccountDemo" method="doSubscribeFail" >
 	</route>
 </trigger>
