@@ -4,7 +4,12 @@
 -main Main
 
 -resource src/view/tpl/htmlbody.mtt@html_body
+
+#----Template----#
 -resource src/view/tpl/template/default/layout.mtt@template_default_layout
 #-resource src/view/tpl/template/default/header.mtt@template_default_header
 #-resource src/view/tpl/template/default/footer.mtt@template_default_footer
+
+#----Page----#
 -resource src/view/tpl/page/accueil.mtt@page_accueil
+-resource src/view/tpl/page/subscribe.mtt@page_subscribe

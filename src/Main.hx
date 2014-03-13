@@ -47,14 +47,17 @@ class Main
 	}
 
 	public function doDefault(d : Dispatch) {
-		if (d.parts.length > 0) {
+		if (d.parts[0] != "" ) {
 			d.dispatch(beluga.api);
 		} else {
 			doAccueil();
 		}
-		d.dispatch(beluga.api);
 	}
-	
+
+	public function doAccountDemo(d : Dispatch) {
+		d.dispatch(new AccountDemo(beluga));
+	}
+
 	public function doAccueil() {
 			var accueil = (new haxe.Template(Resource.getString("page_accueil"))).execute({});
 			var templatelayout = (new haxe.Template(Resource.getString("template_default_layout"))).execute( {
