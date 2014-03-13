@@ -5,6 +5,7 @@ import beluga.core.Widget;
 import beluga.module.account.model.User;
 import beluga.module.account.SubscribeFailCause;
 import beluga.module.account.Account;
+import haxe.web.Dispatch;
 import php.Web;
 import haxe.Resource;
 
@@ -51,4 +52,11 @@ class AccountDemo
 		Sys.print(bodyhtml);
 	}
 
+	public function doDefault(d : Dispatch) {
+		Web.setHeader("Content-Type", "text/plain");
+		Sys.println("No action available for: " + d.parts[0]);	
+		Sys.println("Available actions are:");	
+		Sys.println("subscribePage");	
+	}
+	
 }
