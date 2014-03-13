@@ -1,11 +1,7 @@
-<header>
-	Header
-</header>
+<div class="container">
+	::header::
 
-<section>
 	::content::
-</section>
 
-<footer>
-	Footer
-</footer>
+	::footer::
+</div>

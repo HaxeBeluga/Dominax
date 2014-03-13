@@ -10,6 +10,7 @@ import haxe.Resource;
 import haxe.crypto.Md5;
 import beluga.module.account.model.User;
 import AccountDemo;
+import src.view.Renderer;
 
 /**
  * Beluga #1
@@ -59,15 +60,8 @@ class Main
 	}
 
 	public function doAccueil() {
-			var accueil = (new haxe.Template(Resource.getString("page_accueil"))).execute({});
-			var templatelayout = (new haxe.Template(Resource.getString("template_default_layout"))).execute( {
-				content: accueil
-			});
-			var bodyhtml = (new haxe.Template(Resource.getString("html_body"))).execute( {
-				content: templatelayout,
-				title: "Accueil"
-			});
-			Sys.print(bodyhtml);
+			var html = Renderer.renderDefault("page_accueil", {});
+			Sys.print(html);
 	}
 
 }
