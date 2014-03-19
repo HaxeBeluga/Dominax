@@ -26,16 +26,63 @@ class AccountDemo
 		this.acc = beluga.getModuleInstance(Account);
 	}
 
-	public static function doSubscribeSuccess(user : User) {
-		Web.setHeader("Content-Type", "application/json");
-		Sys.println("{
-			\"state\":success
-		}");
+	/*
+	 * Logination
+	 */
+	public static function _doLoginSuccess() {
+		new AccountDemo(Beluga.getInstance()).doLoginSuccess();
 	}
 
-	public static function doSubscribeFail(cause : SubscribeFailCause, login : String, password : String) {
+	public function doLoginSuccess() {
 		Web.setHeader("Content-Type", "text/plain");
-		Sys.println("AccountDemo.doSubscribeFail " + cause);	
+		Sys.println("AccountDemo.doLoginSuccess");	
+		Sys.println("Logged as " + acc.getLoggedUser().login);	
+	}
+
+	public static function _doLoginFail() {
+		new AccountDemo(Beluga.getInstance()).doLoginFail();
+	}
+	
+	public function doLoginFail() {
+		Web.setHeader("Content-Type", "text/plain");
+		Sys.println("AccountDemo.doLoginFail");
+	}
+	
+	public function doLoginPage() {
+        var loginWidget = acc.getWidget("login").render();
+		var html = Renderer.renderDefault("page_login", "Authentification", {
+			loginWidget: loginWidget
+		});
+		Sys.print(html);
+	}
+
+	/*
+	 *  Subscription
+	 */
+	public static function _doSubscribeSuccess(user : User) {
+		new AccountDemo(Beluga.getInstance()).doSubscribeSuccess(user);
+	}
+	 
+	 public function doSubscribeSuccess(user : User) {
+		Web.setHeader("Content-Type", "text/plain");
+		Sys.println("AccountDemo.doSubscribeSuccess");	
+	}
+
+	public static function _subscribeFail(errorMap : Map < String, List<String> >, args : {
+		login : String,
+		password : String,
+		password_conf : String
+	}) {
+		new AccountDemo(Beluga.getInstance()).subscribeFail(errorMap, args);
+	}
+
+	public function subscribeFail(errorMap : Map < String, List<String> >, args : {
+		login : String,
+		password : String,
+		password_conf : String
+	}) {
+		Web.setHeader("Content-Type", "text/plain");
+		Sys.println("AccountDemo.doSubscribeFail ");
 	}
 
 	public function doSubscribePage() {
@@ -51,6 +98,7 @@ class AccountDemo
 		Sys.println("No action available for: " + d.parts[0]);	
 		Sys.println("Available actions are:");	
 		Sys.println("subscribePage");	
+		Sys.println("loginPage");	
 	}
 	
 }

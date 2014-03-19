@@ -13,11 +13,21 @@
 
 <!-- <include path="Account.xml" /> -->
  <trigger name="beluga_account_subscribe_success">
-	<route class="AccountDemo" method="doSubscribeSuccess" >
+	<route class="AccountDemo" method="_doSubscribeSuccess" >
 	</route>
 </trigger>
 
 <trigger name="beluga_account_subscribe_fail">
-	<route class="AccountDemo" method="doSubscribeFail" >
+	<route class="AccountDemo" method="_doSubscribeFail" >
+	</route>
+</trigger>
+
+ <trigger name="beluga_account_login_success">
+	<route class="AccountDemo" method="_doLoginSuccess" >
+	</route>
+</trigger>
+
+<trigger name="beluga_account_login_fail">
+	<route class="AccountDemo" method="_doLoginFail" >
 	</route>
 </trigger>

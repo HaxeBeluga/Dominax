@@ -1,5 +1,6 @@
 -cp src
 -lib beluga
+-lib session
 -php bin
 -main Main
 
@@ -13,3 +14,4 @@
 #----Page----#
 -resource src/view/tpl/page/accueil.mtt@page_accueil
 -resource src/view/tpl/page/subscribe.mtt@page_subscribe
+-resource src/view/tpl/page/login.mtt@page_login
