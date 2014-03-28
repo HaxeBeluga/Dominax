@@ -1,12 +1,17 @@
 package ;
 
 import beluga.core.Beluga;
+import beluga.core.api.BelugaApi;
 import beluga.core.Trigger;
 import beluga.core.Widget;
-import beluga.module.account.Account;
 import beluga.core.BelugaException;
 import haxe.web.Dispatch;
 import php.Web;
+import haxe.Resource;
+import haxe.crypto.Md5;
+import beluga.module.account.model.User;
+import AccountDemo;
+import src.view.Renderer;
 
 /**
  * Beluga #1
@@ -17,26 +22,26 @@ import php.Web;
 
 class Main 
 {
-	static var beluga : Beluga;
+	public static var beluga : Beluga;
 
 
-	static function main() 
+	static function main()
 	{
 		try {
-			beluga = new Beluga();
-			Dispatch.run(Web.getParamsString(), Web.getParams(), new Main());
+			beluga = Beluga.getInstance();
+			Dispatch.run(Web.getURI(), Web.getParams(), new Main());
+			//Dispatch.run(Web.getParamsString(), Web.getParams(), new Main());
 			
-			//Custom trigger
+			//Custom trigger a déplacer dans des tests unitaire
+			/*
 			var route : Array<Dynamic> = [
 				{object: new Main(), method:"customTrigger", access: INSTANCE },
 				{object: Main, method:"customTriggerStatic", access: STATIC }
 			];
 			beluga.triggerDispatcher.register(new Trigger({action: "customTrigger", route: route}));
-
 			beluga.triggerDispatcher.dispatch("customTrigger");
-			
 			beluga.triggerDispatcher.dispatch("login_request");
-			
+			*/
 			beluga.cleanup();
 		} catch (e : BelugaException) {
 			trace(e);
@@ -57,15 +62,30 @@ class Main
 
 	}
 
-	public function doDefault(d : Dispatch) {
-		doBeluga(d);
-		
-		//Display index page
-		
-	}
-
 	public function doBeluga(d : Dispatch) {
 		d.dispatch(beluga.api);
+	}
+
+	public function doDebug(d : Dispatch) {
+		Web.setHeader("Content-Type", "text/plain");
+		trace(Web.getParamsString());
+	}
+
+	public function doDefault(d : Dispatch) {
+		if (d.parts[0] != "" ) {
+			d.dispatch(beluga.api);
+		} else {
+			doAccueil();
+		}
+	}
+
+	public function doAccountDemo(d : Dispatch) {
+		d.dispatch(new AccountDemo(beluga));
+	}
+
+	public function doAccueil() {
+			var html = Renderer.renderDefault("page_accueil", "Accueil",{});
+			Sys.print(html);
 	}
 
 }

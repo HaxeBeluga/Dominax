@@ -7,6 +7,7 @@ before_script:
   - mkdir ~/haxelib
   - haxelib setup ~/haxelib
   - haxelib git beluga https://github.com/HaxeBeluga/Beluga
+  - haxelib install session
 
 script:
   - haxe BelugaDemo.hxml

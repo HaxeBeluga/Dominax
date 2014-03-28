@@ -1,0 +1,7 @@
+<section>
+	<h1>Page d'accueil</h1>
+
+	<p class="text-center">
+		Ceci est la page d'accueil pour la démonstration du framework haxe <a href="https://github.com/HaxeBeluga/Beluga">Beluga</a>
+	</p>
+</section>
