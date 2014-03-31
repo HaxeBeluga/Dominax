@@ -11,6 +11,7 @@ import haxe.Resource;
 import haxe.crypto.Md5;
 import beluga.module.account.model.User;
 import AccountDemo;
+import TicketDemo;
 import src.view.Renderer;
 
 /**
@@ -30,18 +31,6 @@ class Main
 		try {
 			beluga = Beluga.getInstance();
 			Dispatch.run(Web.getURI(), Web.getParams(), new Main());
-			//Dispatch.run(Web.getParamsString(), Web.getParams(), new Main());
-			
-			//Custom trigger a déplacer dans des tests unitaire
-			/*
-			var route : Array<Dynamic> = [
-				{object: new Main(), method:"customTrigger", access: INSTANCE },
-				{object: Main, method:"customTriggerStatic", access: STATIC }
-			];
-			beluga.triggerDispatcher.register(new Trigger({action: "customTrigger", route: route}));
-			beluga.triggerDispatcher.dispatch("customTrigger");
-			beluga.triggerDispatcher.dispatch("login_request");
-			*/
 			beluga.cleanup();
 		} catch (e : BelugaException) {
 			trace(e);
@@ -83,9 +72,12 @@ class Main
 		d.dispatch(new AccountDemo(beluga));
 	}
 
+	public function doTicketDemo(d : Dispatch) {
+		d.dispatch(new TicketDemo(beluga));
+	}
+
 	public function doAccueil() {
 			var html = Renderer.renderDefault("page_accueil", "Accueil",{});
 			Sys.print(html);
 	}
-
 }

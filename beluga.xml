@@ -4,12 +4,13 @@
 	<host>localhost</host>
 	<!-- <port></port> -->
 	<user>root</user>
-	<pass></pass>
+	<pass>root</pass>
 	<database>belugaDemo</database>
 	<!-- <socket></socket> -->
 </database>
 
 <module name="account"/>
+<module name="ticket" />
 
 <!-- <include path="Account.xml" /> -->
  <trigger name="beluga_account_subscribe_success">
@@ -30,4 +31,13 @@
 <trigger name="beluga_account_login_fail">
 	<route class="AccountDemo" method="_doLoginFail" >
 	</route>
+</trigger>
+
+
+<!-- Ticket triggers -->
+<trigger name="beluga_ticket_show_browse">
+	<route class="TicketDemo" method="_doBrowsePage" ></route>
+</trigger>
+<trigger name="beluga_ticket_show_create">
+	<route class="TicketDemo" method="_doCreatePage" ></route>
 </trigger>

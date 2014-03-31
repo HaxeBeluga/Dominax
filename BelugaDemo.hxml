@@ -15,3 +15,4 @@
 -resource src/view/tpl/page/accueil.mtt@page_accueil
 -resource src/view/tpl/page/subscribe.mtt@page_subscribe
 -resource src/view/tpl/page/login.mtt@page_login
+-resource src/view/tpl/page/ticket_widget.mtt@page_ticket_widget
