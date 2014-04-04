@@ -62,8 +62,8 @@ class AccountDemo
 	public static function _doSubscribeSuccess(user : User) {
 		new AccountDemo(Beluga.getInstance()).doSubscribeSuccess(user);
 	}
-	 
-	 public function doSubscribeSuccess(user : User) {
+	
+	public function doSubscribeSuccess(user : User) {
 		Web.setHeader("Content-Type", "text/plain");
 		Sys.println("AccountDemo.doSubscribeSuccess");	
 	}
@@ -96,9 +96,9 @@ class AccountDemo
 	public function doDefault(d : Dispatch) {
 		Web.setHeader("Content-Type", "text/plain");
 		Sys.println("No action available for: " + d.parts[0]);	
-		Sys.println("Available actions are:");	
-		Sys.println("subscribePage");	
-		Sys.println("loginPage");	
+		Sys.println("Available actions are:");
+		Sys.println("subscribePage");
+		Sys.println("loginPage");
 	}
 	
 }

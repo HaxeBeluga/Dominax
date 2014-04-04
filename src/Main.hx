@@ -24,38 +24,19 @@ class Main
 {
 	public static var beluga : Beluga;
 
-
 	static function main()
 	{
 		try {
 			beluga = Beluga.getInstance();
-			Dispatch.run(Web.getURI(), Web.getParams(), new Main());
+			var src : String = untyped __var__('_SERVER', 'SCRIPT_NAME');
+			var url : String = StringTools.replace(Web.getURI(), src.substr(0, src.length - "/index.php".length), "");
+			Dispatch.run(url, Web.getParams(), new Main());
 			//Dispatch.run(Web.getParamsString(), Web.getParams(), new Main());
 			
-			//Custom trigger a déplacer dans des tests unitaire
-			/*
-			var route : Array<Dynamic> = [
-				{object: new Main(), method:"customTrigger", access: INSTANCE },
-				{object: Main, method:"customTriggerStatic", access: STATIC }
-			];
-			beluga.triggerDispatcher.register(new Trigger({action: "customTrigger", route: route}));
-			beluga.triggerDispatcher.dispatch("customTrigger");
-			beluga.triggerDispatcher.dispatch("login_request");
-			*/
 			beluga.cleanup();
 		} catch (e : BelugaException) {
 			trace(e);
 		}
-	}
-	
-	public function customTrigger()
-	{
-		Sys.println("<br />Custom non-static");
-	}
-	
-	public function customTriggerStatic()
-	{
-		Sys.println("<br />Custom static");
 	}
 
 	public function new() {
