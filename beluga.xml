@@ -9,6 +9,10 @@
 	<!-- <socket></socket> -->
 </database>
 
+<url>
+	<base>/BelugaDemo/bin</base>
+</url>
+
 <module name="account"/>
 
 <!-- <include path="Account.xml" /> -->
