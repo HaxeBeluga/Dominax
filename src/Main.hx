@@ -24,12 +24,14 @@ class Main
 {
 	public static var beluga : Beluga;
 
-
 	static function main()
 	{
 		try {
 			beluga = Beluga.getInstance();
-			Dispatch.run(Web.getURI(), Web.getParams(), new Main());
+//			var server : String = untyped $_SERVER['SCRIPT_NAME'];
+			var src : String = untyped __var__('_SERVER', 'SCRIPT_NAME');
+			var url : String = StringTools.replace(Web.getURI(), src.substr(0, src.length - "/index.php".length), "");
+			Dispatch.run(url, Web.getParams(), new Main());
 			//Dispatch.run(Web.getParamsString(), Web.getParams(), new Main());
 			
 			//Custom trigger a déplacer dans des tests unitaire
