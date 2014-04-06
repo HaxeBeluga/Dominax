@@ -3,12 +3,10 @@ package ;
 import beluga.core.Beluga;
 import beluga.core.Widget;
 import beluga.module.account.model.User;
-import beluga.module.account.SubscribeFailCause;
+import beluga.module.account.ESubscribeFailCause;
 import beluga.module.account.Account;
-import haxe.web.Dispatch;
 import php.Web;
 import haxe.Resource;
-import src.view.Renderer;
 
 /**
  * Beluga #1
@@ -29,43 +27,35 @@ class AccountDemo
 	/*
 	 * Logination
 	 */
-	public static function _doLoginSuccess() {
-		new AccountDemo(Beluga.getInstance()).doLoginSuccess();
+	public static function _loginSuccess() {
+		new AccountDemo(Beluga.getInstance()).loginSuccess();
 	}
 
-	public function doLoginSuccess() {
+	public function loginSuccess() {
 		Web.setHeader("Content-Type", "text/plain");
 		Sys.println("AccountDemo.doLoginSuccess");	
 		Sys.println("Logged as " + acc.getLoggedUser().login);	
 	}
 
-	public static function _doLoginFail() {
-		new AccountDemo(Beluga.getInstance()).doLoginFail();
+	public static function _loginFail() {
+		new AccountDemo(Beluga.getInstance()).loginFail();
 	}
 	
-	public function doLoginFail() {
+	public function loginFail() {
 		Web.setHeader("Content-Type", "text/plain");
-		Sys.println("AccountDemo.doLoginFail");
+		Sys.println("AccountDemo.loginFail");
 	}
 	
-	public function doLoginPage() {
-        var loginWidget = acc.getWidget("login").render();
-		var html = Renderer.renderDefault("page_login", "Authentification", {
-			loginWidget: loginWidget
-		});
-		Sys.print(html);
-	}
-
 	/*
 	 *  Subscription
 	 */
-	public static function _doSubscribeSuccess(user : User) {
-		new AccountDemo(Beluga.getInstance()).doSubscribeSuccess(user);
+	public static function _subscribeSuccess(user : User) {
+		new AccountDemo(Beluga.getInstance()).subscribeSuccess(user);
 	}
 	 
-	 public function doSubscribeSuccess(user : User) {
+	 public function subscribeSuccess(user : User) {
 		Web.setHeader("Content-Type", "text/plain");
-		Sys.println("AccountDemo.doSubscribeSuccess");	
+		Sys.println("AccountDemo.subscribeSuccess");	
 	}
 
 	public static function _subscribeFail(errorMap : Map < String, List<String> >, args : {
@@ -82,23 +72,7 @@ class AccountDemo
 		password_conf : String
 	}) {
 		Web.setHeader("Content-Type", "text/plain");
-		Sys.println("AccountDemo.doSubscribeFail ");
-	}
-
-	public function doSubscribePage() {
-        var subscribeWidget = acc.getWidget("subscribe").render();
-		var html = Renderer.renderDefault("page_subscribe", "Inscription", {
-			subscribeWidget: subscribeWidget
-		});
-		Sys.print(html);
-	}
-
-	public function doDefault(d : Dispatch) {
-		Web.setHeader("Content-Type", "text/plain");
-		Sys.println("No action available for: " + d.parts[0]);	
-		Sys.println("Available actions are:");	
-		Sys.println("subscribePage");	
-		Sys.println("loginPage");	
+		Sys.println("AccountDemo.subscribeFail ");
 	}
 	
 }

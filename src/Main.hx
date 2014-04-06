@@ -10,7 +10,7 @@ import php.Web;
 import haxe.Resource;
 import haxe.crypto.Md5;
 import beluga.module.account.model.User;
-import AccountDemo;
+import AccountDemoApi;
 import src.view.Renderer;
 
 /**
@@ -80,7 +80,7 @@ class Main
 	}
 
 	public function doAccountDemo(d : Dispatch) {
-		d.dispatch(new AccountDemo(beluga));
+		d.dispatch(new AccountDemoApi(beluga));
 	}
 
 	public function doAccueil() {
