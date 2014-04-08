@@ -80,6 +80,7 @@ class Main
 
 	public function doSurveyDemo(d : Dispatch) {
 		d.dispatch(new SurveyDemo(beluga));
+	}
 
 	public function doFileUploadDemo(d : Dispatch) {
 		d.dispatch(new FileUploadDemo(beluga));
