@@ -24,6 +24,10 @@ class TicketDemo {
         this.ticket = beluga.getModuleInstance(Ticket);
     }
 
+    public static function _doBrowsePage() {
+       new TicketDemo(Beluga.getInstance()).doBrowsePage();
+    }
+
     public function doBrowsePage() {
         var ticketWidget = ticket.getWidget("browse");
         ticketWidget.context = ticket.getBrowseContext();
@@ -38,14 +42,24 @@ class TicketDemo {
        new TicketDemo(Beluga.getInstance()).doCreatePage();
     }
 
-    public static function _doBrowsePage() {
-       new TicketDemo(Beluga.getInstance()).doBrowsePage();
-    }
-
     public function doCreatePage() {
         var ticketWidget = ticket.getWidget("create").render();
         var html = Renderer.renderDefault("page_ticket_widget", "Create tickets", {
             ticketWidget: ticketWidget
+        });
+        Sys.print(html);
+    }
+
+    public static function _doShowPage() {
+       new TicketDemo(Beluga.getInstance()).doShowPage();
+    }
+
+    public function doShowPage() {
+        var ticketWidget = ticket.getWidget("show");
+        ticketWidget.context = ticket.getShowContext();
+        
+        var html = Renderer.renderDefault("page_ticket_widget", "Show ticket", {
+            ticketWidget: ticketWidget.render()
         });
         Sys.print(html);
     }

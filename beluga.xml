@@ -41,3 +41,6 @@
 <trigger name="beluga_ticket_show_create">
 	<route class="TicketDemo" method="_doCreatePage" ></route>
 </trigger>
+<trigger name="beluga_ticket_show_show">
+	<route class="TicketDemo" method="_doShowPage" ></route>
+</trigger>
