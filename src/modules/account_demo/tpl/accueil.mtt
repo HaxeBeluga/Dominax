@@ -64,7 +64,7 @@
                         <div class="caption">
                             <h3>Module de de telechargement de fichier</h3>
                             <p>Grace a ce module vous donnez la possibilite a vos utilisateur de sauvegarder facilement leurs fichier sur vos serveur!</p>
-                            <p><a href="/fileUploadDemo/browsePage" class="btn btn-success" role="button">Uploadez vos fichiers !</a></p>
+                            <p><a href="/fileUploadDemo/" class="btn btn-success" role="button">Uploadez vos fichiers !</a></p>
                         </div>
                     </div>
                 </div>

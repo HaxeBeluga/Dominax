@@ -35,7 +35,6 @@
 	</route>
 </trigger>
 
-
 <!-- Ticket triggers -->
 <trigger name="beluga_ticket_show_browse">
 	<route class="modules.ticket_demo.TicketDemo" method="_doBrowsePage" ></route>
@@ -101,4 +100,12 @@
 <!-- FileUpload triggers -->
 <trigger name="beluga_fileupload_show_browse">
 	<route class="modules.fileupload_demo.FileUploadDemo" method="_doBrowsePage" ></route>
+</trigger>
+
+<trigger name="beluga_fileupload_delete_success">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doAllPage" ></route>
+</trigger>
+
+<trigger name="beluga_fileupload_delete_fail">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doFailRemovePage" ></route>
 </trigger>
