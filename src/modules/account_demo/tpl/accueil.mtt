@@ -1,0 +1,64 @@
+<section style="margin-bottom:50px;">
+    <div class="jumbotron" style="background-color: rgba(240, 246, 202, 1);">
+        <h1>Bienvenue sur Beluga demo !</h1>
+        <p>Ceci est la page d'accueil pour la démonstration du framework haxe Beluga, n'hesitez pas a tester les differents modules disponibles avec le framework en cliquant sur les liens ci dessous !</p>
+        <p><a href="https://github.com/HaxeBeluga/Beluga" class="btn btn-success btn-lg" role="button">Acceder au site Beluga</a></p>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- forum -->
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="http://www.placehold.it/300x200" >
+                    <div class="caption">
+                        <h3>Module de Forum</h3>
+                        <p>Acceder a la page de presentation du forum, ici vous pourrez creer de nouveaux sujet, repondre a des fils de
+                        discussion, ou bien simplement consulter les messages existant, un compte est requis afin de poster un message.</p>
+                        <p><a href="#" class="btn btn-success" role="button">Essayer le forum !</a></p>
+                    </div>
+                </div>
+            </div>
+            <!-- Ticket -->
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="http://www.placehold.it/300x200" >
+                    <div class="caption">
+                        <h3>Module de Tickets</h3>
+                        <p>Integrez a votre site un systeme de ticket afin de discuter simplement avec vos utilisateur de differents probleme, bug, ou ameliorations liees a votre site !</p>
+                        <p><a href="/ticketDemo/browsePage" class="btn btn-success" role="button">Essayer le le systeme de ticket !</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Account -->
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="http://www.placehold.it/300x200" >
+                    <div class="caption">
+                        <h3>Module de Compte</h3>
+                        <p>Le module de compte vous permet d'un point de vue utilisateur d'acceder a toutes vos information personnel,
+                        et d'un point de vue developpeur de gerer l'identification unifie de vos utilisateur sur vos differents service de maniere tres simple !</p>
+                        <p><a href="#" class="btn btn-success" role="button">Explorer le compte !</a></p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="row">
+                <!-- Survey -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="http://www.placehold.it/300x200" >
+                        <div class="caption">
+                            <h3>Module de Sondage</h3>
+                            <p>Ce puissant module vous permet de creer tres facilement des sondages a incorporer directement dans vos jeux !
+                            Tous est configurable, du nom du sondage au utilisateur y ayant access en passant par le nombre de choix possible,
+                            et la duree de validite!</p>
+                            <p><a href="#" class="btn btn-success" role="button">Creez des sondages !</a></p>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    <!-- </div> -->
+</section>
