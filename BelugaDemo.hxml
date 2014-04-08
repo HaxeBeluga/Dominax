@@ -16,5 +16,8 @@
 -resource src/modules/account_demo/tpl/subscribe.mtt@page_subscribe
 -resource src/modules/account_demo/tpl/login.mtt@page_login
 
-#----AccountDemo Pages----#
+#----TicketDemo Pages----#
 -resource src/modules/ticket_demo/tpl/ticket_widget.mtt@page_ticket_widget
+
+#----SurveyDemo Pages----#
+-resource src/modules/survey_demo/tpl/survey_page.mtt@page_survey

@@ -12,6 +12,7 @@ import haxe.crypto.Md5;
 import beluga.module.account.model.User;
 import modules.account_demo.AccountDemo;
 import modules.ticket_demo.TicketDemo;
+import modules.survey_demo.SurveyDemo;
 import main_view.Renderer;
 
 /**
@@ -74,6 +75,10 @@ class Main
 
 	public function doTicketDemo(d : Dispatch) {
 		d.dispatch(new TicketDemo(beluga));
+	}
+
+	public function doSurveyDemo(d : Dispatch) {
+		d.dispatch(new SurveyDemo(beluga));
 	}
 
 	public function doAccueil() {

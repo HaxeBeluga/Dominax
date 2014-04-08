@@ -53,7 +53,7 @@
                             <p>Ce puissant module vous permet de creer tres facilement des sondages a incorporer directement dans vos jeux !
                             Tous est configurable, du nom du sondage au utilisateur y ayant access en passant par le nombre de choix possible,
                             et la duree de validite!</p>
-                            <p><a href="#" class="btn btn-success" role="button">Creez des sondages !</a></p>
+                            <p><a href="/surveyDemo/default" class="btn btn-success" role="button">Creez des sondages !</a></p>
                         </div>
                     </div>
                 </div>
