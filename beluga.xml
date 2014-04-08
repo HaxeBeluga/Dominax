@@ -4,7 +4,7 @@
 	<host>localhost</host>
 	<!-- <port></port> -->
 	<user>root</user>
-	<pass></pass>
+	<pass>root</pass>
 	<database>belugaDemo</database>
 	<!-- <socket></socket> -->
 </database>
@@ -12,6 +12,7 @@
 <module name="account"/>
 <module name="ticket" />
 <module name="survey" />
+<module name="fileupload" />
 
 <!-- <include path="Account.xml" /> -->
  <trigger name="beluga_account_subscribe_success">
@@ -95,4 +96,9 @@
 <trigger name="beluga_survey_default">
 	<route class="modules.survey_demo.SurveyDemo" method="_doDefault">
 	</route>
+</trigger>
+
+<!-- FileUpload triggers -->
+<trigger name="beluga_fileupload_show_browse">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doBrowsePage" ></route>
 </trigger>
