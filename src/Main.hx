@@ -10,9 +10,9 @@ import php.Web;
 import haxe.Resource;
 import haxe.crypto.Md5;
 import beluga.module.account.model.User;
-import AccountDemo;
-import TicketDemo;
-import src.view.Renderer;
+import modules.account_demo.AccountDemo;
+import modules.ticket_demo.TicketDemo;
+import main_view.Renderer;
 
 /**
  * Beluga #1

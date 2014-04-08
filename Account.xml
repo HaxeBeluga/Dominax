@@ -1,9 +1,0 @@
-<trigger name="beluga_account_subscribe_success">
-	<route class="Account" method="doSubscribeSuccess" access="static">
-	</route>
-</trigger>
-
-<trigger name="beluga_account_subscribe_fail">
-	<route class="Account" method="doSubscribeFail" access="static">
-	</route>
-</trigger>

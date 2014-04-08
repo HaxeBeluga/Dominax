@@ -1,4 +1,4 @@
-package ;
+package modules.ticket_demo;
 
 // Beluga
 import beluga.core.Beluga;
@@ -6,7 +6,7 @@ import beluga.core.Widget;
 import beluga.module.ticket.Ticket;
 
 // BelugaDemo
-import src.view.Renderer;
+import main_view.Renderer;
 
 // haxe web
 import haxe.web.Dispatch;

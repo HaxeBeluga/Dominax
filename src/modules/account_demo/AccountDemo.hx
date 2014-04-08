@@ -1,4 +1,4 @@
-package ;
+package modules.account_demo;
 
 import beluga.core.Beluga;
 import beluga.core.Widget;
@@ -8,7 +8,7 @@ import beluga.module.account.Account;
 import haxe.web.Dispatch;
 import php.Web;
 import haxe.Resource;
-import src.view.Renderer;
+import main_view.Renderer;
 
 /**
  * Beluga #1
