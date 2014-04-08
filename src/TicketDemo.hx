@@ -43,9 +43,11 @@ class TicketDemo {
     }
 
     public function doCreatePage() {
-        var ticketWidget = ticket.getWidget("create").render();
+        var ticketWidget = ticket.getWidget("create");
+        ticketWidget.context = ticket.getCreateContext();
+
         var html = Renderer.renderDefault("page_ticket_widget", "Create tickets", {
-            ticketWidget: ticketWidget
+            ticketWidget: ticketWidget.render()
         });
         Sys.print(html);
     }
