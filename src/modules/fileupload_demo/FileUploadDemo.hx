@@ -57,7 +57,7 @@ class FileUploadDemo {
 
     private function createErrorMsg(msg: String) {
         return "<div class=\"alert alert-danger alert-dismissable ticket-alert-error\">
-                <strong>Error!</strong>" + msg + "</div>";
+                <strong>Error!</strong> " + msg + "</div>";
     }
 
     public static function _doFailRemovePage(args: { reason: String }) {
@@ -164,4 +164,28 @@ class FileUploadDemo {
         });
         Sys.print(html);
     }
+
+    public static function _doFailUploadPage(args: { reason: String }) {
+       new FileUploadDemo(Beluga.getInstance()).doFailUploadPage(args);
+    }
+
+    public function doFailUploadPage(args: { reason: String }) {
+        var contextMsg = this.createErrorMsg("Vous ne devriez pas etre ici!");
+        var browseWidget = "";
+        var fileUploadWidget = "";
+        if (this.beluga.getModuleInstance(Account).isLogged()) {
+            contextMsg = "<h2>Manage authorized file extensions for file upload module</h2>" + this.createErrorMsg(args.reason);
+            var tmpBrowse = file_upload.getWidget("browse");
+            tmpBrowse.context = file_upload.getBrowseContext();
+            browseWidget = tmpBrowse.render();
+            fileUploadWidget = file_upload.getWidget("send").render();
+        }
+        var html = Renderer.renderDefault("page_fileupload_widget", "Admin page", {
+            context_message: contextMsg,
+            browseWidget: browseWidget,
+            fileUploadWidget: fileUploadWidget
+        });
+        Sys.print(html);
+    }
+
 }

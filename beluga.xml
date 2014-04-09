@@ -125,6 +125,10 @@
 	<route class="modules.fileupload_demo.FileUploadDemo" method="_doAllPage" ></route>
 </trigger>
 
+<trigger name="beluga_fileupload_upload_fail">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doFailUploadPage" ></route>
+</trigger>
+
 <trigger name="beluga_fileupload_delete_fail">
 	<route class="modules.fileupload_demo.FileUploadDemo" method="_doFailRemovePage" ></route>
 </trigger>
