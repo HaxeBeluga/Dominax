@@ -55,10 +55,9 @@ class FileUploadDemo {
         Sys.print(html);        
     }
 
-    private function notLoggedErrorMsg() {
+    private function createErrorMsg(msg: String) {
         return "<div class=\"alert alert-danger alert-dismissable ticket-alert-error\">
-                <strong>Error!</strong> Vous devez vous logger pour acceder a cette page !
-                </div>";
+                <strong>Error!</strong>" + msg + "</div>";
     }
 
     public static function _doFailRemovePage(args: { reason: String }) {
@@ -82,7 +81,7 @@ class FileUploadDemo {
     }
 
     public function doAllPage() {
-        var contextMsg = this.notLoggedErrorMsg();
+        var contextMsg = "";
         var browseWidget = "";
         var fileUploadWidget = "";
         if (this.beluga.getModuleInstance(Account).isLogged()) {
@@ -106,7 +105,7 @@ class FileUploadDemo {
     }
 
     public function doDefault() {
-        var contextMsg = this.notLoggedErrorMsg();
+        var contextMsg = this.createErrorMsg("Vous devez vous logger pour acceder a cette page !");
         var browseWidget = "";
         var fileUploadWidget = "";
         if (this.beluga.getModuleInstance(Account).isLogged()) {
@@ -125,13 +124,43 @@ class FileUploadDemo {
     }
 
     public static function _doAdminPage() {        
-       new FileUploadDemo(Beluga.getInstance()).doSendPage();
+       new FileUploadDemo(Beluga.getInstance()).doAdminPage();
     }
 
     public function doAdminPage() {
+        var contextMsg = this.createErrorMsg("Vous ne devriez pas etre ici!");
+        var adminWidget = "";
+        if (this.beluga.getModuleInstance(Account).isLogged()) {
+            contextMsg = "<h2>Manage authorized file extensions for file upload module</h2>";
+            var tmpWidget = file_upload.getWidget("admin");
+            tmpWidget.context = file_upload.getAdminContext();
+            adminWidget = tmpWidget.render();
+        }
         var html = Renderer.renderDefault("page_fileupload_widget", "Admin page", {
-            browseWidget: "world",
-            fileUploadWidget: "hello"
+            context_message: contextMsg,
+            browseWidget: adminWidget,
+            fileUploadWidget: ""
+        });
+        Sys.print(html);
+    }
+
+    public static function _doAdminPageFail() {
+       new FileUploadDemo(Beluga.getInstance()).doAdminPageFail();
+    }
+
+    public function doAdminPageFail() {
+        var contextMsg = this.createErrorMsg("Vous ne devriez pas etre ici!");
+        var adminWidget = "";
+        if (this.beluga.getModuleInstance(Account).isLogged()) {
+            contextMsg = "<h2>Manage authorized file extensions for file upload module</h2>";
+            var tmpWidget = file_upload.getWidget("admin");
+            tmpWidget.context = file_upload.getAdminContext();
+            adminWidget = tmpWidget.render();
+        }
+        var html = Renderer.renderDefault("page_fileupload_widget", "Admin page", {
+            context_message: contextMsg,
+            browseWidget: adminWidget,
+            fileUploadWidget: ""
         });
         Sys.print(html);
     }

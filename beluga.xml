@@ -109,3 +109,19 @@
 <trigger name="beluga_fileupload_delete_fail">
 	<route class="modules.fileupload_demo.FileUploadDemo" method="_doFailRemovePage" ></route>
 </trigger>
+
+<trigger name="beluga_fileupload_deleteextension_success">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doAdminPage" ></route>
+</trigger>
+
+<trigger name="beluga_fileupload_deleteextension_fail">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doAdminFail" ></route>
+</trigger>
+
+<trigger name="beluga_fileupload_addextension_success">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doAdminPage" ></route>
+</trigger>
+
+<trigger name="beluga_fileupload_addextension_fail">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doAdminFail" ></route>
+</trigger>

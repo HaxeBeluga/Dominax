@@ -69,6 +69,18 @@
                     </div>
                 </div>
 
+                <!-- FileUpload admin -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="http://www.placehold.it/300x200" >
+                        <div class="caption">
+                            <h3>Administration des extensions de fichier</h3>
+                            <p>Example simple d'un widget fourni avec le module de telechargement de fichier, celui est destine a etre integre dns votre backoffice, et vous permet de gerer les extensions de vos fichiers.</p>
+                            <p><a href="/fileUploadDemo/adminPage" class="btn btn-success" role="button">Essayer ce widget !</a></p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     <!-- </div> -->
