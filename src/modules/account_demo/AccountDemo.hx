@@ -86,4 +86,25 @@ class AccountDemo
 		Sys.print(html);
 	}
 
+	public function _printCustomUserInfo(args: { id: Int }) {
+		new AccountDemo(Beluga.getInstance()).printCustomUserInfo(args);
+	}
+
+	public function printCustomUserInfo(args: { id: Int }) {
+		var user = User.manager.get(args.id);
+
+		if (user == null) {
+			var html = Renderer.renderDefault("page_accueil", "Accueil", {success : "", error : ""});
+			Sys.print(html);
+			return;
+		}
+		var subscribeWidget = acc.getWidget("info");
+		subscribeWidget.context = {user : user};
+		
+		var html = Renderer.renderDefault("page_subscribe", "Information", {
+			subscribeWidget: subscribeWidget.render()
+		});
+		Sys.print(html);
+	}
+
 }
