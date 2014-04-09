@@ -144,7 +144,7 @@ class FileUploadDemo {
         Sys.print(html);
     }
 
-    public static function _doAdminPageFail() {
+    public static function _doAdminPageFail() {        
        new FileUploadDemo(Beluga.getInstance()).doAdminPageFail();
     }
 

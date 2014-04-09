@@ -74,4 +74,20 @@ class TicketDemo {
         Sys.println("createPage");  
         Sys.println("showPage");    
     }
+
+    public static function _doAdminPage() {        
+       new TicketDemo(Beluga.getInstance()).doAdminPage();
+    }
+
+    public function doAdminPage() {
+        var ticketWidget = ticket.getWidget("admin");
+
+        ticketWidget.context = ticket.getAdminContext();
+
+        var html = Renderer.renderDefault("page_ticket_widget", "Admin page", {
+            ticketWidget: ticketWidget.render()
+        });
+        Sys.print(html);
+
+    }
 }

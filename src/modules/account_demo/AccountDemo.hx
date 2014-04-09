@@ -34,9 +34,8 @@ class AccountDemo
 	}
 
 	public function doLoginSuccess() {
-		Web.setHeader("Content-Type", "text/plain");
-		Sys.println("AccountDemo.doLoginSuccess");	
-		Sys.println("Logged as " + acc.getLoggedUser().login);	
+		var html = Renderer.renderDefault("page_accueil", "Accueil",{});
+		Sys.print(html);
 	}
 
 	public static function _doLoginFail() {
