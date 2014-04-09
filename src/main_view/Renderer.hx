@@ -1,4 +1,5 @@
-package src.view;
+package main_view;
+
 import haxe.macro.Context;
 import haxe.Resource;
 

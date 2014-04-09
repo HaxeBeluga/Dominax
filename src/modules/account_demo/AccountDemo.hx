@@ -1,4 +1,4 @@
-package ;
+package modules.account_demo;
 
 import beluga.core.Beluga;
 import beluga.core.Widget;
@@ -7,6 +7,7 @@ import beluga.module.account.ESubscribeFailCause;
 import beluga.module.account.Account;
 import php.Web;
 import haxe.Resource;
+import main_view.Renderer;
 
 /**
  * Beluga #1
@@ -74,5 +75,5 @@ class AccountDemo
 		Web.setHeader("Content-Type", "text/plain");
 		Sys.println("AccountDemo.subscribeFail ");
 	}
-	
+
 }

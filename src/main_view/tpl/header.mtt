@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default" style="margin-top:30px;" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -14,7 +14,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="dropdown">
+        
+		<!-- Account -->  
+		<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="/accountDemo/subscribePage">Inscription</a></li>
@@ -25,6 +27,25 @@
             <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
+		
+		<!-- Ticket -->  
+		<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ticket<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/ticketDemo/browsePage">Browse</a></li>
+            <li><a href="/ticketDemo/createPage">Create</a></li>
+            <li><a href="/ticketDemo/showPage">Show</a></li>
+          </ul>
+        </li>
+
+		<!-- Survey -->
+		<li class="dropdown">
+          <a href="/surveyDemo" class="dropdown-toggle" data-toggle="dropdown">Survey<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/surveyDemo/">Main</a></li>
+          </ul>
+        </li>
+
       </ul>
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group">

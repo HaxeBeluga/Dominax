@@ -4,14 +4,20 @@
 -php bin
 -main Main
 
--resource src/view/tpl/htmlbody.mtt@html_body
+-resource src/main_view/tpl/htmlbody.mtt@html_body
 
 #----Template----#
--resource src/view/tpl/template/default/layout.mtt@template_default_layout
--resource src/view/tpl/template/default/header.mtt@template_default_header
--resource src/view/tpl/template/default/footer.mtt@template_default_footer
+-resource src/main_view/tpl/layout.mtt@template_default_layout
+-resource src/main_view/tpl/header.mtt@template_default_header
+-resource src/main_view/tpl/footer.mtt@template_default_footer
 
-#----Page----#
--resource src/view/tpl/page/accueil.mtt@page_accueil
--resource src/view/tpl/page/subscribe.mtt@page_subscribe
--resource src/view/tpl/page/login.mtt@page_login
+#----AccountDemo Pages----#
+-resource src/modules/account_demo/tpl/accueil.mtt@page_accueil
+-resource src/modules/account_demo/tpl/subscribe.mtt@page_subscribe
+-resource src/modules/account_demo/tpl/login.mtt@page_login
+
+#----TicketDemo Pages----#
+-resource src/modules/ticket_demo/tpl/ticket_widget.mtt@page_ticket_widget
+
+#----SurveyDemo Pages----#
+-resource src/modules/survey_demo/tpl/survey_page.mtt@page_survey

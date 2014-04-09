@@ -1,4 +1,4 @@
-package ;
+package modules.account_demo;
 
 import php.Web;
 import haxe.Resource;
@@ -8,7 +8,8 @@ import beluga.core.Widget;
 import beluga.module.account.model.User;
 import beluga.module.account.ESubscribeFailCause;
 import beluga.module.account.Account;
-import src.view.Renderer;
+import modules.account_demo.AccountDemo;
+import main_view.Renderer;
 
 
 /**
