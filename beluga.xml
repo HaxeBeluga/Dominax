@@ -10,24 +10,89 @@
 </database>
 
 <module name="account"/>
+<module name="ticket" />
+<module name="survey" />
 
 <!-- <include path="Account.xml" /> -->
  <trigger name="beluga_account_subscribe_success">
-	<route class="AccountDemo" method="_doSubscribeSuccess" >
+	<route class="modules.account_demo.AccountDemo" method="_doSubscribeSuccess" >
 	</route>
 </trigger>
 
 <trigger name="beluga_account_subscribe_fail">
-	<route class="AccountDemo" method="_doSubscribeFail" >
+	<route class="modules.account_demo.AccountDemo" method="_doSubscribeFail" >
 	</route>
 </trigger>
 
  <trigger name="beluga_account_login_success">
-	<route class="AccountDemo" method="_doLoginSuccess" >
+	<route class="modules.account_demo.AccountDemo" method="_doLoginSuccess" >
 	</route>
 </trigger>
 
 <trigger name="beluga_account_login_fail">
-	<route class="AccountDemo" method="_doLoginFail" >
+	<route class="modules.account_demo.AccountDemo" method="_doLoginFail" >
+	</route>
+</trigger>
+
+
+<!-- Ticket triggers -->
+<trigger name="beluga_ticket_show_browse">
+	<route class="modules.ticket_demo.TicketDemo" method="_doBrowsePage" ></route>
+</trigger>
+<trigger name="beluga_ticket_show_create">
+	<route class="modules.ticket_demo.TicketDemo" method="_doCreatePage" ></route>
+</trigger>
+<trigger name="beluga_ticket_show_show">
+	<route class="modules.ticket_demo.TicketDemo" method="_doShowPage" ></route>
+</trigger>
+
+<!-- survey module triggers -->
+<trigger name="beluga_survey_vote_success">
+	<route class="modules.survey_demo.SurveyDemo" method="_doVoteSuccess">
+	</route>
+</trigger>
+
+<trigger name="beluga_survey_vote_fail">
+	<route class="modules.survey_demo.SurveyDemo" method="_doVoteFail">
+	</route>
+</trigger>
+
+<trigger name="beluga_survey_create_success">
+	<route class="modules.survey_demo.SurveyDemo" method="_doCreateSuccess">
+	</route>
+</trigger>
+
+<trigger name="beluga_survey_create_fail">
+	<route class="modules.survey_demo.SurveyDemo" method="_doCreateFail">
+	</route>
+</trigger>
+
+<trigger name="beluga_survey_printx">
+	<route class="modules.survey_demo.SurveyDemo" method="_doPrintPage">
+	</route>
+</trigger>
+
+<trigger name="beluga_survey_votex">
+	<route class="modules.survey_demo.SurveyDemo" method="_doVotePage">
+	</route>
+</trigger>
+
+<trigger name="beluga_survey_redirect">
+	<route class="modules.survey_demo.SurveyDemo" method="_doRedirectPage">
+	</route>
+</trigger>
+
+<trigger name="beluga_survey_delete_success">
+	<route class="modules.survey_demo.SurveyDemo" method="_doDeleteSuccess">
+	</route>
+</trigger>
+
+<trigger name="beluga_survey_delete_fail">
+	<route class="modules.survey_demo.SurveyDemo" method="_doDeleteFail">
+	</route>
+</trigger>
+
+<trigger name="beluga_survey_default">
+	<route class="modules.survey_demo.SurveyDemo" method="_doDefault">
 	</route>
 </trigger>
