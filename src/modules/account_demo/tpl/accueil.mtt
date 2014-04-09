@@ -20,7 +20,7 @@
             <!-- forum -->
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <img src="http://www.placehold.it/300x200" >
+                    <img src="/img/forum.png" >
                     <div class="caption">
                         <h3>Module de Forum</h3>
                         <p>Acceder a la page de presentation du forum, ici vous pourrez creer de nouveaux sujet, repondre a des fils de
@@ -80,17 +80,19 @@
                     </div>
                 </div>
 
-                <!-- FileUpload admin -->
+                <!-- ticket admin -->
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <img src="/img/extension_admin.png" >
+                        <img src="/img/notif.png" >
                         <div class="caption">
-                            <h3>Administration des extensions de fichier</h3>
-                            <p>Example simple d'un widget fourni avec le module de telechargement de fichier, celui est destine a etre integre dns votre backoffice, et vous permet de gerer les extensions de vos fichiers.</p>
-                            <p><a href="/fileUploadDemo/adminPage" class="btn btn-success" role="button">Essayer ce widget !</a></p>
+                            <h3>Consultation des notification</h3>
+                            <p>Cette page vous permet de consulter toutes les notification recus par un utilisateur !</p>
+                            <p><a href="/notificationDemo" class="btn btn-success" role="button">Voir les notifications !</a></p>
                         </div>
                     </div>
                 </div>
+
+                
 
             </div>
             <div class="row">
@@ -105,17 +107,20 @@
                         </div>
                     </div>
                 </div>
-                <!-- ticket admin -->
+                
+                <!-- FileUpload admin -->
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <img src="/img/notif.png" >
+                        <img src="/img/extension_admin.png" >
                         <div class="caption">
-                            <h3>Consultation des notification</h3>
-                            <p>Cette page vous permet de consulter toutes les notification recus par un utilisateur !</p>
-                            <p><a href="/notificationDemo" class="btn btn-success" role="button">Voir les notifications !</a></p>
+                            <h3>Administration des extensions de fichier</h3>
+                            <p>Example simple d'un widget fourni avec le module de telechargement de fichier, celui est destine a etre integre dns votre backoffice, et vous permet de gerer les extensions de vos fichiers.</p>
+                            <p><a href="/fileUploadDemo/adminPage" class="btn btn-success" role="button">Essayer ce widget !</a></p>
                         </div>
                     </div>
                 </div>
+
+
             </div>
 
         </div>
