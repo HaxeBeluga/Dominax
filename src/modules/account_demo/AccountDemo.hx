@@ -95,10 +95,10 @@ class AccountDemo
 
 	public function doDefault(d : Dispatch) {
 		Web.setHeader("Content-Type", "text/plain");
-		Sys.println("No action available for: " + d.parts[0]);	
-		Sys.println("Available actions are:");	
-		Sys.println("subscribePage");	
-		Sys.println("loginPage");	
+		Sys.println("No action available for: " + d.parts[0]);
+		Sys.println("Available actions are:");
+		Sys.println("subscribePage");
+		Sys.println("loginPage");
 	}
 	
 }
