@@ -82,6 +82,20 @@
                 </div>
 
             </div>
+            <div class="row">
+                <!-- ticket admin -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="http://www.placehold.it/300x200" >
+                        <div class="caption">
+                            <h3>Administration des labels de ticket</h3>
+                            <p>Example simple d'un widget fourni avec le module de ticket, celui ci permet la creation ou suppression des labels disponibles dans le module de ticket.</p>
+                            <p><a href="/ticketDemo/adminPage" class="btn btn-success" role="button">Essayer ce widget !</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     <!-- </div> -->
 </section>
