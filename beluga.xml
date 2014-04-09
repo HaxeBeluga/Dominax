@@ -68,6 +68,10 @@
 <trigger name="beluga_ticket_deletelabel_fail">
 	<route class="modules.ticket_demo.TicketDemo" method="_doAdminPage" ></route>
 </trigger>
+<trigger name="beluga_ticket_assign_notify">
+	<route class="modules.ticket_demo.TicketDemo" method="_doNotifyAssign" ></route>
+</trigger>
+
 
 
 <!-- survey module triggers -->
