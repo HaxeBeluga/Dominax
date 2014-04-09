@@ -25,7 +25,7 @@
                     <div class="caption">
                         <h3>Module de Tickets</h3>
                         <p>Integrez a votre site un systeme de ticket afin de discuter simplement avec vos utilisateur de differents probleme, bug, ou ameliorations liees a votre site !</p>
-                        <p><a href="/ticketDemo/browsePage" class="btn btn-success" role="button">Essayer le le systeme de ticket !</a></p>
+                        <p><a href="/ticketDemo/browsePage" class="btn btn-success" role="button">Essayer le systeme de ticket !</a></p>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,30 @@
                         </div>
                     </div>
                 </div>
-            
+                <!-- FileUpload -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="http://www.placehold.it/300x200" >
+                        <div class="caption">
+                            <h3>Module de de telechargement de fichier</h3>
+                            <p>Grace a ce module vous donnez la possibilite a vos utilisateur de sauvegarder facilement leurs fichier sur vos serveur!</p>
+                            <p><a href="/fileUploadDemo/" class="btn btn-success" role="button">Uploadez vos fichiers !</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FileUpload admin -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="http://www.placehold.it/300x200" >
+                        <div class="caption">
+                            <h3>Administration des extensions de fichier</h3>
+                            <p>Example simple d'un widget fourni avec le module de telechargement de fichier, celui est destine a etre integre dns votre backoffice, et vous permet de gerer les extensions de vos fichiers.</p>
+                            <p><a href="/fileUploadDemo/adminPage" class="btn btn-success" role="button">Essayer ce widget !</a></p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     <!-- </div> -->

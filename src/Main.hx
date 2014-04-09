@@ -13,6 +13,7 @@ import beluga.module.account.model.User;
 import modules.account_demo.AccountDemo;
 import modules.ticket_demo.TicketDemo;
 import modules.survey_demo.SurveyDemo;
+import modules.fileupload_demo.FileUploadDemo;
 import main_view.Renderer;
 
 /**
@@ -79,6 +80,10 @@ class Main
 
 	public function doSurveyDemo(d : Dispatch) {
 		d.dispatch(new SurveyDemo(beluga));
+	}
+
+	public function doFileUploadDemo(d : Dispatch) {
+		d.dispatch(new FileUploadDemo(beluga));
 	}
 
 	public function doAccueil() {
