@@ -164,11 +164,17 @@ class SurveyDemo
 		}
 
 		var arr = new Array<Choice>();
-		for (tmp_c in Choice.manager.dynamicSearch( { survey_id : args.survey.id } ))
-			arr.push(tmp_c);
+		var t = new Array<Choice>();
+		for (tmp_c in Choice.manager.dynamicSearch( { survey_id : args.survey.id } )) {
+			if (t.length > 0)
+				arr.push(tmp_c);
+			else {
+				t.push(tmp_c);
+			}
+		}
 
 		var widget = survey.getWidget("vote");
-		widget.context = {survey : args.survey, choices : arr, path : "/beluga/survey/"};
+		widget.context = {survey : args.survey, choices : arr, first : t, path : "/beluga/survey/"};
 
         var subscribeWidget = widget.render();
 		var html = Renderer.renderDefault("page_survey", "Vote page", {
