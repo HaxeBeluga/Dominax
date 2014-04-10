@@ -4,7 +4,7 @@
 	<host>localhost</host>
 	<!-- <port></port> -->
 	<user>root</user>
-	<pass>root</pass>
+	<pass></pass>
 	<database>belugaDemo</database>
 	<!-- <socket></socket> -->
 </database>
@@ -13,6 +13,7 @@
 <module name="ticket" />
 <module name="survey" />
 <module name="fileupload" />
+<module name="notification" />
 
 <!-- <include path="Account.xml" /> -->
  <trigger name="beluga_account_subscribe_success">
@@ -142,4 +143,35 @@
 
 <trigger name="beluga_fileupload_addextension_fail">
 	<route class="modules.fileupload_demo.FileUploadDemo" method="_doAdminFail" ></route>
+</trigger>
+
+<!-- notification module triggers -->
+<trigger name="beluga_notif_default">
+	<route class="modules.notification_demo.NotificationDemo" method="_doDefault">
+	</route>
+</trigger>
+
+<trigger name="beluga_notif_delete_success">
+	<route class="modules.notification_demo.NotificationDemo" method="_doDeleteSuccess">
+	</route>
+</trigger>
+
+<trigger name="beluga_notif_delete_fail">
+	<route class="modules.notification_demo.NotificationDemo" method="_doDeleteFail">
+	</route>
+</trigger>
+
+<trigger name="beluga_notif_create_success">
+	<route class="modules.notification_demo.NotificationDemo" method="_doCreateSuccess">
+	</route>
+</trigger>
+
+<trigger name="beluga_notif_create_fail">
+	<route class="modules.notification_demo.NotificationDemo" method="_doCreateFail">
+	</route>
+</trigger>
+
+<trigger name="beluga_notif_printx">
+	<route class="modules.notification_demo.NotificationDemo" method="_doPrint">
+	</route>
 </trigger>

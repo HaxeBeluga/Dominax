@@ -24,3 +24,6 @@
 
 #----FileUploadDemo Pages----#
 -resource src/modules/fileupload_demo/tpl/fileupload_widget.mtt@page_fileupload_widget
+
+#----NotificationDemo Pages----#
+-resource src/modules/notification_demo/tpl/notification_page.mtt@page_notification
