@@ -21,7 +21,7 @@
           <ul class="dropdown-menu">
             <li><a href="/accountDemo/subscribePage">Inscription</a></li>
             ::if (user)::
-            <li><a href="/accountDemo/logout">Deconnexion</a></li>
+            <li><a href="/accountDemo/logout">Déconnexion</a></li>
             ::else::
             <li><a href="/accountDemo/loginPage">Authentification</a></li>
             ::end::
@@ -50,7 +50,7 @@
     <li class="dropdown">
         <a href="/notificationDemo" class="dropdown-toggle" data-toggle="dropdown">Notifications<b class="caret"></b></a>
         <ul class="dropdown-menu">
-            <li><a href="/notificationDemo/">Notif center</a></li>
+            <li><a href="/notificationDemo/">Notifications center</a></li>
         </ul>
     </li>
 
