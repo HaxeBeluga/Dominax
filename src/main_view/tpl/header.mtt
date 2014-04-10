@@ -40,11 +40,20 @@
 
 		<!-- Survey -->
 		<li class="dropdown">
-          <a href="/surveyDemo" class="dropdown-toggle" data-toggle="dropdown">Survey<b class="caret"></b></a>
-          <ul class="dropdown-menu">
+        <a href="/surveyDemo" class="dropdown-toggle" data-toggle="dropdown">Survey<b class="caret"></b></a>
+        <ul class="dropdown-menu">
             <li><a href="/surveyDemo/">Main</a></li>
-          </ul>
-        </li>
+        </ul>
+    </li>
+
+    <!-- Notificiation -->
+    <li class="dropdown">
+        <a href="/notificationDemo" class="dropdown-toggle" data-toggle="dropdown">Notifications<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a href="/notificationDemo/">Notif center</a></li>
+        </ul>
+    </li>
+
 
       </ul>
       <ul class="nav navbar-nav">

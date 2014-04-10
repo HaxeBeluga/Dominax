@@ -8,6 +8,7 @@ import beluga.module.survey.Survey;
 import beluga.module.survey.model.SurveyModel;
 import beluga.module.survey.model.Choice;
 import beluga.module.survey.model.Result;
+import beluga.module.notification.Notification;
 import haxe.web.Dispatch;
 import php.Web;
 import haxe.Resource;
@@ -231,4 +232,9 @@ class SurveyDemo
 		});
 		Sys.print(html);
 	}
+
+	public function _doAnswerNotify(args : {title : String, text : String, user_id: Int}) {
+        var notification = Beluga.getInstance().getModuleInstance(Notification);
+        notification.create(args);
+    }
 }

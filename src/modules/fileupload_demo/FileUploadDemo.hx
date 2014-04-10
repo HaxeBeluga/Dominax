@@ -5,6 +5,7 @@ import beluga.core.Beluga;
 import beluga.core.Widget;
 import beluga.module.fileupload.Fileupload;
 import beluga.module.account.Account;
+import beluga.module.notification.Notification;
 
 // BelugaDemo
 import main_view.Renderer;
@@ -188,4 +189,8 @@ class FileUploadDemo {
         Sys.print(html);
     }
 
+    public function _doNotifyUploadSuccess(args : {title : String, text : String, user_id: Int}) {
+        var notification = Beluga.getInstance().getModuleInstance(Notification);
+        notification.create(args);
+    }
 }
