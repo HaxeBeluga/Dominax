@@ -17,6 +17,7 @@ import modules.survey_demo.SurveyDemo;
 import modules.fileupload_demo.FileUploadDemo;
 import modules.notification_demo.NotificationDemo;
 import main_view.Renderer;
+import modules.forum_demo.ChannelDemo;
 
 /**
  * Beluga #1
@@ -92,8 +93,13 @@ class Main
 		d.dispatch(new NotificationDemo(beluga));
 	}
 
+	public function doForumDemo(d : Dispatch) {
+		d.dispatch(new ChannelDemo(beluga));
+	}
+	
 	public function doAccueil() {
 			var html = Renderer.renderDefault("page_accueil", "Accueil",{});
 			Sys.print(html);
 	}
+
 }
