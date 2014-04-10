@@ -14,13 +14,34 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="dropdown">
+        
+		<!-- Account -->  
+		<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="/accountDemo/subscribePage">Inscription</a></li>
             <li><a href="/accountDemo/loginPage">Authentification</a></li>
           </ul>
         </li>
+		
+		<!-- Ticket -->  
+		<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ticket<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/ticketDemo/browsePage">Browse</a></li>
+            <li><a href="/ticketDemo/createPage">Create</a></li>
+            <li><a href="/ticketDemo/showPage">Show</a></li>
+          </ul>
+        </li>
+
+		<!-- Survey -->
+		<li class="dropdown">
+          <a href="/surveyDemo" class="dropdown-toggle" data-toggle="dropdown">Survey<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/surveyDemo/">Main</a></li>
+          </ul>
+        </li>
+
       </ul>
       <ul class="nav navbar-nav">
         <li>

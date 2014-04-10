@@ -16,22 +16,22 @@
 
 <!-- <include path="Account.xml" /> -->
  <trigger name="beluga_account_subscribe_success">
-	<route class="modules.account_demo.AccountDemo" method="_doSubscribeSuccess" >
+	<route class="modules.account_demo.AccountDemo" method="_subscribeSuccess" >
 	</route>
 </trigger>
 
 <trigger name="beluga_account_subscribe_fail">
-	<route class="modules.account_demo.AccountDemo" method="_doSubscribeFail" >
+	<route class="modules.account_demo.AccountDemo" method="_subscribeFail" >
 	</route>
 </trigger>
 
  <trigger name="beluga_account_login_success">
-	<route class="modules.account_demo.AccountDemo" method="_doLoginSuccess" >
+	<route class="modules.account_demo.AccountDemo" method="_loginSuccess" >
 	</route>
 </trigger>
 
 <trigger name="beluga_account_login_fail">
-	<route class="modules.account_demo.AccountDemo" method="_doLoginFail" >
+	<route class="modules.account_demo.AccountDemo" method="_loginFail" >
 	</route>
 </trigger>
 

@@ -11,6 +11,7 @@ import haxe.Resource;
 import haxe.crypto.Md5;
 import beluga.module.account.model.User;
 import modules.account_demo.AccountDemo;
+import modules.account_demo.AccountDemoApi;
 import modules.ticket_demo.TicketDemo;
 import modules.survey_demo.SurveyDemo;
 import modules.fileupload_demo.FileUploadDemo;
@@ -71,7 +72,7 @@ class Main
 	}
 
 	public function doAccountDemo(d : Dispatch) {
-		d.dispatch(new AccountDemo(beluga));
+		d.dispatch(new AccountDemoApi(beluga));
 	}
 
 	public function doTicketDemo(d : Dispatch) {
