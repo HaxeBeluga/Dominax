@@ -15,6 +15,7 @@ import modules.account_demo.AccountDemoApi;
 import modules.ticket_demo.TicketDemo;
 import modules.survey_demo.SurveyDemo;
 import modules.fileupload_demo.FileUploadDemo;
+import modules.notification_demo.NotificationDemo;
 import main_view.Renderer;
 
 /**
@@ -85,6 +86,10 @@ class Main
 
 	public function doFileUploadDemo(d : Dispatch) {
 		d.dispatch(new FileUploadDemo(beluga));
+	}
+
+	public function doNotificationDemo(d : Dispatch) {
+		d.dispatch(new NotificationDemo(beluga));
 	}
 
 	public function doAccueil() {
