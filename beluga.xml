@@ -36,6 +36,11 @@
 	</route>
 </trigger>
 
+<trigger name="beluga_account_logout">
+	<route class="modules.account_demo.AccountDemo" method="_logout" >
+	</route>
+</trigger>
+
 <!-- Ticket triggers -->
 <trigger name="beluga_ticket_show_browse">
 	<route class="modules.ticket_demo.TicketDemo" method="_doBrowsePage" ></route>

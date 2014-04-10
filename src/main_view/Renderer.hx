@@ -20,15 +20,16 @@ class Renderer
 	/*
 	 * Render a page with the default template
 	 */
-	public static function renderDefault(page : String, title:String,ctx : Dynamic) {
+	public static function renderDefault(page : String, title: String, ctx : Dynamic) {
 		var accueil = (new haxe.Template(Resource.getString(page))).execute(ctx);
-		var login: String = "";
+		var user = Beluga.getInstance().getModuleInstance(Account).getLoggedUser();
+		var login = "";
 
-		if (Beluga.getInstance().getModuleInstance(Account).isLogged()) {
+		if (user != null) {
 			login = "Logged as " + Beluga.getInstance().getModuleInstance(Account).getLoggedUser().login;
 		}
 		var templateheader = (new haxe.Template(Resource.getString("template_default_header"))).execute({
-			login: login 
+			login: login, user : user
 		});
 		var templatefooter = (new haxe.Template(Resource.getString("template_default_footer"))).execute({});
 		var templatelayout = (new haxe.Template(Resource.getString("template_default_layout"))).execute( {

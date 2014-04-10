@@ -33,7 +33,7 @@ class AccountDemo
 	}
 
 	public function loginSuccess() {
-		var html = Renderer.renderDefault("page_accueil", "Accueil",{});
+		var html = Renderer.renderDefault("page_accueil", "Accueil", {success : "Authentification succeeded !"});
 		Sys.print(html);
 	}
 
@@ -42,10 +42,24 @@ class AccountDemo
 	}
 	
 	public function loginFail() {
-		Web.setHeader("Content-Type", "text/plain");
-		Sys.println("AccountDemo.loginFail");
+		var widget = acc.getWidget("login");
+		widget.context = {error : "Invalid login and/or password"};
+		var loginWidget = widget.render();
+		var html = Renderer.renderDefault("page_login", "Authentification", {
+			loginWidget: loginWidget
+		});
+		Sys.print(html);
 	}
 	
+	public static function _logout() {
+		new AccountDemo(Beluga.getInstance()).logout();
+	}
+
+	public function logout() {
+		var html = Renderer.renderDefault("page_accueil", "Accueil", {success : "You're disconnected"});
+		Sys.print(html);
+	}
+
 	/*
 	 *  Subscription
 	 */
@@ -54,25 +68,22 @@ class AccountDemo
 	}
 	 
 	 public function subscribeSuccess(user : User) {
-		Web.setHeader("Content-Type", "text/plain");
-		Sys.println("AccountDemo.subscribeSuccess");	
+		var html = Renderer.renderDefault("page_accueil", "Accueil", {success : "Subscribe succeeded !"});
+		Sys.print(html);	
 	}
 
-	public static function _subscribeFail(errorMap : Map < String, List<String> >, args : {
-		login : String,
-		password : String,
-		password_conf : String
-	}) {
-		new AccountDemo(Beluga.getInstance()).subscribeFail(errorMap, args);
+	public static function _subscribeFail(error : String) {
+		new AccountDemo(Beluga.getInstance()).subscribeFail(error);
 	}
 
-	public function subscribeFail(errorMap : Map < String, List<String> >, args : {
-		login : String,
-		password : String,
-		password_conf : String
-	}) {
-		Web.setHeader("Content-Type", "text/plain");
-		Sys.println("AccountDemo.subscribeFail ");
+	public function subscribeFail(error : String) {
+		var subscribeWidget = acc.getWidget("subscribe");
+
+		subscribeWidget.context = {error : error};
+		var html = Renderer.renderDefault("page_subscribe", "Inscription", {
+			subscribeWidget: subscribeWidget.render(), error : error
+		});
+		Sys.print(html);
 	}
 
 }
