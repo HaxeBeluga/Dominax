@@ -11,7 +11,7 @@
     ::end::
     <div class="jumbotron" style="background-color: rgba(240, 246, 202, 1);">
         <h1>Bienvenue sur Beluga demo !</h1>
-        <p>Ceci est la page d'accueil pour la démonstration du framework haxe Beluga, n'hésitez pas à tester les differents modules disponibles avec le framework en cliquant sur les liens ci-dessous !</p>
+        <p>Ceci est la page d'accueil pour la démonstration du framework haxe Beluga, n'hésitez pas à tester les différents modules disponibles avec le framework en cliquant sur les liens ci-dessous !</p>
         <p><a href="https://HaxeBeluga.github.io" class="btn btn-success btn-lg" role="button">Accéder au site de Beluga</a>
         <a href="https://github.com/HaxeBeluga/Beluga" class="btn btn-warning btn-lg" role="button">Voir sur Github</a></p>
     </div>
