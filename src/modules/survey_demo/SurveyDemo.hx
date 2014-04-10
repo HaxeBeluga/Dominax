@@ -49,7 +49,6 @@ class SurveyDemo
 			Sys.println("Please log in !");
 			return;
 		}
-		survey.get();
 		var widget = survey.getWidget("surveys_list");
 		widget.context = {surveys : survey.getSurveysList(), user : user,
 			error : error_msg, success : success_msg, path : "/beluga/survey/"};
