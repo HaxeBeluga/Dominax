@@ -19,7 +19,6 @@ import main_view.Renderer;
 
 class AccountDemoApi
 {
-
 	public var beluga(default, null) : Beluga;
 	public var acc(default, null) : Account;
 
@@ -29,9 +28,11 @@ class AccountDemoApi
 	}
 
 	public function doLoginPage() {
-        var loginWidget = acc.getWidget("login").render();
+        var loginWidget = acc.getWidget("login");
+        loginWidget.context = {error : ""};
+        
 		var html = Renderer.renderDefault("page_login", "Authentification", {
-			loginWidget: loginWidget
+			loginWidget: loginWidget.render()
 		});
 		Sys.print(html);
 	}
@@ -44,12 +45,30 @@ class AccountDemoApi
 		Sys.print(html);
 	}
 
+	public function doPrintInfo() {
+		var user = this.acc.getLoggedUser();
+
+		if (user == null) {
+			var html = Renderer.renderDefault("page_accueil", "Accueil", {success : "", error : ""});
+			Sys.print(html);
+			return;
+		}
+		var subscribeWidget = acc.getWidget("info");
+		subscribeWidget.context = {user : user};
+		
+		var html = Renderer.renderDefault("page_subscribe", "Information", {
+			subscribeWidget: subscribeWidget.render()
+		});
+		Sys.print(html);
+	}
+
+	public function doLogout() {
+		this.acc.logout();
+	}
+
 	public function doDefault(d : Dispatch) {
-		Web.setHeader("Content-Type", "text/plain");
-		Sys.println("No action available for: " + d.parts[0]);	
-		Sys.println("Available actions are:");	
-		Sys.println("subscribePage");	
-		Sys.println("loginPage");	
+		var html = Renderer.renderDefault("page_accueil", "Accueil", {success : "", error : ""});
+		Sys.print(html);
 	}
 
 }

@@ -1,4 +1,14 @@
 <section style="margin-bottom:50px;">
+    ::if (success)::
+    ::if (success != "")::
+        <div class="alert alert-success">::success::</div>
+    ::end::
+    ::end::
+    ::if (error)::
+    ::if (error != "")::
+    <div class="alert alert-danger">::error::</div>
+    ::end::
+    ::end::
     <div class="jumbotron" style="background-color: rgba(240, 246, 202, 1);">
         <h1>Bienvenue sur Beluga demo !</h1>
         <p>Ceci est la page d'accueil pour la démonstration du framework haxe Beluga, n'hesitez pas a tester les differents modules disponibles avec le framework en cliquant sur les liens ci dessous !</p>
