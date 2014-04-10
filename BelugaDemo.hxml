@@ -33,3 +33,7 @@
 
 #----NewsDemo Pages----#
 -resource src/modules/news_demo/tpl/news_page.mtt@page_news
+
+#----WalletDemo Pages----#
+-resource src/modules/wallet_demo/tpl/wallet_widget.mtt@page_wallet_widget
+

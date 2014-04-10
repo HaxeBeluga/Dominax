@@ -4,7 +4,7 @@
 	<host>localhost</host>
 	<!-- <port></port> -->
 	<user>root</user>
-	<pass></pass>
+	<pass>root</pass>
 	<database>belugaDemo</database>
 	<!-- <socket></socket> -->
 </database>
@@ -16,6 +16,7 @@
 <module name="notification" />
 <module name="forum" />
 <module name="news" />
+<module name="wallet" />
 
 <!-- <include path="Account.xml" /> -->
  <trigger name="beluga_account_subscribe_success">

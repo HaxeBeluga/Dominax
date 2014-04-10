@@ -40,7 +40,7 @@ class AccountDemo
 	public static function _loginFail() {
 		new AccountDemo(Beluga.getInstance()).loginFail();
 	}
-	
+
 	public function loginFail() {
 		var widget = acc.getWidget("login");
 		widget.context = {error : "Invalid login and/or password"};
@@ -50,7 +50,7 @@ class AccountDemo
 		});
 		Sys.print(html);
 	}
-	
+
 	public static function _logout() {
 		new AccountDemo(Beluga.getInstance()).logout();
 	}
@@ -66,10 +66,10 @@ class AccountDemo
 	public static function _subscribeSuccess(user : User) {
 		new AccountDemo(Beluga.getInstance()).subscribeSuccess(user);
 	}
-	 
+
 	 public function subscribeSuccess(user : User) {
 		var html = Renderer.renderDefault("page_accueil", "Accueil", {success : "Subscribe succeeded !"});
-		Sys.print(html);	
+		Sys.print(html);
 	}
 
 	public static function _subscribeFail(error : String) {
@@ -100,7 +100,7 @@ class AccountDemo
 		}
 		var subscribeWidget = acc.getWidget("info");
 		subscribeWidget.context = {user : user};
-		
+
 		var html = Renderer.renderDefault("page_subscribe", "Information", {
 			subscribeWidget: subscribeWidget.render()
 		});
