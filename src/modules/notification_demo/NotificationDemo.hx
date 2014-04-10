@@ -92,8 +92,8 @@ class NotificationDemo
 	}
 
 	public function doCreateSuccess() {
-		success_msg = "Notification has been successfully created !";
-		this.doDefault();
+		// success_msg = "Notification has been successfully created !";
+		// this.doDefault();
 	}
 	
 	public static function _doDeleteSuccess() {

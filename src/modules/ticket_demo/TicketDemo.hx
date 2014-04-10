@@ -4,6 +4,7 @@ package modules.ticket_demo;
 import beluga.core.Beluga;
 import beluga.core.Widget;
 import beluga.module.ticket.Ticket;
+import beluga.module.notification.Notification;
 
 // BelugaDemo
 import main_view.Renderer;
@@ -88,6 +89,10 @@ class TicketDemo {
             ticketWidget: ticketWidget.render()
         });
         Sys.print(html);
+    }
 
+    public function _doNotifyAssign(args : {title : String, text : String, user_id: Int}) {
+        var notification = Beluga.getInstance().getModuleInstance(Notification);
+        notification.create(args);
     }
 }
