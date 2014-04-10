@@ -27,3 +27,6 @@
 
 #----NotificationDemo Pages----#
 -resource src/modules/notification_demo/tpl/notification_page.mtt@page_notification
+
+#----ForumDemo Pages----#
+-resource src/modules/forum_demo/tpl/forum_widget.mtt@page_forum_widget
