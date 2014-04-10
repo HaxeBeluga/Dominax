@@ -4,7 +4,7 @@
 	<host>localhost</host>
 	<!-- <port></port> -->
 	<user>root</user>
-	<pass></pass>
+	<pass>root</pass>
 	<database>belugaDemo</database>
 	<!-- <socket></socket> -->
 </database>
@@ -12,6 +12,7 @@
 <module name="account"/>
 <module name="ticket" />
 <module name="survey" />
+<module name="fileupload" />
 
 <!-- <include path="Account.xml" /> -->
  <trigger name="beluga_account_subscribe_success">
@@ -34,7 +35,6 @@
 	</route>
 </trigger>
 
-
 <!-- Ticket triggers -->
 <trigger name="beluga_ticket_show_browse">
 	<route class="modules.ticket_demo.TicketDemo" method="_doBrowsePage" ></route>
@@ -45,6 +45,24 @@
 <trigger name="beluga_ticket_show_show">
 	<route class="modules.ticket_demo.TicketDemo" method="_doShowPage" ></route>
 </trigger>
+
+<trigger name="beluga_ticket_show_admin">
+	<route class="modules.ticket_demo.TicketDemo" method="_doAdminPage" ></route>
+</trigger>
+
+<trigger name="beluga_ticket_addlabel_success">
+	<route class="modules.ticket_demo.TicketDemo" method="_doAdminPage" ></route>
+</trigger>
+<trigger name="beluga_ticket_deletelabel_success">
+	<route class="modules.ticket_demo.TicketDemo" method="_doAdminPage" ></route>
+</trigger>
+<trigger name="beluga_ticket_addlabel_fail">
+	<route class="modules.ticket_demo.TicketDemo" method="_doAdminPage" ></route>
+</trigger>
+<trigger name="beluga_ticket_deletelabel_fail">
+	<route class="modules.ticket_demo.TicketDemo" method="_doAdminPage" ></route>
+</trigger>
+
 
 <!-- survey module triggers -->
 <trigger name="beluga_survey_vote_success">
@@ -95,4 +113,33 @@
 <trigger name="beluga_survey_default">
 	<route class="modules.survey_demo.SurveyDemo" method="_doDefault">
 	</route>
+</trigger>
+
+<!-- FileUpload triggers -->
+<trigger name="beluga_fileupload_show_browse">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doBrowsePage" ></route>
+</trigger>
+
+<trigger name="beluga_fileupload_delete_success">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doAllPage" ></route>
+</trigger>
+
+<trigger name="beluga_fileupload_delete_fail">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doFailRemovePage" ></route>
+</trigger>
+
+<trigger name="beluga_fileupload_deleteextension_success">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doAdminPage" ></route>
+</trigger>
+
+<trigger name="beluga_fileupload_deleteextension_fail">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doAdminFail" ></route>
+</trigger>
+
+<trigger name="beluga_fileupload_addextension_success">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doAdminPage" ></route>
+</trigger>
+
+<trigger name="beluga_fileupload_addextension_fail">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doAdminFail" ></route>
 </trigger>

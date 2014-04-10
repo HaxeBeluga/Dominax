@@ -2,7 +2,8 @@
     <div class="jumbotron" style="background-color: rgba(240, 246, 202, 1);">
         <h1>Bienvenue sur Beluga demo !</h1>
         <p>Ceci est la page d'accueil pour la démonstration du framework haxe Beluga, n'hesitez pas a tester les differents modules disponibles avec le framework en cliquant sur les liens ci dessous !</p>
-        <p><a href="https://github.com/HaxeBeluga/Beluga" class="btn btn-success btn-lg" role="button">Acceder au site Beluga</a></p>
+        <p><a href="https://HaxeBeluga.github.io" class="btn btn-success btn-lg" role="button">Acceder au site Beluga</a>
+        <a href="https://github.com/HaxeBeluga/Beluga" class="btn btn-warning btn-lg" role="button">Voir sur Github</a></p>
     </div>
     <div class="container-fluid">
         <div class="row">
@@ -25,7 +26,7 @@
                     <div class="caption">
                         <h3>Module de Tickets</h3>
                         <p>Integrez a votre site un systeme de ticket afin de discuter simplement avec vos utilisateur de differents probleme, bug, ou ameliorations liees a votre site !</p>
-                        <p><a href="/ticketDemo/browsePage" class="btn btn-success" role="button">Essayer le le systeme de ticket !</a></p>
+                        <p><a href="/ticketDemo/browsePage" class="btn btn-success" role="button">Essayer le systeme de ticket !</a></p>
                     </div>
                 </div>
             </div>
@@ -57,8 +58,46 @@
                         </div>
                     </div>
                 </div>
-            
+                <!-- FileUpload -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="http://www.placehold.it/300x200" >
+                        <div class="caption">
+                            <h3>Module de de telechargement de fichier</h3>
+                            <p>Grace a ce module vous donnez la possibilite a vos utilisateur de sauvegarder facilement leurs fichier sur vos serveur!</p>
+                            <p><a href="/fileUploadDemo/" class="btn btn-success" role="button">Uploadez vos fichiers !</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FileUpload admin -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="http://www.placehold.it/300x200" >
+                        <div class="caption">
+                            <h3>Administration des extensions de fichier</h3>
+                            <p>Example simple d'un widget fourni avec le module de telechargement de fichier, celui est destine a etre integre dns votre backoffice, et vous permet de gerer les extensions de vos fichiers.</p>
+                            <p><a href="/fileUploadDemo/adminPage" class="btn btn-success" role="button">Essayer ce widget !</a></p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+            <div class="row">
+                <!-- ticket admin -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="http://www.placehold.it/300x200" >
+                        <div class="caption">
+                            <h3>Administration des labels de ticket</h3>
+                            <p>Example simple d'un widget fourni avec le module de ticket, celui ci permet la creation ou suppression des labels disponibles dans le module de ticket.</p>
+                            <p><a href="/ticketDemo/adminPage" class="btn btn-success" role="button">Essayer ce widget !</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     <!-- </div> -->
 </section>
+<a href="https://github.com/haxebeluga/beluga"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>

@@ -21,10 +21,6 @@
           <ul class="dropdown-menu">
             <li><a href="/accountDemo/subscribePage">Inscription</a></li>
             <li><a href="/accountDemo/loginPage">Authentification</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
 		
@@ -46,6 +42,11 @@
           </ul>
         </li>
 
+      </ul>
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">::login::</a>
+        </li>
       </ul>
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group">

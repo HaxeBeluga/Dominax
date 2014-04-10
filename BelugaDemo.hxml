@@ -21,3 +21,6 @@
 
 #----SurveyDemo Pages----#
 -resource src/modules/survey_demo/tpl/survey_page.mtt@page_survey
+
+#----FileUploadDemo Pages----#
+-resource src/modules/fileupload_demo/tpl/fileupload_widget.mtt@page_fileupload_widget
