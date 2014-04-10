@@ -4,7 +4,7 @@
 	<host>localhost</host>
 	<!-- <port></port> -->
 	<user>root</user>
-	<pass></pass>
+	<pass>root</pass>
 	<database>belugaDemo</database>
 	<!-- <socket></socket> -->
 </database>
@@ -123,6 +123,10 @@
 
 <trigger name="beluga_fileupload_delete_success">
 	<route class="modules.fileupload_demo.FileUploadDemo" method="_doAllPage" ></route>
+</trigger>
+
+<trigger name="beluga_fileupload_upload_fail">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doFailUploadPage" ></route>
 </trigger>
 
 <trigger name="beluga_fileupload_delete_fail">
