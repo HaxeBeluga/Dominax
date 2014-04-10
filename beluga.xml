@@ -14,6 +14,7 @@
 <module name="survey" />
 <module name="fileupload" />
 <module name="notification" />
+<module name="forum" />
 
 <!-- <include path="Account.xml" /> -->
  <trigger name="beluga_account_subscribe_success">
@@ -190,15 +191,15 @@
 </trigger>
 
 <!-- Forum triggers -->
-<trigger name="request_beluga_forum_display_channel">
+<trigger name="request_beluga_forum_channel_display">
 	<route class="modules.forum_demo.ChannelDemo" method="_doDisplayChannelPage" ></route>
 </trigger>
-<trigger name="request_beluga_forum_display_add_channel">
+<trigger name="request_beluga_forum_add_channel_display">
 	<route class="modules.forum_demo.ChannelDemo" method="_doDisplayAddChannelPage" ></route>
 </trigger>
-<trigger name="request_beluga_forum_display_modify_channel">
+<trigger name="request_beluga_forum_modify_channel_display">
 	<route class="modules.forum_demo.ChannelDemo" method="_doDisplayModifyChannelPage" ></route>
 </trigger>
-<trigger name="request_beluga_forum_display_delete_channel">
+<trigger name="request_beluga_forum_delete_channel_display">
 	<route class="modules.forum_demo.ChannelDemo" method="_doDisplayDeleteChannelPage" ></route>
 </trigger>
