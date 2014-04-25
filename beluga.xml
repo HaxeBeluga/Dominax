@@ -107,11 +107,6 @@ beluga_account_show_user
 	</route>
 </trigger>
 
-<trigger name="beluga_survey_votex">
-	<route class="modules.survey_demo.SurveyDemo" method="_doVotePage">
-	</route>
-</trigger>
-
 <trigger name="beluga_survey_redirect">
 	<route class="modules.survey_demo.SurveyDemo" method="_doRedirectPage">
 	</route>
