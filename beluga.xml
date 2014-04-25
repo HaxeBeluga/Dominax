@@ -15,6 +15,7 @@
 <module name="fileupload" />
 <module name="notification" />
 <module name="forum" />
+<module name="news" />
 
 <!-- <include path="Account.xml" /> -->
  <trigger name="beluga_account_subscribe_success">
@@ -45,8 +46,6 @@
 	<route class="modules.account_demo.AccountDemo" method="_printCustomUserInfo" >
 	</route>
 </trigger>
-
-beluga_account_show_user
 
 <!-- Ticket triggers -->
 <trigger name="beluga_ticket_show_browse">
@@ -86,47 +85,34 @@ beluga_account_show_user
 	<route class="modules.survey_demo.SurveyDemo" method="_doVoteSuccess">
 	</route>
 </trigger>
-
 <trigger name="beluga_survey_vote_fail">
 	<route class="modules.survey_demo.SurveyDemo" method="_doVoteFail">
 	</route>
 </trigger>
-
 <trigger name="beluga_survey_create_success">
 	<route class="modules.survey_demo.SurveyDemo" method="_doCreateSuccess">
 	</route>
 </trigger>
-
 <trigger name="beluga_survey_create_fail">
 	<route class="modules.survey_demo.SurveyDemo" method="_doCreateFail">
 	</route>
 </trigger>
-
 <trigger name="beluga_survey_printx">
 	<route class="modules.survey_demo.SurveyDemo" method="_doPrintPage">
 	</route>
 </trigger>
-
-<trigger name="beluga_survey_votex">
-	<route class="modules.survey_demo.SurveyDemo" method="_doVotePage">
-	</route>
-</trigger>
-
 <trigger name="beluga_survey_redirect">
 	<route class="modules.survey_demo.SurveyDemo" method="_doRedirectPage">
 	</route>
 </trigger>
-
 <trigger name="beluga_survey_delete_success">
 	<route class="modules.survey_demo.SurveyDemo" method="_doDeleteSuccess">
 	</route>
 </trigger>
-
 <trigger name="beluga_survey_delete_fail">
 	<route class="modules.survey_demo.SurveyDemo" method="_doDeleteFail">
 	</route>
 </trigger>
-
 <trigger name="beluga_survey_default">
 	<route class="modules.survey_demo.SurveyDemo" method="_doDefault">
 	</route>
@@ -134,7 +120,6 @@ beluga_account_show_user
 <trigger name="beluga_survey_answer_notify">
 	<route class="modules.survey_demo.SurveyDemo" method="_doAnswerNotify" ></route>
 </trigger>
-
 
 <!-- FileUpload triggers -->
 <trigger name="beluga_fileupload_show_browse">
@@ -177,27 +162,22 @@ beluga_account_show_user
 	<route class="modules.notification_demo.NotificationDemo" method="_doDefault">
 	</route>
 </trigger>
-
 <trigger name="beluga_notif_delete_success">
 	<route class="modules.notification_demo.NotificationDemo" method="_doDeleteSuccess">
 	</route>
 </trigger>
-
 <trigger name="beluga_notif_delete_fail">
 	<route class="modules.notification_demo.NotificationDemo" method="_doDeleteFail">
 	</route>
 </trigger>
-
 <trigger name="beluga_notif_create_success">
 	<route class="modules.notification_demo.NotificationDemo" method="_doCreateSuccess">
 	</route>
 </trigger>
-
 <trigger name="beluga_notif_create_fail">
 	<route class="modules.notification_demo.NotificationDemo" method="_doCreateFail">
 	</route>
 </trigger>
-
 <trigger name="beluga_notif_printx">
 	<route class="modules.notification_demo.NotificationDemo" method="_doPrint">
 	</route>
@@ -215,4 +195,82 @@ beluga_account_show_user
 </trigger>
 <trigger name="request_beluga_forum_delete_channel_display">
 	<route class="modules.forum_demo.ChannelDemo" method="_doDisplayDeleteChannelPage" ></route>
+</trigger>
+
+<!-- news module triggers -->
+<trigger name="beluga_news_default">
+	<route class="modules.news_demo.NewsDemo" method="_doDefault">
+	</route>
+</trigger>
+<trigger name="beluga_news_delete_success">
+	<route class="modules.news_demo.NewsDemo" method="_doDeleteSuccess">
+	</route>
+</trigger>
+<trigger name="beluga_news_delete_fail">
+	<route class="modules.news_demo.NewsDemo" method="_doDeleteFail">
+	</route>
+</trigger>
+<trigger name="beluga_news_create_success">
+	<route class="modules.news_demo.NewsDemo" method="_doCreateSuccess">
+	</route>
+</trigger>
+<trigger name="beluga_news_create_fail">
+	<route class="modules.news_demo.NewsDemo" method="_doCreateFail">
+	</route>
+</trigger>
+<trigger name="beluga_news_print">
+	<route class="modules.news_demo.NewsDemo" method="_doPrint">
+	</route>
+</trigger>
+<trigger name="beluga_news_addComment_fail">
+	<route class="modules.news_demo.NewsDemo" method="_doAddCommentFail">
+	</route>
+</trigger>
+<trigger name="beluga_news_addComment_success">
+	<route class="modules.news_demo.NewsDemo" method="_doAddCommentSuccess">
+	</route>
+</trigger>
+<trigger name="beluga_news_deleteComment_fail">
+	<route class="modules.news_demo.NewsDemo" method="_doDeleteCommentFail">
+	</route>
+</trigger>
+<trigger name="beluga_news_deleteComment_success">
+	<route class="modules.news_demo.NewsDemo" method="_doDeleteCommentSuccess">
+	</route>
+</trigger>
+<trigger name="beluga_news_redirect">
+	<route class="modules.news_demo.NewsDemo" method="_doRedirect">
+	</route>
+</trigger>
+<trigger name="beluga_news_create">
+	<route class="modules.news_demo.NewsDemo" method="_doCreate">
+	</route>
+</trigger>
+<trigger name="beluga_news_delete">
+	<route class="modules.news_demo.NewsDemo" method="_doDelete">
+	</route>
+</trigger>
+<trigger name="beluga_news_deleteCom">
+	<route class="modules.news_demo.NewsDemo" method="_doDeleteCom">
+	</route>
+</trigger>
+<trigger name="beluga_news_createComment">
+	<route class="modules.news_demo.NewsDemo" method="_doCreateComment">
+	</route>
+</trigger>
+<trigger name="beluga_news_redirectEdit">
+	<route class="modules.news_demo.NewsDemo" method="_doRedirectEdit">
+	</route>
+</trigger>
+<trigger name="beluga_news_edit">
+	<route class="modules.news_demo.NewsDemo" method="_doEdit">
+	</route>
+</trigger>
+<trigger name="beluga_news_edit_success">
+	<route class="modules.news_demo.NewsDemo" method="_doEditSuccess">
+	</route>
+</trigger>
+<trigger name="beluga_news_edit_fail">
+	<route class="modules.news_demo.NewsDemo" method="_doEditFail">
+	</route>
 </trigger>

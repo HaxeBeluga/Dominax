@@ -152,10 +152,6 @@ class SurveyDemo
 	 	this.doDefault();
 	}
 
-	public static function _doVotePage(args : {survey : SurveyModel}) {
-		new SurveyDemo(Beluga.getInstance()).doVotePage(args);
-	}
-
 	public function doVotePage(args : {survey : SurveyModel}) {
 		if (Beluga.getInstance().getModuleInstance(Account).isLogged() == false) {
 			Web.setHeader("Content-Type", "text/plain");
@@ -191,6 +187,10 @@ class SurveyDemo
 		if (Beluga.getInstance().getModuleInstance(Account).isLogged() == false) {
 			Web.setHeader("Content-Type", "text/plain");
 			Sys.println("Please log in !");
+			return;
+		}
+		if (this.survey.canVote({id : args.survey.id})) {
+			doVotePage({survey : args.survey});
 			return;
 		}
 		var arr = new Array<Dynamic>();

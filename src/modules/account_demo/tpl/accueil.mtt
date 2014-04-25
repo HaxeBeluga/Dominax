@@ -74,7 +74,7 @@
                         <img src="/img/file_upload.png" >
                         <div class="caption">
                             <h3>Module de de téléchargement de fichier</h3>
-                            <p>Grâce à ce module vous donnez la possibilité à vos utilisateurs de sauvegarder facilement leurs fichier sur vos serveurs !</p>
+                            <p>Grâce à ce module vous donnez la possibilité à vos utilisateurs de sauvegarder facilement leurs fichiers sur vos serveurs !</p>
                             <p><a href="/fileUploadDemo/" class="btn btn-success" role="button">Uploader vos fichiers !</a></p>
                         </div>
                     </div>
@@ -114,6 +114,18 @@
                             <h3>Administration des extensions de fichier</h3>
                             <p>Exemple simple d'un widget fourni avec le module de téléchargement de fichier. Celui-ci est destiné à être intégré dans votre backoffice et vous permet de gérer les extensions de vos fichiers.</p>
                             <p><a href="/fileUploadDemo/adminPage" class="btn btn-success" role="button">Essayer ce widget !</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News system -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="" >
+                        <div class="caption">
+                            <h3>Systeme de news</h3>
+                            <p></p>
+                            <p><a href="/newsDemo" class="btn btn-success" role="button">Essayer ce widget !</a></p>
                         </div>
                     </div>
                 </div>

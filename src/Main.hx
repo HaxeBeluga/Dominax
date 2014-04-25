@@ -18,6 +18,7 @@ import modules.fileupload_demo.FileUploadDemo;
 import modules.notification_demo.NotificationDemo;
 import main_view.Renderer;
 import modules.forum_demo.ChannelDemo;
+import modules.news_demo.NewsDemo;
 
 /**
  * Beluga #1
@@ -96,10 +97,14 @@ class Main
 	public function doForumDemo(d : Dispatch) {
 		d.dispatch(new ChannelDemo(beluga));
 	}
+
+	public function doNewsDemo(d : Dispatch) {
+		d.dispatch(new NewsDemo(beluga));
+	}
 	
 	public function doAccueil() {
-			var html = Renderer.renderDefault("page_accueil", "Accueil",{});
-			Sys.print(html);
+		var html = Renderer.renderDefault("page_accueil", "Accueil",{});
+		Sys.print(html);
 	}
 
 }
