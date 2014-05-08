@@ -111,6 +111,7 @@ class Main
 
 	public function doMailDemo(d : Dispatch) {
 		d.dispatch(new MailDemo(beluga));
+	}
 
 	public function doMarketDemo(d : Dispatch) {
 		d.dispatch(new MarketDemo(beluga));

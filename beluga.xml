@@ -319,3 +319,23 @@
 <trigger name="beluga_mail_print">
 	<route class="modules.mail_demo.MailDemo" method="_doPrint"></route>
 </trigger>
+
+<!-- market triggers -->
+<trigger name="beluga_market_add_product_to_cart_success">
+	<route class="modules.market_demo.MarketDemo" method="_doDemoPage" ></route>
+</trigger>
+<trigger name="beluga_market_add_product_to_cart_fail">
+	<route class="modules.market_demo.MarketDemo" method="_doDemoPage" ></route>
+</trigger>
+<trigger name="beluga_market_remove_product_in_cart_fail">
+	<route class="modules.market_demo.MarketDemo" method="_doCartPage" ></route>
+</trigger>
+<trigger name="beluga_market_remove_product_in_cart_success">
+	<route class="modules.market_demo.MarketDemo" method="_doCartPage" ></route>
+</trigger>
+<trigger name="beluga_market_checkout_cart_fail">
+	<route class="modules.market_demo.MarketDemo" method="_doCartPage" ></route>
+</trigger>
+<trigger name="beluga_market_checkout_cart_success">
+	<route class="modules.market_demo.MarketDemo" method="_doCheckoutSuccess" ></route>
+</trigger>

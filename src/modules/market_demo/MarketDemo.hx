@@ -49,6 +49,24 @@ class MarketDemo {
         Sys.print(html);
     }
 
+    public static function _doCartPage() {
+       new MarketDemo(Beluga.getInstance()).doCartPage();
+    }
+
+    public function doCartPage() {
+        var marketCartWidget = this.market.getWidget("cart");
+        marketCartWidget.context = this.market.getCartContext();
+
+        var html = Renderer.renderDefault("page_market_admin_widget", "User Cart", {
+            marketAdminWidget: marketCartWidget.render(),
+        });
+        Sys.print(html);
+    }
+
+    public static function _doCheckoutSuccess() {
+        new MarketDemo(Beluga.getInstance()).doCartPage();
+    }
+
     public function doDefault(d : Dispatch) {
         Web.setHeader("Content-Type", "text/plain");
         Sys.println("No action available for: " + d.parts[0]);
