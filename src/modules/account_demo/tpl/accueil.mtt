@@ -156,6 +156,19 @@
                     </div>
                 </div>
 
+                <!-- Market module -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="http://placehold.it/350x150" >
+                        <div class="caption">
+                            <h3>Module de Marche - Administration</h3>
+                            <p>Cette page propose la demonstration de la partie administration du module de marche, vous pouvez rajouter de nouveaux articles, les editer ou encore les supprimer depuis cette page !</p>
+                            <p><a href="/marketDemo/adminPage" class="btn btn-success" role="button">Essayer ce widget !</a></p>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     <!-- </div> -->
