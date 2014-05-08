@@ -16,6 +16,7 @@ import modules.ticket_demo.TicketDemo;
 import modules.survey_demo.SurveyDemo;
 import modules.fileupload_demo.FileUploadDemo;
 import modules.notification_demo.NotificationDemo;
+import modules.wallet_demo.WalletDemo;
 import main_view.Renderer;
 import modules.forum_demo.ChannelDemo;
 import modules.news_demo.NewsDemo;
@@ -27,7 +28,7 @@ import modules.news_demo.NewsDemo;
  * @author Masadow
  */
 
-class Main 
+class Main
 {
 	public static var beluga : Beluga;
 
@@ -42,12 +43,12 @@ class Main
 			trace(e);
 		}
 	}
-	
+
 	public function customTrigger()
 	{
 		Sys.println("<br />Custom non-static");
 	}
-	
+
 	public function customTriggerStatic()
 	{
 		Sys.println("<br />Custom static");
@@ -101,7 +102,11 @@ class Main
 	public function doNewsDemo(d : Dispatch) {
 		d.dispatch(new NewsDemo(beluga));
 	}
-	
+
+	public function doWalletDemo(d : Dispatch) {
+		d.dispatch(new WalletDemo(beluga));
+	}
+
 	public function doAccueil() {
 		var html = Renderer.renderDefault("page_accueil", "Accueil",{});
 		Sys.print(html);

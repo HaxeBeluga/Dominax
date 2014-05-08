@@ -30,7 +30,7 @@ class AccountDemoApi
 	public function doLoginPage() {
         var loginWidget = acc.getWidget("login");
         loginWidget.context = {error : ""};
-        
+
 		var html = Renderer.renderDefault("page_login", "Authentification", {
 			loginWidget: loginWidget.render()
 		});
@@ -55,7 +55,7 @@ class AccountDemoApi
 		}
 		var subscribeWidget = acc.getWidget("info");
 		subscribeWidget.context = {user : user};
-		
+
 		var html = Renderer.renderDefault("page_subscribe", "Information", {
 			subscribeWidget: subscribeWidget.render()
 		});

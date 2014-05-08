@@ -81,12 +81,12 @@ class NotificationDemo
 	public static function _doCreateFail() {
 		new NotificationDemo(Beluga.getInstance()).doCreateFail();
 	}
-	
+
 	public function doCreateFail() {
 		error_msg = "Error ! Notification has not been created...";
 		this.doDefault();
 	}
-	
+
 	public static function _doCreateSuccess() {
 		new NotificationDemo(Beluga.getInstance()).doCreateSuccess();
 	}
@@ -95,7 +95,7 @@ class NotificationDemo
 		// success_msg = "Notification has been successfully created !";
 		// this.doDefault();
 	}
-	
+
 	public static function _doDeleteSuccess() {
 		new NotificationDemo(Beluga.getInstance()).doDeleteSuccess();
 	}

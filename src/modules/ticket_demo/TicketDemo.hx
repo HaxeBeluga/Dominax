@@ -60,7 +60,7 @@ class TicketDemo {
     public function doShowPage() {
         var ticketWidget = ticket.getWidget("show");
         ticketWidget.context = ticket.getShowContext();
-        
+
         var html = Renderer.renderDefault("page_ticket_widget", "Show ticket", {
             ticketWidget: ticketWidget.render()
         });
@@ -69,14 +69,14 @@ class TicketDemo {
 
     public function doDefault(d : Dispatch) {
         Web.setHeader("Content-Type", "text/plain");
-        Sys.println("No action available for: " + d.parts[0]);  
-        Sys.println("Available actions are:");  
-        Sys.println("browsePage");  
-        Sys.println("createPage");  
-        Sys.println("showPage");    
+        Sys.println("No action available for: " + d.parts[0]);
+        Sys.println("Available actions are:");
+        Sys.println("browsePage");
+        Sys.println("createPage");
+        Sys.println("showPage");
     }
 
-    public static function _doAdminPage() {        
+    public static function _doAdminPage() {
        new TicketDemo(Beluga.getInstance()).doAdminPage();
     }
 

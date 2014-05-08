@@ -16,6 +16,7 @@
 <module name="notification" />
 <module name="forum" />
 <module name="news" />
+<module name="wallet" />
 
 <!-- <include path="Account.xml" /> -->
  <trigger name="beluga_account_subscribe_success">
@@ -273,3 +274,33 @@
 	<route class="modules.news_demo.NewsDemo" method="_doEditFail">
 	</route>
 </trigger>
+
+<!-- wallet triggers -->
+ <trigger name="beluga_wallet_create_currency_success">
+	<route class="modules.wallet_demo.WalletDemo" method="_doDemoPage" ></route>
+</trigger>
+<trigger name="beluga_wallet_create_currency_fail">
+	<route class="modules.wallet_demo.WalletDemo" method="_doDemoPage" ></route>
+</trigger>
+ <trigger name="beluga_wallet_remove_currency_success">
+	<route class="modules.wallet_demo.WalletDemo" method="_doDemoPage" ></route>
+</trigger>
+<trigger name="beluga_wallet_remove_currency_fail">
+	<route class="modules.wallet_demo.WalletDemo" method="_doDemoPage" ></route>
+</trigger>
+<trigger name="beluga_wallet_set_site_currency_fail">
+	<route class="modules.wallet_demo.WalletDemo" method="_doDemoPage" ></route>
+</trigger>
+<trigger name="beluga_wallet_set_site_currency_success">
+	<route class="modules.wallet_demo.WalletDemo" method="_doDemoPage" ></route>
+</trigger>
+<trigger name="beluga_wallet_admin_not_logged">
+	<route class="modules.wallet_demo.WalletDemo" method="_doDemoPage" ></route>
+</trigger>
+<trigger name="beluga_wallet_create_success">
+	<route class="modules.wallet_demo.WalletDemo" method="_doDemoPage" ></route>
+</trigger>
+<trigger name="beluga_wallet_create_fail">
+	<route class="modules.wallet_demo.WalletDemo" method="_doDemoPage" ></route>
+</trigger>
+

@@ -26,7 +26,7 @@ class FileUploadDemo {
         this.file_upload = beluga.getModuleInstance(Fileupload);
     }
 
-    public static function _doBrowsePage() {        
+    public static function _doBrowsePage() {
        new FileUploadDemo(Beluga.getInstance()).doBrowsePage();
     }
 
@@ -41,7 +41,7 @@ class FileUploadDemo {
         Sys.print(html);
     }
 
-    public static function _doSendPage() {            
+    public static function _doSendPage() {
        new FileUploadDemo(Beluga.getInstance()).doSendPage();
     }
 
@@ -53,7 +53,7 @@ class FileUploadDemo {
             browseWidget: "",
             fileUploadWidget: fileUploadWidget.render()
         });
-        Sys.print(html);        
+        Sys.print(html);
     }
 
     private function createErrorMsg(msg: String) {
@@ -124,7 +124,7 @@ class FileUploadDemo {
         Sys.print(html);
     }
 
-    public static function _doAdminPage() {        
+    public static function _doAdminPage() {
        new FileUploadDemo(Beluga.getInstance()).doAdminPage();
     }
 
@@ -145,7 +145,7 @@ class FileUploadDemo {
         Sys.print(html);
     }
 
-    public static function _doAdminPageFail() {        
+    public static function _doAdminPageFail() {
        new FileUploadDemo(Beluga.getInstance()).doAdminPageFail();
     }
 
