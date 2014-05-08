@@ -30,3 +30,6 @@
 
 #----ForumDemo Pages----#
 -resource src/modules/forum_demo/tpl/forum_widget.mtt@page_forum_widget
+
+#----NewsDemo Pages----#
+-resource src/modules/news_demo/tpl/news_page.mtt@page_news
