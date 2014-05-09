@@ -17,6 +17,7 @@ import modules.survey_demo.SurveyDemo;
 import modules.fileupload_demo.FileUploadDemo;
 import modules.notification_demo.NotificationDemo;
 import modules.wallet_demo.WalletDemo;
+import modules.market_demo.MarketDemo;
 import main_view.Renderer;
 import modules.forum_demo.ChannelDemo;
 import modules.news_demo.NewsDemo;
@@ -110,6 +111,10 @@ class Main
 
 	public function doMailDemo(d : Dispatch) {
 		d.dispatch(new MailDemo(beluga));
+	}
+
+	public function doMarketDemo(d : Dispatch) {
+		d.dispatch(new MarketDemo(beluga));
 	}
 
 	public function doAccueil() {
