@@ -121,10 +121,10 @@
                 <!-- News system -->
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <img src="" >
+                        <img src="http://placehold.it/350x150" >
                         <div class="caption">
                             <h3>Systeme de news</h3>
-                            <p></p>
+                            <p>Ce module permet de gerer un systeme d'articles ainsi que la possibilite de les commenter.</p>
                             <p><a href="/newsDemo" class="btn btn-success" role="button">Essayer ce widget !</a></p>
                         </div>
                     </div>
@@ -138,8 +138,20 @@
                         <img src="http://placehold.it/350x150" >
                         <div class="caption">
                             <h3>Module de porte-feuille</h3>
-                            <p>Cet page permet la demonstration du module de porte-feuille aussi bien du cote administration que de la consultation du porte monnaie.</p>
+                            <p>Cette page permet la demonstration du module de porte-feuille aussi bien du cote administration que de la consultation du porte-monnaie.</p>
                             <p><a href="/walletDemo/demoPage" class="btn btn-success" role="button">Essayer ce widget !</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mail module -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="http://placehold.it/350x150" >
+                        <div class="caption">
+                            <h3>Module d'envoi d'email</h3>
+                            <p>Ce module permet d'envoyer des emails.</p>
+                            <p><a href="/mailDemo" class="btn btn-success" role="button">Essayer ce widget !</a></p>
                         </div>
                     </div>
                 </div>

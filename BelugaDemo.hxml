@@ -37,3 +37,5 @@
 #----WalletDemo Pages----#
 -resource src/modules/wallet_demo/tpl/wallet_widget.mtt@page_wallet_widget
 
+#----MailDemo Pages----#
+-resource src/modules/mail_demo/tpl/mail_page.mtt@page_mail

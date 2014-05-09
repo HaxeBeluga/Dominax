@@ -31,6 +31,23 @@ class NewsData {
 	}
 }
 
+class NewsList {
+	public var title : String;
+	public var text : String;
+	public var id : Int;
+	public var pos : Int;
+
+	public function new(t : String, te : String, i : Int, p : Int) {
+		title = t;
+		text = te;
+		id = i;
+		pos = p;
+		if (text.length > 200) {
+			text = text.substr(0, 200) + "...";
+		}
+	}
+}
+
 class NewsDemo
 {
 	public var beluga(default, null) : Beluga;
@@ -53,7 +70,18 @@ class NewsDemo
 		var user = Beluga.getInstance().getModuleInstance(Account).getLoggedUser();
 
 		var widget = news.getWidget("news");
-		widget.context = {news : news.getAllNews(), error : error_msg, success : success_msg, path : "/newsDemo/", user: user};
+		var t_news = this.news.getAllNews();
+		var news = new Array<NewsList>();
+		var pos = 0;
+
+		for (tmp in t_news) {
+			news.push(new NewsList(tmp.title, tmp.text, tmp.id, pos));
+			if (pos == 0)
+				pos = 1;
+			else
+				pos = 0;
+		}
+		widget.context = {news : news, error : error_msg, success : success_msg, path : "/newsDemo/", user: user};
 
 		var newsWidget = widget.render();
 

@@ -20,6 +20,7 @@ import modules.wallet_demo.WalletDemo;
 import main_view.Renderer;
 import modules.forum_demo.ChannelDemo;
 import modules.news_demo.NewsDemo;
+import modules.mail_demo.MailDemo;
 
 /**
  * Beluga #1
@@ -105,6 +106,10 @@ class Main
 
 	public function doWalletDemo(d : Dispatch) {
 		d.dispatch(new WalletDemo(beluga));
+	}
+
+	public function doMailDemo(d : Dispatch) {
+		d.dispatch(new MailDemo(beluga));
 	}
 
 	public function doAccueil() {
