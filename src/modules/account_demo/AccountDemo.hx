@@ -91,7 +91,7 @@ class AccountDemo
 	}
 
 	public function printCustomUserInfo(args: { id: Int }) {
-		var user = User.manager.get(args.id);
+		var user = Beluga.getInstance().getModuleInstance(Account).getLoggedUser();
 
 		if (user == null) {
 			var html = Renderer.renderDefault("page_accueil", "Accueil", {success : "", error : ""});
@@ -99,12 +99,11 @@ class AccountDemo
 			return;
 		}
 		var subscribeWidget = acc.getWidget("info");
-		subscribeWidget.context = {user : user};
+		subscribeWidget.context = {user : user, path : "/accountDemo/"};
 
 		var html = Renderer.renderDefault("page_subscribe", "Information", {
 			subscribeWidget: subscribeWidget.render()
 		});
 		Sys.print(html);
 	}
-
 }
