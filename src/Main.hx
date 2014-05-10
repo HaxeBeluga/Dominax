@@ -2,7 +2,6 @@ package ;
 
 import beluga.core.Beluga;
 import beluga.core.api.BelugaApi;
-import beluga.core.Trigger;
 import beluga.core.Widget;
 import beluga.core.BelugaException;
 import haxe.web.Dispatch;

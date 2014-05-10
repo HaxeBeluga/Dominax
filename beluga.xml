@@ -20,8 +20,12 @@
 <module name="mail" />
 <module name="market" />
 
+<loadmetadata class="modules.account_demo.AccountDemo"/>
+
 <!-- <include path="Account.xml" /> -->
- <trigger name="beluga_account_subscribe_success">
+
+<!--
+<trigger name="beluga_account_subscribe_success">
 	<route class="modules.account_demo.AccountDemo" method="_subscribeSuccess" >
 	</route>
 </trigger>
@@ -31,7 +35,7 @@
 	</route>
 </trigger>
 
- <trigger name="beluga_account_login_success">
+<trigger name="beluga_account_login_success">
 	<route class="modules.account_demo.AccountDemo" method="_loginSuccess" >
 	</route>
 </trigger>
@@ -45,6 +49,8 @@
 	<route class="modules.account_demo.AccountDemo" method="_logout" >
 	</route>
 </trigger>
+-->
+
 <trigger name="beluga_account_show_user">
 	<route class="modules.account_demo.AccountDemo" method="_printCustomUserInfo" >
 	</route>
