@@ -28,6 +28,7 @@ class AccountDemo
 	/*
 	 * Logination
 	 */
+	@trigger("beluga_account_login_success")
 	public static function _loginSuccess() {
 		new AccountDemo(Beluga.getInstance()).loginSuccess();
 	}
@@ -37,6 +38,7 @@ class AccountDemo
 		Sys.print(html);
 	}
 
+	@trigger("beluga_account_login_fail")
 	public static function _loginFail() {
 		new AccountDemo(Beluga.getInstance()).loginFail();
 	}
@@ -51,6 +53,7 @@ class AccountDemo
 		Sys.print(html);
 	}
 
+	@trigger("beluga_account_logout")
 	public static function _logout() {
 		new AccountDemo(Beluga.getInstance()).logout();
 	}
@@ -63,15 +66,17 @@ class AccountDemo
 	/*
 	 *  Subscription
 	 */
+	@trigger("beluga_account_subscribe_success")
 	public static function _subscribeSuccess(user : User) {
 		new AccountDemo(Beluga.getInstance()).subscribeSuccess(user);
 	}
-
-	 public function subscribeSuccess(user : User) {
+	 
+	public function subscribeSuccess(user : User) {
 		var html = Renderer.renderDefault("page_accueil", "Accueil", {success : "Subscribe succeeded !"});
 		Sys.print(html);
 	}
 
+	@trigger("beluga_account_subscribe_fail")
 	public static function _subscribeFail(error : String) {
 		new AccountDemo(Beluga.getInstance()).subscribeFail(error);
 	}
@@ -86,6 +91,7 @@ class AccountDemo
 		Sys.print(html);
 	}
 
+	@trigger("beluga_account_show_user")
 	public function _printCustomUserInfo(args: { id: Int }) {
 		new AccountDemo(Beluga.getInstance()).printCustomUserInfo(args);
 	}
