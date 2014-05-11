@@ -1,5 +1,9 @@
 <!-- Beluga general config -->
 
+<url>
+	<base>/</base>
+</url>
+
 <database>
 	<host>localhost</host>
 	<!-- <port></port> -->
