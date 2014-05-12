@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Beluga</a>
+      <a class="navbar-brand" href="::base_url::/">Beluga</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -19,11 +19,11 @@
 		<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="/accountDemo/subscribePage">Inscription</a></li>
+            <li><a href="::base_url::/accountDemo/subscribePage">Inscription</a></li>
             ::if (user)::
-            <li><a href="/accountDemo/logout">Déconnexion</a></li>
+            <li><a href="::base_url::/accountDemo/logout">Déconnexion</a></li>
             ::else::
-            <li><a href="/accountDemo/loginPage">Authentification</a></li>
+            <li><a href="::base_url::/accountDemo/loginPage">Authentification</a></li>
             ::end::
           </ul>
         </li>
@@ -32,15 +32,15 @@
 		<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ticket<b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="/ticketDemo/browsePage">Browse</a></li>
-            <li><a href="/ticketDemo/createPage">Create</a></li>
-            <li><a href="/ticketDemo/showPage">Show</a></li>
+            <li><a href="::base_url::/ticketDemo/browsePage">Browse</a></li>
+            <li><a href="::base_url::/ticketDemo/createPage">Create</a></li>
+            <li><a href="::base_url::/ticketDemo/showPage">Show</a></li>
           </ul>
         </li>
 
 		<!-- Survey -->
 		<li class="dropdown">
-        <a href="/surveyDemo" class="dropdown-toggle" data-toggle="dropdown">Survey<b class="caret"></b></a>
+        <a href="::base_url::/surveyDemo" class="dropdown-toggle" data-toggle="dropdown">Survey<b class="caret"></b></a>
         <ul class="dropdown-menu">
             <li><a href="/surveyDemo/">Main</a></li>
         </ul>
@@ -48,9 +48,9 @@
 
     <!-- Notificiation -->
     <li class="dropdown">
-        <a href="/notificationDemo" class="dropdown-toggle" data-toggle="dropdown">Notifications<b class="caret"></b></a>
+        <a href="::base_url::/notificationDemo" class="dropdown-toggle" data-toggle="dropdown">Notifications<b class="caret"></b></a>
         <ul class="dropdown-menu">
-            <li><a href="/notificationDemo/">Notifications center</a></li>
+            <li><a href="::base_url::/notificationDemo/">Notifications center</a></li>
         </ul>
     </li>
 
@@ -58,7 +58,7 @@
       </ul>
       <ul class="nav navbar-nav">
         <li>
-          <a href="/accountDemo/printInfo">::login::</a>
+          <a href="::base_url::/accountDemo/printInfo">::login::</a>
         </li>
       </ul>
       <form class="navbar-form navbar-right" role="search">

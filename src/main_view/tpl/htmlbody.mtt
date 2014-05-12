@@ -12,12 +12,12 @@
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="css/normalize.css"/>
-        <link rel="stylesheet" href="css/main.css"/>
+        <link rel="stylesheet" href="::base_url::/css/normalize.css"/>
+        <link rel="stylesheet" href="::base_url::/css/main.css"/>
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet"/>
         <!--link rel="stylesheet"/-->
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="::base_url::/js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -30,8 +30,8 @@
 
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <script src="::base_url::/js/plugins.js"></script>
+        <script src="::base_url::/js/main.js"></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <!--script></script-->
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
