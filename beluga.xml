@@ -1,7 +1,7 @@
 <!-- Beluga general config -->
 
 <url>
-	<base>/BelugaDemo/bin</base>
+	<base value="/BelugaDemo/bin" />
 </url>
 
 <database>

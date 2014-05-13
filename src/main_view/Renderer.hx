@@ -22,8 +22,8 @@ class Renderer
 	 * Render a page with the default template
 	 */
 	public static function renderDefault(page : String, title: String, ctx : Dynamic) {
-		if (ConfigLoader.config.hasNode.url && ConfigLoader.config.node.url.hasNode.base)
-			ctx.base_url = ConfigLoader.config.node.url.node.base.innerData;
+		if (ConfigLoader.config.hasNode.url && ConfigLoader.config.node.url.hasNode.base && ConfigLoader.config.node.url.node.base.has.value)
+			ctx.base_url = ConfigLoader.config.node.url.node.base.att.value;
 		else
 			ctx.base_url = "";
 		var accueil = (new haxe.Template(Resource.getString(page))).execute(ctx);
