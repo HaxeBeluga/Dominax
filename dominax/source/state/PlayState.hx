@@ -1,4 +1,4 @@
-package;
+package state;
 
 import flixel.FlxCamera;
 import flixel.FlxG;
@@ -25,5 +25,14 @@ class PlayState extends FlxState
 		#end
 		
 		super.create();
-	}	
+
+		this.openSubState(new LoadState("Connecting to the server ...", Player.login));
+	}
+	
+	override public function update():Void 
+	{
+		super.update();
+
+		FlxG.log.add("update");
+	}
 }
