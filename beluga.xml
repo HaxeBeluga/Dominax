@@ -1,14 +1,10 @@
 <!-- Beluga general config -->
 
-<url>
-	<base>/BelugaDemo/bin</base>
-</url>
-
 <database>
 	<host>localhost</host>
 	<!-- <port></port> -->
 	<user>root</user>
-	<pass></pass>
+	<pass>root</pass>
 	<database>belugaDemo</database>
 	<!-- <socket></socket> -->
 </database>

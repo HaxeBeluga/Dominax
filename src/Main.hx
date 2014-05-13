@@ -38,11 +38,7 @@ class Main
 	{
 		try {
 			beluga = Beluga.getInstance();
-			//Get the index file location
-			var src : String = untyped __var__('_SERVER', 'SCRIPT_NAME');
-			//Remove server subfolders from URI
-			var url : String = StringTools.replace(Web.getURI(), src.substr(0, src.length - "/index.php".length), "");
-			Dispatch.run(url, Web.getParams(), new Main());
+			Dispatch.run(Web.getURI(), Web.getParams(), new Main());
 			beluga.cleanup();
 		} catch (e : BelugaException) {
 			trace(e);
