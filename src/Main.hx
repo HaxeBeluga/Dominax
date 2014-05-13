@@ -4,6 +4,7 @@ import beluga.core.Beluga;
 import beluga.core.api.BelugaApi;
 import beluga.core.Widget;
 import beluga.core.BelugaException;
+import beluga.module.account.Account;
 import haxe.web.Dispatch;
 import haxe.Resource;
 import haxe.crypto.Md5;
@@ -26,7 +27,6 @@ import neko.Web;
 class Main
 {
     public static var beluga : Beluga;
-
 
     static function main()
     {
@@ -90,5 +90,15 @@ class Main
         var account_service = new AccountServiceApi(beluga);
         account_service.doDefault(d);
     }
+
+	public function doGame() {
+		var user = Beluga.getInstance().getModuleInstance(Account).getLoggedUser();
+		var html = "";
+		if (user != null)
+			html = Renderer.renderDefault("game.mtt", "Play Dominax", { user: user } );
+		else
+			html = Renderer.renderDefault("game_forbid.mtt", "Play Dominax", {});
+		Sys.print(html);
+	}
 
 }

@@ -13,10 +13,9 @@
                 <a class="navbar-brand" href="::base_url::/accountService/loginPage"><i class="fa fa-sign-in fa-fw"></i> Authentification</a>
                 ::end::
 
-               <a class="navbar-brand navbar-right" href="https://github.com/HaxeBeluga/Beluga"><i class="fa fa-bug fa-fw"></i> Github</a>
-            </div>
-            <!-- /.navbar-header -->
-
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
             <div class="navbar-default navbar-static-side" role="navigation">
                 <div class="sidebar-collapse">
                     <ul class="nav" id="side-menu">
@@ -24,6 +23,10 @@
                             <a href="::base_url::/"><i class="fa fa-home"></i> Home</a>
                         </li>
                         ::if (user)::
+						<!-- Play -->
+						<li>
+							<a href="::base_url::/game">Play !</a>
+						</li>
                         <li>
                             <a href="#"><i class="fa fa-user"></i> User<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
