@@ -6,6 +6,7 @@ import flixel.FlxGame;
 class GameClass extends FlxGame
 {	
 	public static var host(default, null) : String;
+	public static var playerId(default, null) : Int;
 	
 	public function new()
 	{
@@ -19,6 +20,7 @@ class GameClass extends FlxGame
 		var fps:Int = 60;
 	
 		host = Lib.current.loaderInfo.parameters.host;
+		playerId = Std.parseInt(Lib.current.loaderInfo.parameters.pid);
 		
 		super(Math.ceil(stageWidth / ratio), Math.ceil(stageHeight / ratio), state.PlayState, ratio, fps, fps);
 	}

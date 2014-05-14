@@ -30,24 +30,24 @@ class Main
 
 	static function main()
 	{
-		//Is it an async request or a user who navigate through the website ?
-		if (Web.getClientHeader("X_HAXE_REMOTING") == "1")
-		{
-			var ctx = new haxe.remoting.Context();
-			ctx.addObject("Server",new Server());
-			if( haxe.remoting.HttpConnection.handleRequest(ctx) )
-				return;
-		}
-		else
-		{
-			try {
-				beluga = Beluga.getInstance();
-				Dispatch.run(beluga.getDispatchUri(), Web.getParams(), new Main());
-				beluga.cleanup();
-			} catch (e : BelugaException) {
-				trace(e);
+		try {
+			beluga = Beluga.getInstance();
+			//Is it an async request or a user who navigate through the website ?
+			if (Web.getClientHeader("X_HAXE_REMOTING") == "1")
+			{
+				var ctx = new haxe.remoting.Context();
+				ctx.addObject("Server",new Server());
+				if( haxe.remoting.HttpConnection.handleRequest(ctx) )
+					return;
 			}
+			else
+			{
+				Dispatch.run(beluga.getDispatchUri(), Web.getParams(), new Main());
+			}
+		} catch (e : BelugaException) {
+			trace(e);
 		}
+		beluga.cleanup();
 	}
 
     public function new() {
@@ -104,10 +104,10 @@ class Main
 		var user = Beluga.getInstance().getModuleInstance(Account).getLoggedUser();
 		var html = "";
 		if (user != null)
-			html = Renderer.renderDefault("game.mtt", "Play Dominax", {host : Web.getHostName()});
+			html = Renderer.renderDefault("game.mtt", "Play Dominax", {host : Web.getHostName(), user: user});
 		else
 			html = Renderer.renderDefault("game_forbid.mtt", "Play Dominax", {});
 		Sys.print(html);
 	}
-
+//
 }

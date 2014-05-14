@@ -1,5 +1,8 @@
 package ;
+//import beluga.module.account.Account;
 import php.Web;
+//import beluga.core.Beluga;
+import haxe.Session;
 
 /**
  * ...
@@ -8,13 +11,22 @@ import php.Web;
 class Server
 {
 
-	public function new() 
-	{		
+	public function new()
+	{
 	}
 	
-	public function login()
+	public function login(id : String)
 	{
-		return Web.getClientHeaders();
+		return 10;
+// 		return { id: id, name: "Masadow" };
+		//var acc = Beluga.getInstance().getModuleInstance(Account);
+//		return Session.get("session_user");
+		//if (acc.getUser(id))
+		//{
+			//var usr = acc.getLoggedUser();
+//			return usr != null ? { id: usr.id, name: usr.login } : null;
+		//}
+		return null;
 	}
 	
 }

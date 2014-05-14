@@ -1,30 +1,14 @@
 <div class="clear"></div>
 <div class="container-fluid">
-	<div class="row">
-		<div align="center">
-			<object
-				classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
-				codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"
-				width="640" height="640" 
-				id="dominax"
-			>
-
-				<param name="movie" value="::base_url::/dominax/flash/bin/dominax.swf" /> 
-			 
-				<param name="quality" value="high" /> 
-
-				<param name="bgcolor" value="#ffffff" /> 
-
-				<embed
-					src="::base_url::/dominax/flash/bin/dominax.swf" quality="high" bgcolor="#ffffff"
-					FlashVars="host=::host::::base_url::"
-					width="640" height="480"
-					name="dominax" align="" type="application/x-shockwave-flash" 
-					pluginspage="http://www.macromedia.com/go/getflashplayer"
-				>
-				</embed>
-
-			</object>
-		</div>
+	<div class="row" style="text-align:center; margin:0">
+		<style>
+			div#dominax { text-align:left; }
+			object#dominax { display:block; margin:0 auto; }
+		</style>
+		<div id="dominax" style="text-align:center"></div>
 	</div>
 </div>
+
+<script>
+swfobject.embedSWF("::base_url::/dominax/flash/bin/dominax.swf", "dominax", 640, 480, "13", false, {host: "::host::::base_url::", uid: "::user.id::"});
+</script>

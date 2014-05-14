@@ -8,20 +8,24 @@ import flixel.FlxG;
  */
 class Player
 {
-	
-	public static var logged = null;
+	public var name(default, null) : String;
+	public var id(default, null) : String;
+
+	public static var logged(default, null) : Player = null;
 
 	//Asynchronous call
 	public static function login(result : Dynamic, done : Void -> Void)
 	{
-		for (r in cast(result, List<Dynamic>))
-			FlxG.log.add(r);
+		FlxG.log.add(result);
+		if (result != null)
+			logged = new Player(result.id, result.name);
 		done();
 	}
 
-	public function new() 
+	private function new(id : String, name : String)
 	{
-		
+		this.id = id;
+		this.name = name;
 	}
 	
 }
