@@ -1,93 +1,79 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="::base_url::/">Dominax</a>
-                <a class="navbar-brand" href="::base_url::/">::login::</a>
-                ::if (!user)::
-                <a class="navbar-brand" href="::base_url::/accountService/subscribePage"><i class="fa fa-user fa-fw"></i> Inscription</a>
-                <a class="navbar-brand" href="::base_url::/accountService/loginPage"><i class="fa fa-sign-in fa-fw"></i> Authentification</a>
-                ::end::
+<nav class="navbar navbar-default" style="margin-top:30px;" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="::host::::base_url::/">Beluga</a>
+    </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-            <div class="navbar-default navbar-static-side" role="navigation">
-                <div class="sidebar-collapse">
-                    <ul class="nav" id="side-menu">
-                        <li>
-                            <a href="::base_url::/"><i class="fa fa-home"></i> Home</a>
-                        </li>
-                        ::if (user)::
-						<!-- Play -->
-						<li>
-							<a href="::base_url::/game">Play !</a>
-						</li>
-                        <li>
-                            <a href="#"><i class="fa fa-user"></i> User<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li><a href="::base_url::/accountService/printInfo">Profile</a>
-                                <li><a href="::base_url::/notificationService">Notifications</a></li>
-                                <li><a href="::base_url::/walletService">Wallet</a>
-                                <li><a href="#">Guilds</a></li>
-                                <li><a href="market.html">Market</a></li>
-                                <li><a href="::base_url::/accountService/logout">Logout</a>
-                            </ul>
-                        </li>
-                        ::end::
-                        <li>
-                            <a href="#"><i class="fa fa-gamepad"></i> The Game<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Rules</a>
-                                </li>
-                                <li>
-                                    <a href="#">Inventory</a>
-                                </li>
-                                <li>
-                                    <a href="#">Guilds</a>
-                                </li>
-                                <li>
-                                    <a href="::base_url::/marketService">Market</a>
-                                </li>
-                                <li>
-                                    <a href="::base_url::/marketService/cartPage">Cart</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-envelope"></i> News</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-info-circle"></i> Help<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="forum.html">Forum</a>
-                                </li>
-                                <li>
-                                    <a href="::base_url::/ticketService/doBrowse">Tickets</a>
-                                </li>
-                                <li>
-                                    <a href="#">FAQ</a>
-                                </li>
-                                <li>
-                                    <a href="#">Contact</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                        <a href="::base_url::/surveyService"><i class="fa fa-file-text"></i> Survey</a>
-                        </li>
-                    </ul>
-                    <!-- /#side-menu -->
-                </div>
-                <!-- /.sidebar-collapse -->
-                <div class="space">
-                </div>
-            </div>
-            <!-- /.navbar-static-side -->
-        </nav>
+        
+		<!-- Play -->
+		::if (user)::
+		<li>
+			<a href="::base_url::/game">Play !</a>
+		</li>
+		::end::
+		  
+		<!-- Account -->  
+		<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="::base_url::/accountDemo/subscribePage">Inscription</a></li>
+            ::if (user)::
+            <li><a href="::base_url::/accountDemo/logout">Déconnexion</a></li>
+            ::else::
+            <li><a href="::base_url::/accountDemo/loginPage">Authentification</a></li>
+            ::end::
+          </ul>
+        </li>
+		
+		<!-- Ticket -->  
+		<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ticket<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="::base_url::/ticketDemo/browsePage">Browse</a></li>
+            <li><a href="::base_url::/ticketDemo/createPage">Create</a></li>
+            <li><a href="::base_url::/ticketDemo/showPage">Show</a></li>
+          </ul>
+        </li>
+
+		<!-- Survey -->
+		<li class="dropdown">
+        <a href="::base_url::/surveyDemo" class="dropdown-toggle" data-toggle="dropdown">Survey<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a href="::base_url::/surveyDemo/">Main</a></li>
+        </ul>
+    </li>
+
+    <!-- Notificiation -->
+    <li class="dropdown">
+        <a href="::base_url::/notificationDemo" class="dropdown-toggle" data-toggle="dropdown">Notifications<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a href="::base_url::/notificationDemo/">Notifications center</a></li>
+        </ul>
+    </li>
+
+
+      </ul>
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="::base_url::/accountDemo/printInfo">::login::</a>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

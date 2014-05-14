@@ -17,6 +17,7 @@
 
 				<embed
 					src="::base_url::/dominax/flash/bin/dominax.swf" quality="high" bgcolor="#ffffff"
+					FlashVars="host=::host::::base_url::"
 					width="640" height="480"
 					name="dominax" align="" type="application/x-shockwave-flash" 
 					pluginspage="http://www.macromedia.com/go/getflashplayer"

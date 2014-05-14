@@ -5,6 +5,8 @@ import flixel.FlxGame;
 	
 class GameClass extends FlxGame
 {	
+	public static var host(default, null) : String;
+	
 	public function new()
 	{
 		var stageWidth:Int = Lib.current.stage.stageWidth;
@@ -15,6 +17,8 @@ class GameClass extends FlxGame
 		var ratio:Float = Math.min(ratioX, ratioY);
 		
 		var fps:Int = 60;
+	
+		host = Lib.current.loaderInfo.parameters.host;
 		
 		super(Math.ceil(stageWidth / ratio), Math.ceil(stageHeight / ratio), state.PlayState, ratio, fps, fps);
 	}

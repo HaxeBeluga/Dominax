@@ -12,13 +12,13 @@ class Player
 	public static var logged = null;
 
 	//Asynchronous call
-	public static function login(done : Void -> Void)
+	public static function login(result : Dynamic, done : Void -> Void)
 	{
-		//Request the server for the current logged player
-		FlxG.log.add("login");
+		for (r in cast(result, List<Dynamic>))
+			FlxG.log.add(r);
 		done();
 	}
-	
+
 	public function new() 
 	{
 		

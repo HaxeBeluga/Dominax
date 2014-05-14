@@ -1,5 +1,6 @@
 package state;
 
+import flash.Lib;
 import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -23,16 +24,14 @@ class PlayState extends FlxState
 		#if !FLX_NO_MOUSE
 		FlxG.mouse.visible = true;
 		#end
-		
-		super.create();
 
-		this.openSubState(new LoadState("Connecting to the server ...", Player.login));
+		super.create();
+		
+		this.openSubState(new LoadState("Connecting to the server ...", Player.login, "login", []));
 	}
-	
+
 	override public function update():Void 
 	{
 		super.update();
-
-		FlxG.log.add("update");
 	}
 }
