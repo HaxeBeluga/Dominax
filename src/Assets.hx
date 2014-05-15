@@ -49,7 +49,16 @@ class Assets
 	{
 		var dest = Compiler.getOutput();
 		var src = "assets/";
-		
+
+		//Create the output folder, if it does not exists
+		var currentFolder = "";
+		for (folder in dest.split("/"))
+		{
+			currentFolder += folder + "/";
+			if (!FileSystem.exists(currentFolder))
+				FileSystem.createDirectory(currentFolder);
+		}
+
 		//Clean assets
 		for (file in FileSystem.readDirectory(dest))
 		{
