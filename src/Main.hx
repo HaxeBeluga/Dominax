@@ -36,6 +36,8 @@ class Main
 
 	static function main()
 	{
+		Assets.build();
+		
 		try {
 			beluga = Beluga.getInstance();
 			//Get the index file location
