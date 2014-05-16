@@ -1,0 +1,321 @@
+<!--
+<trigger name="beluga_account_subscribe_success">
+	<route class="modules.account_demo.AccountDemo" method="_subscribeSuccess" >
+	</route>
+</trigger>
+
+<trigger name="beluga_account_subscribe_fail">
+	<route class="modules.account_demo.AccountDemo" method="_subscribeFail" >
+	</route>
+</trigger>
+
+<trigger name="beluga_account_login_success">
+	<route class="modules.account_demo.AccountDemo" method="_loginSuccess" >
+	</route>
+</trigger>
+
+<trigger name="beluga_account_login_fail">
+	<route class="modules.account_demo.AccountDemo" method="_loginFail" >
+	</route>
+</trigger>
+
+<trigger name="beluga_account_logout">
+	<route class="modules.account_demo.AccountDemo" method="_logout" >
+	</route>
+</trigger>
+-->
+
+<trigger name="beluga_account_show_user">
+	<route class="modules.account_demo.AccountDemo" method="_printCustomUserInfo" >
+	</route>
+</trigger>
+<trigger name="beluga_account_edit">
+	<route class="modules.account_demo.AccountDemoApi" method="_doEdit" >
+	</route>
+</trigger>
+<trigger name="beluga_account_save">
+	<route class="modules.account_demo.AccountDemoApi" method="_doSave" >
+	</route>
+</trigger>
+<trigger name="beluga_account_edit_success">
+	<route class="modules.account_demo.AccountDemoApi" method="_doEditSuccess" >
+	</route>
+</trigger>
+<trigger name="beluga_account_edit_fail">
+	<route class="modules.account_demo.AccountDemoApi" method="_doEditFail" >
+	</route>
+</trigger>
+
+<!-- Ticket triggers -->
+<trigger name="beluga_ticket_show_browse">
+	<route class="modules.ticket_demo.TicketDemo" method="_doBrowsePage" ></route>
+</trigger>
+<trigger name="beluga_ticket_show_create">
+	<route class="modules.ticket_demo.TicketDemo" method="_doCreatePage" ></route>
+</trigger>
+<trigger name="beluga_ticket_show_show">
+	<route class="modules.ticket_demo.TicketDemo" method="_doShowPage" ></route>
+</trigger>
+
+<trigger name="beluga_ticket_show_admin">
+	<route class="modules.ticket_demo.TicketDemo" method="_doAdminPage" ></route>
+</trigger>
+
+<trigger name="beluga_ticket_addlabel_success">
+	<route class="modules.ticket_demo.TicketDemo" method="_doAdminPage" ></route>
+</trigger>
+<trigger name="beluga_ticket_deletelabel_success">
+	<route class="modules.ticket_demo.TicketDemo" method="_doAdminPage" ></route>
+</trigger>
+<trigger name="beluga_ticket_addlabel_fail">
+	<route class="modules.ticket_demo.TicketDemo" method="_doAdminPage" ></route>
+</trigger>
+<trigger name="beluga_ticket_deletelabel_fail">
+	<route class="modules.ticket_demo.TicketDemo" method="_doAdminPage" ></route>
+</trigger>
+<trigger name="beluga_ticket_assign_notify">
+	<route class="modules.ticket_demo.TicketDemo" method="_doNotifyAssign" ></route>
+</trigger>
+
+
+<!-- survey module triggers -->
+<trigger name="beluga_survey_vote_success">
+	<route class="modules.survey_demo.SurveyDemo" method="_doVoteSuccess">
+	</route>
+</trigger>
+<trigger name="beluga_survey_vote_fail">
+	<route class="modules.survey_demo.SurveyDemo" method="_doVoteFail">
+	</route>
+</trigger>
+<trigger name="beluga_survey_create_success">
+	<route class="modules.survey_demo.SurveyDemo" method="_doCreateSuccess">
+	</route>
+</trigger>
+<trigger name="beluga_survey_create_fail">
+	<route class="modules.survey_demo.SurveyDemo" method="_doCreateFail">
+	</route>
+</trigger>
+<trigger name="beluga_survey_printx">
+	<route class="modules.survey_demo.SurveyDemo" method="_doPrintPage">
+	</route>
+</trigger>
+<trigger name="beluga_survey_redirect">
+	<route class="modules.survey_demo.SurveyDemo" method="_doRedirectPage">
+	</route>
+</trigger>
+<trigger name="beluga_survey_delete_success">
+	<route class="modules.survey_demo.SurveyDemo" method="_doDeleteSuccess">
+	</route>
+</trigger>
+<trigger name="beluga_survey_delete_fail">
+	<route class="modules.survey_demo.SurveyDemo" method="_doDeleteFail">
+	</route>
+</trigger>
+<trigger name="beluga_survey_default">
+	<route class="modules.survey_demo.SurveyDemo" method="_doDefault">
+	</route>
+</trigger>
+<trigger name="beluga_survey_answer_notify">
+	<route class="modules.survey_demo.SurveyDemo" method="_doAnswerNotify" ></route>
+</trigger>
+
+<!-- FileUpload triggers -->
+<trigger name="beluga_fileupload_show_browse">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doBrowsePage" ></route>
+</trigger>
+
+<trigger name="beluga_fileupload_delete_success">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doAllPage" ></route>
+</trigger>
+
+<trigger name="beluga_fileupload_upload_fail">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doFailUploadPage" ></route>
+</trigger>
+
+<trigger name="beluga_fileupload_delete_fail">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doFailRemovePage" ></route>
+</trigger>
+
+<trigger name="beluga_fileupload_deleteextension_success">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doAdminPage" ></route>
+</trigger>
+
+<trigger name="beluga_fileupload_deleteextension_fail">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doAdminFail" ></route>
+</trigger>
+
+<trigger name="beluga_fileupload_addextension_success">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doAdminPage" ></route>
+</trigger>
+
+<trigger name="beluga_fileupload_addextension_fail">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doAdminFail" ></route>
+</trigger>
+<trigger name="beluga_fileupload_notify_upload_success">
+	<route class="modules.fileupload_demo.FileUploadDemo" method="_doNotifyUploadSuccess" ></route>
+</trigger>
+
+<!-- notification module triggers -->
+<trigger name="beluga_notif_default">
+	<route class="modules.notification_demo.NotificationDemo" method="_doDefault">
+	</route>
+</trigger>
+<trigger name="beluga_notif_delete_success">
+	<route class="modules.notification_demo.NotificationDemo" method="_doDeleteSuccess">
+	</route>
+</trigger>
+<trigger name="beluga_notif_delete_fail">
+	<route class="modules.notification_demo.NotificationDemo" method="_doDeleteFail">
+	</route>
+</trigger>
+<trigger name="beluga_notif_create_success">
+	<route class="modules.notification_demo.NotificationDemo" method="_doCreateSuccess">
+	</route>
+</trigger>
+<trigger name="beluga_notif_create_fail">
+	<route class="modules.notification_demo.NotificationDemo" method="_doCreateFail">
+	</route>
+</trigger>
+<trigger name="beluga_notif_printx">
+	<route class="modules.notification_demo.NotificationDemo" method="_doPrint">
+	</route>
+</trigger>
+
+<!-- Forum triggers -->
+<trigger name="request_beluga_forum_channel_display">
+	<route class="modules.forum_demo.ChannelDemo" method="_doDisplayChannelPage" ></route>
+</trigger>
+<trigger name="request_beluga_forum_add_channel_display">
+	<route class="modules.forum_demo.ChannelDemo" method="_doDisplayAddChannelPage" ></route>
+</trigger>
+<trigger name="request_beluga_forum_modify_channel_display">
+	<route class="modules.forum_demo.ChannelDemo" method="_doDisplayModifyChannelPage" ></route>
+</trigger>
+<trigger name="request_beluga_forum_delete_channel_display">
+	<route class="modules.forum_demo.ChannelDemo" method="_doDisplayDeleteChannelPage" ></route>
+</trigger>
+
+<!-- news module triggers -->
+<trigger name="beluga_news_default">
+	<route class="modules.news_demo.NewsDemo" method="_doDefault"></route>
+</trigger>
+<trigger name="beluga_news_delete_success">
+	<route class="modules.news_demo.NewsDemo" method="_doDeleteSuccess"></route>
+</trigger>
+<trigger name="beluga_news_delete_fail">
+	<route class="modules.news_demo.NewsDemo" method="_doDeleteFail"></route>
+</trigger>
+<trigger name="beluga_news_create_success">
+	<route class="modules.news_demo.NewsDemo" method="_doCreateSuccess"></route>
+</trigger>
+<trigger name="beluga_news_create_fail">
+	<route class="modules.news_demo.NewsDemo" method="_doCreateFail"></route>
+</trigger>
+<trigger name="beluga_news_print">
+	<route class="modules.news_demo.NewsDemo" method="_doPrint"></route>
+</trigger>
+<trigger name="beluga_news_addComment_fail">
+	<route class="modules.news_demo.NewsDemo" method="_doAddCommentFail"></route>
+</trigger>
+<trigger name="beluga_news_addComment_success">
+	<route class="modules.news_demo.NewsDemo" method="_doAddCommentSuccess"></route>
+</trigger>
+<trigger name="beluga_news_deleteComment_fail">
+	<route class="modules.news_demo.NewsDemo" method="_doDeleteCommentFail"></route>
+</trigger>
+<trigger name="beluga_news_deleteComment_success">
+	<route class="modules.news_demo.NewsDemo" method="_doDeleteCommentSuccess"></route>
+</trigger>
+<trigger name="beluga_news_redirect">
+	<route class="modules.news_demo.NewsDemo" method="_doRedirect"></route>
+</trigger>
+<trigger name="beluga_news_create">
+	<route class="modules.news_demo.NewsDemo" method="_doCreate"></route>
+</trigger>
+<trigger name="beluga_news_delete">
+	<route class="modules.news_demo.NewsDemo" method="_doDelete"></route>
+</trigger>
+<trigger name="beluga_news_deleteCom">
+	<route class="modules.news_demo.NewsDemo" method="_doDeleteCom"></route>
+</trigger>
+<trigger name="beluga_news_createComment">
+	<route class="modules.news_demo.NewsDemo" method="_doCreateComment"></route>
+</trigger>
+<trigger name="beluga_news_redirectEdit">
+	<route class="modules.news_demo.NewsDemo" method="_doRedirectEdit"></route>
+</trigger>
+<trigger name="beluga_news_edit">
+	<route class="modules.news_demo.NewsDemo" method="_doEdit"></route>
+</trigger>
+<trigger name="beluga_news_edit_success">
+	<route class="modules.news_demo.NewsDemo" method="_doEditSuccess"></route>
+</trigger>
+<trigger name="beluga_news_edit_fail">
+	<route class="modules.news_demo.NewsDemo" method="_doEditFail"></route>
+</trigger>
+
+<!-- wallet triggers -->
+ <trigger name="beluga_wallet_create_currency_success">
+	<route class="modules.wallet_demo.WalletDemo" method="_doDemoPage" ></route>
+</trigger>
+<trigger name="beluga_wallet_create_currency_fail">
+	<route class="modules.wallet_demo.WalletDemo" method="_doDemoPage" ></route>
+</trigger>
+ <trigger name="beluga_wallet_remove_currency_success">
+	<route class="modules.wallet_demo.WalletDemo" method="_doDemoPage" ></route>
+</trigger>
+<trigger name="beluga_wallet_remove_currency_fail">
+	<route class="modules.wallet_demo.WalletDemo" method="_doDemoPage" ></route>
+</trigger>
+<trigger name="beluga_wallet_set_site_currency_fail">
+	<route class="modules.wallet_demo.WalletDemo" method="_doDemoPage" ></route>
+</trigger>
+<trigger name="beluga_wallet_set_site_currency_success">
+	<route class="modules.wallet_demo.WalletDemo" method="_doDemoPage" ></route>
+</trigger>
+<trigger name="beluga_wallet_admin_not_logged">
+	<route class="modules.wallet_demo.WalletDemo" method="_doDemoPage" ></route>
+</trigger>
+<trigger name="beluga_wallet_create_success">
+	<route class="modules.wallet_demo.WalletDemo" method="_doDemoPage" ></route>
+</trigger>
+<trigger name="beluga_wallet_create_fail">
+	<route class="modules.wallet_demo.WalletDemo" method="_doDemoPage" ></route>
+</trigger>
+
+<!-- mail triggers -->
+<trigger name="beluga_mail_create">
+	<route class="modules.mail_demo.MailDemo" method="_doCreate"></route>
+</trigger>
+<trigger name="beluga_mail_send">
+	<route class="modules.mail_demo.MailDemo" method="_doSend"></route>
+</trigger>
+<trigger name="beluga_mail_send_fail">
+	<route class="modules.mail_demo.MailDemo" method="_doSendFail"></route>
+</trigger>
+<trigger name="beluga_mail_send_success">
+	<route class="modules.mail_demo.MailDemo" method="_doSendSuccess"></route>
+</trigger>
+<trigger name="beluga_mail_print">
+	<route class="modules.mail_demo.MailDemo" method="_doPrint"></route>
+</trigger>
+
+<!-- market triggers -->
+<trigger name="beluga_market_add_product_to_cart_success">
+	<route class="modules.market_demo.MarketDemo" method="_doDemoPage" ></route>
+</trigger>
+<trigger name="beluga_market_add_product_to_cart_fail">
+	<route class="modules.market_demo.MarketDemo" method="_doDemoPage" ></route>
+</trigger>
+<trigger name="beluga_market_remove_product_in_cart_fail">
+	<route class="modules.market_demo.MarketDemo" method="_doCartPage" ></route>
+</trigger>
+<trigger name="beluga_market_remove_product_in_cart_success">
+	<route class="modules.market_demo.MarketDemo" method="_doCartPage" ></route>
+</trigger>
+<trigger name="beluga_market_checkout_cart_fail">
+	<route class="modules.market_demo.MarketDemo" method="_doCartPage" ></route>
+</trigger>
+<trigger name="beluga_market_checkout_cart_success">
+	<route class="modules.market_demo.MarketDemo" method="_doCheckoutSuccess" ></route>
+</trigger>
