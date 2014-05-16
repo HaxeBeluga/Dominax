@@ -2,7 +2,6 @@ package modules.forum_demo;
 
 // Haxe
 import haxe.web.Dispatch;
-import php.Web;
 import haxe.Resource;
 
 // Website
@@ -12,6 +11,12 @@ import main_view.Renderer;
 import beluga.core.Beluga;
 import beluga.core.Widget;
 import beluga.module.forum.Forum;
+
+#if php
+import php.Web;
+#elseif neko
+import neko.Web;
+#end
 
 class ChannelDemo
 {

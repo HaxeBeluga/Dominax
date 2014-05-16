@@ -1,4 +1,11 @@
-RewriteEngine on
-RewriteCond %{REQUEST_FILENAME} !-f
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /BelugaDemo/bin/php
+
+
+RewriteRule ^$ index.php [L]
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([^?]*)$ /index.php/$1 [NC,L,QSA]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond $1 !^(index\.php|images|table-images|js|robots\.txt|css)
+	
+RewriteRule ^(.*)$ index.php?/$1 [L]

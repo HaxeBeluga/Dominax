@@ -1,6 +1,5 @@
 package modules.account_demo;
 
-import php.Web;
 import haxe.Resource;
 import haxe.web.Dispatch;
 import beluga.core.Beluga;
@@ -10,6 +9,10 @@ import beluga.module.account.ESubscribeFailCause;
 import beluga.module.account.Account;
 import modules.account_demo.AccountDemo;
 import main_view.Renderer;
+
+#if php
+import php.Web;
+#end
 
 
 /**

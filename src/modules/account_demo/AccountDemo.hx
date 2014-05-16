@@ -5,9 +5,12 @@ import beluga.core.Widget;
 import beluga.module.account.model.User;
 import beluga.module.account.ESubscribeFailCause;
 import beluga.module.account.Account;
-import php.Web;
 import haxe.Resource;
 import main_view.Renderer;
+
+#if php
+import php.Web;
+#end
 
 /**
  * Beluga #1
