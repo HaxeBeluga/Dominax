@@ -11,3 +11,6 @@ before_script:
 
 script:
   - haxe BelugaDemo.hxml
+
+notifications:
+  slack: beluga:TnSEYGr5VTjnqJkbFKMhJorQ
