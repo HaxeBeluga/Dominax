@@ -42,7 +42,7 @@
 		<li class="dropdown">
         <a href="::base_url::/surveyDemo" class="dropdown-toggle" data-toggle="dropdown">Survey<b class="caret"></b></a>
         <ul class="dropdown-menu">
-            <li><a href="/surveyDemo/">Main</a></li>
+            <li><a href="::base_url::/surveyDemo/">Main</a></li>
         </ul>
     </li>
 
