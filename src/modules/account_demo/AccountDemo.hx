@@ -32,7 +32,7 @@ class AccountDemo
 	 * Logination
 	 */
 	@trigger("beluga_account_login_success")
-	public static function _loginSuccess() {
+	public static function _loginSuccess(u:User) {
 		new AccountDemo(Beluga.getInstance()).loginSuccess();
 	}
 
