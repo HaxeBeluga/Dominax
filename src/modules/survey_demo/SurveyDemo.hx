@@ -10,9 +10,14 @@ import beluga.module.survey.model.Choice;
 import beluga.module.survey.model.Result;
 import beluga.module.notification.Notification;
 import haxe.web.Dispatch;
-import php.Web;
 import haxe.Resource;
 import main_view.Renderer;
+
+#if php
+import php.Web;
+#elseif neko
+import neko.Web;
+#end
 
 /**
  * Beluga #1

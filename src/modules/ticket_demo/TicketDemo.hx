@@ -14,7 +14,11 @@ import haxe.web.Dispatch;
 import haxe.Resource;
 
 // Haxe PHP specific resource
+#if php
 import php.Web;
+#elseif neko
+import neko.Web;
+#end
 
 class TicketDemo {
     public var beluga(default, null) : Beluga;

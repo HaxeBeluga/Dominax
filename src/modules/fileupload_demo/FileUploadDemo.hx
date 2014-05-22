@@ -15,7 +15,9 @@ import haxe.web.Dispatch;
 import haxe.Resource;
 
 // Haxe PHP specific resource
+#if php
 import php.Web;
+#end
 
 class FileUploadDemo {
     public var beluga(default, null) : Beluga;

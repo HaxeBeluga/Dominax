@@ -8,10 +8,13 @@ import beluga.module.news.News;
 import beluga.module.news.model.NewsModel;
 import beluga.module.news.model.CommentModel;
 import haxe.web.Dispatch;
-import php.Web;
 import haxe.Resource;
 import main_view.Renderer;
 import sys.db.Types;
+
+#if php
+import php.Web;
+#end
 
 /**
  * @author Guillaume Gomez

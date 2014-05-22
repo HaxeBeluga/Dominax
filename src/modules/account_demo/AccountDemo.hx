@@ -5,9 +5,12 @@ import beluga.core.Widget;
 import beluga.module.account.model.User;
 import beluga.module.account.ESubscribeFailCause;
 import beluga.module.account.Account;
-import php.Web;
 import haxe.Resource;
 import main_view.Renderer;
+
+#if php
+import php.Web;
+#end
 
 /**
  * Beluga #1
@@ -29,7 +32,7 @@ class AccountDemo
 	 * Logination
 	 */
 	@trigger("beluga_account_login_success")
-	public static function _loginSuccess() {
+	public static function _loginSuccess(u:User) {
 		new AccountDemo(Beluga.getInstance()).loginSuccess();
 	}
 

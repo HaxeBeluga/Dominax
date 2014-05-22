@@ -5,7 +5,6 @@ import beluga.core.api.BelugaApi;
 import beluga.core.Widget;
 import beluga.core.BelugaException;
 import haxe.web.Dispatch;
-import php.Web;
 import haxe.Resource;
 import haxe.crypto.Md5;
 import beluga.module.account.model.User;
@@ -21,6 +20,12 @@ import main_view.Renderer;
 import modules.forum_demo.ChannelDemo;
 import modules.news_demo.NewsDemo;
 import modules.mail_demo.MailDemo;
+
+#if php
+import php.Web;
+#elseif neko
+import neko.Web;
+#end
 
 /**
  * Beluga #1
@@ -45,16 +50,6 @@ class Main
 		} catch (e : BelugaException) {
 			trace(e);
 		}
-	}
-
-	public function customTrigger()
-	{
-		Sys.println("<br />Custom non-static");
-	}
-
-	public function customTriggerStatic()
-	{
-		Sys.println("<br />Custom static");
 	}
 
 	public function new() {
