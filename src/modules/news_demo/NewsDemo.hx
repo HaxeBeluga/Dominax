@@ -39,15 +39,17 @@ class NewsList {
 	public var text : String;
 	public var id : Int;
 	public var pos : Int;
+	public var creationDate: Date;
 
-	public function new(t : String, te : String, i : Int, p : Int) {
-		title = t;
-		text = te;
-		id = i;
+	public function new(n : NewsModel, p : Int) {
+		title = n.title;
+		text = n.text;
+		id = n.id;
 		pos = p;
 		if (text.length > 200) {
 			text = text.substr(0, 200) + "...";
 		}
+		creationDate = n.creationDate;
 	}
 }
 
@@ -78,7 +80,7 @@ class NewsDemo
 		var pos = 0;
 
 		for (tmp in t_news) {
-			news.push(new NewsList(tmp.title, tmp.text, tmp.id, pos));
+			news.push(new NewsList(tmp, pos));
 			if (pos == 0)
 				pos = 1;
 			else
