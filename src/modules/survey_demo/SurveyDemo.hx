@@ -43,16 +43,13 @@ class SurveyDemo
 	}
 
 	public function doDefault() {
-		//Web.setHeader("Content-Type", "text/plain");
-		//var widget = survey.getWidget("create");
-		//widget.context = survey;
-		//var subscribeWidget = widget.render();
-
 		var user = Beluga.getInstance().getModuleInstance(Account).getLoggedUser();
 		if (user == null) {
-			Web.setHeader("Content-Type", "text/plain");
-			Sys.println("Please log in !");
-			return;
+			if (error_msg == "") {
+				error_msg = "Please log in !";
+			} else {
+				error_msg += "<br/>Please log in !";
+			}
 		}
 		var widget = survey.getWidget("surveys_list");
 		widget.context = {surveys : survey.getSurveysList(), user : user,
@@ -72,15 +69,13 @@ class SurveyDemo
 
 	public function doRedirectPage() {
 		if (Beluga.getInstance().getModuleInstance(Account).getLoggedUser() == null) {
-			Web.setHeader("Content-Type", "text/plain");
-			Sys.println("Please log in !");
+			this.doDefault();
 			return;
 		}
 		var widget = survey.getWidget("create");
 		widget.context = {path : "/beluga/survey/"};
 
 		var surveyWidget = widget.render();
-
 		var html = Renderer.renderDefault("page_survey", "Create survey", {
 			surveyWidget: surveyWidget
 		});
@@ -125,9 +120,7 @@ class SurveyDemo
 
 	public function doCreatePage() {
 		if (Beluga.getInstance().getModuleInstance(Account).getLoggedUser() == null) {
-			Web.setHeader("Content-Type", "text/plain");
-			Sys.println("Please log in !");
-			return;
+			return this.doDefault();
 		}
         var widget = survey.getWidget("create");
         widget.context = {path : "/beluga/survey/"}
@@ -159,20 +152,11 @@ class SurveyDemo
 
 	public function doVotePage(args : {survey : SurveyModel}) {
 		if (Beluga.getInstance().getModuleInstance(Account).isLogged() == false) {
-			Web.setHeader("Content-Type", "text/plain");
-			Sys.println("Please log in !");
-			return;
+			return this.doDefault();
 		}
 
-		var arr = new Array<Choice>();
-		var t = new Array<Choice>();
-		for (tmp_c in Choice.manager.dynamicSearch( { survey_id : args.survey.id } )) {
-			if (t.length > 0)
-				arr.push(tmp_c);
-			else {
-				t.push(tmp_c);
-			}
-		}
+		var arr = Beluga.getInstance().getModuleInstance(Survey).getChoices({id: args.survey.id});
+		var t = arr.splice(0, 1);
 
 		var widget = survey.getWidget("vote");
 		widget.context = {survey : args.survey, choices : arr, first : t, path : "/beluga/survey/"};
@@ -190,47 +174,16 @@ class SurveyDemo
 
 	public function doPrintPage(args : {survey : SurveyModel}) {
 		if (Beluga.getInstance().getModuleInstance(Account).isLogged() == false) {
-			Web.setHeader("Content-Type", "text/plain");
-			Sys.println("Please log in !");
-			return;
+			return this.doDefault();
 		}
 		if (this.survey.canVote({id : args.survey.id})) {
-			doVotePage({survey : args.survey});
-			return;
+			return this.doVotePage({survey : args.survey});
 		}
-		var arr = new Array<Dynamic>();
-		var choices = new Array<Dynamic>();
-		var tot = 0;
-
-		for (tmp_r in Result.manager.dynamicSearch( { survey_id : args.survey.id } )) {
-			tot += 1;
-			var found = false;
-			for (t in arr) {
-				if (t.choice_id == tmp_r) {
-					t.pourcent += 1;
-					found = true;
-				}
-			}
-			if (found == false)
-				arr.push({id : tmp_r.choice_id, pourcent : 1});
-		}
-		for (tmp_c in Choice.manager.dynamicSearch( { survey_id : args.survey.id } )) {
-			var done = false;
-			for (tmp in arr) {
-				if (tmp.id == tmp_c.id) {
-					choices.push({choice : tmp_c, pourcent : tmp.pourcent * 100.0 / tot, vote : tmp.pourcent});
-					done = true;
-				}
-			}
-			if (done == false) {
-				choices.push({choice : tmp_c, pourcent : 0, vote : 0});
-			}
-		}
+		
+		var choices = Beluga.getInstance().getModuleInstance(Survey).getResults({survey_id : args.survey.id});
 		var widget = survey.getWidget("print_survey");
 		widget.context = {survey : args.survey, choices : choices, path : "/beluga/survey/"};
-
 		var surveyWidget = widget.render();
-
 		var html = Renderer.renderDefault("page_survey", "Display survey", {
 			surveyWidget: surveyWidget
 		});
