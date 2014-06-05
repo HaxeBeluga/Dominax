@@ -1,4 +1,4 @@
 <url>
-	<base value="/BelugaDemo/bin/php" if="php" />
+	<base value="" if="php" />
 	<base value="" if="neko" />
 </url>

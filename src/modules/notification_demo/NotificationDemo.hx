@@ -2,6 +2,7 @@ package modules.notification_demo;
 
 import beluga.core.Beluga;
 import beluga.core.Widget;
+import beluga.core.macro.MetadataReader;
 import beluga.module.account.model.User;
 import beluga.module.account.Account;
 import beluga.module.notification.Notification;
@@ -21,7 +22,7 @@ import neko.Web;
  * @author Guillaume Gomez
  */
 
-class NotificationDemo
+class NotificationDemo implements MetadataReader
 {
 	public var beluga(default, null) : Beluga;
 	public var notif(default, null) : Notification;
@@ -35,6 +36,7 @@ class NotificationDemo
 		this.success_msg = "";
 	}
 
+	@btrigger("beluga_notif_default")
 	public static function _doDefault() {
 		new NotificationDemo(Beluga.getInstance()).doDefault();
 	}
@@ -57,6 +59,7 @@ class NotificationDemo
 		Sys.print(html);
 	}
 
+	@btrigger("beluga_notif_printx")
 	public static function _doPrint(args : {notif : NotificationModel}) {
 		new NotificationDemo(Beluga.getInstance()).doPrint(args);
 	}
@@ -83,6 +86,7 @@ class NotificationDemo
 		Sys.print(html);
 	}
 
+	@btrigger("beluga_notif_create_fail")
 	public static function _doCreateFail() {
 		new NotificationDemo(Beluga.getInstance()).doCreateFail();
 	}
@@ -92,6 +96,7 @@ class NotificationDemo
 		this.doDefault();
 	}
 
+	@btrigger("beluga_notif_create_success")
 	public static function _doCreateSuccess() {
 		new NotificationDemo(Beluga.getInstance()).doCreateSuccess();
 	}
@@ -101,6 +106,7 @@ class NotificationDemo
 		// this.doDefault();
 	}
 
+	@btrigger("beluga_notif_delete_success")
 	public static function _doDeleteSuccess() {
 		new NotificationDemo(Beluga.getInstance()).doDeleteSuccess();
 	}
@@ -110,6 +116,7 @@ class NotificationDemo
 		this.doDefault();
 	}
 
+	@btrigger("beluga_notif_delete_fail")
 	public static function _doDeleteFail() {
 		new NotificationDemo(Beluga.getInstance()).doDeleteFail();
 	}
