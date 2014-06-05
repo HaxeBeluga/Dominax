@@ -3,6 +3,7 @@ package modules.market_demo;
 // Beluga
 import beluga.core.Beluga;
 import beluga.core.Widget;
+import beluga.core.macro.MetadataReader;
 import beluga.module.market.Market;
 import beluga.module.account.Account;
 
@@ -20,7 +21,7 @@ import php.Web;
 import neko.Web;
 #end
 
-class MarketDemo {
+class MarketDemo implements MetadataReader {
     public var beluga(default, null) : Beluga;
     public var market(default, null) : Market;
 
@@ -29,6 +30,8 @@ class MarketDemo {
         this.market = beluga.getModuleInstance(Market);
     }
 
+    @bTrigger("beluga_market_add_product_to_cart_success",
+              "beluga_market_add_product_to_cart_fail")
     public static function _doDemoPage() {
        new MarketDemo(Beluga.getInstance()).doDemoPage();
     }
@@ -53,6 +56,9 @@ class MarketDemo {
         Sys.print(html);
     }
 
+    @bTrigger("beluga_market_remove_product_in_cart_fail",
+              "beluga_market_remove_product_in_cart_success",
+              "beluga_market_checkout_cart_fail")
     public static function _doCartPage() {
        new MarketDemo(Beluga.getInstance()).doCartPage();
     }
@@ -67,6 +73,7 @@ class MarketDemo {
         Sys.print(html);
     }
 
+    @bTrigger("beluga_market_checkout_cart_success")
     public static function _doCheckoutSuccess() {
         new MarketDemo(Beluga.getInstance()).doCartPage();
     }

@@ -3,6 +3,7 @@ package modules.wallet_demo;
 // Beluga
 import beluga.core.Beluga;
 import beluga.core.Widget;
+import beluga.core.macro.MetadataReader;
 import beluga.module.wallet.Wallet;
 import beluga.module.account.Account;
 
@@ -20,7 +21,7 @@ import php.Web;
 import neko.Web;
 #end
 
-class WalletDemo {
+class WalletDemo implements MetadataReader {
     public var beluga(default, null) : Beluga;
     public var wallet(default, null) : Wallet;
 
@@ -29,6 +30,14 @@ class WalletDemo {
         this.wallet = beluga.getModuleInstance(Wallet);
     }
 
+    @bTrigger("beluga_wallet_create_currency_success",
+              "beluga_wallet_create_currency_fail",
+              "beluga_wallet_remove_currency_success",
+              "beluga_wallet_remove_currency_fail",
+              "beluga_wallet_set_site_currency_fail",
+              "beluga_wallet_set_site_currency_success",
+              "beluga_wallet_create_success",
+              "beluga_wallet_create_fail")
     public static function _doDemoPage() {
        new WalletDemo(Beluga.getInstance()).doDemoPage();
     }

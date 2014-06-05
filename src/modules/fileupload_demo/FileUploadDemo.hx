@@ -3,6 +3,7 @@ package modules.fileupload_demo;
 // Beluga
 import beluga.core.Beluga;
 import beluga.core.Widget;
+import beluga.core.macro.MetadataReader;
 import beluga.module.fileupload.Fileupload;
 import beluga.module.account.Account;
 import beluga.module.notification.Notification;
@@ -19,7 +20,7 @@ import haxe.Resource;
 import php.Web;
 #end
 
-class FileUploadDemo {
+class FileUploadDemo implements MetadataReader {
     public var beluga(default, null) : Beluga;
     public var file_upload(default, null) : Fileupload;
 
@@ -28,6 +29,7 @@ class FileUploadDemo {
         this.file_upload = beluga.getModuleInstance(Fileupload);
     }
 
+    // @bTrigger("beluga_fileupload_show_browse")
     public static function _doBrowsePage() {
        new FileUploadDemo(Beluga.getInstance()).doBrowsePage();
     }
@@ -63,6 +65,7 @@ class FileUploadDemo {
                 <strong>Error!</strong> " + msg + "</div>";
     }
 
+    @bTrigger("beluga_fileupload_delete_fail")
     public static function _doFailRemovePage(args: { reason: String }) {
         new FileUploadDemo(Beluga.getInstance()).doFailRemovePage(args);
     }
@@ -79,6 +82,7 @@ class FileUploadDemo {
         Sys.print(html);
     }
 
+    @bTrigger("beluga_fileupload_delete_success")
     public static function _doAllPage() {
         new FileUploadDemo(Beluga.getInstance()).doAllPage();
     }
@@ -126,6 +130,8 @@ class FileUploadDemo {
         Sys.print(html);
     }
 
+    @bTrigger("beluga_fileupload_deleteextension_success",
+              "beluga_fileupload_addextension_success")
     public static function _doAdminPage() {
        new FileUploadDemo(Beluga.getInstance()).doAdminPage();
     }
@@ -147,6 +153,8 @@ class FileUploadDemo {
         Sys.print(html);
     }
 
+    // @bTrigger("beluga_fileupload_deleteextension_fail",
+    //           "beluga_fileupload_addextension_fail")
     public static function _doAdminPageFail() {
        new FileUploadDemo(Beluga.getInstance()).doAdminPageFail();
     }
@@ -168,6 +176,7 @@ class FileUploadDemo {
         Sys.print(html);
     }
 
+    @bTrigger("beluga_fileupload_upload_fail")
     public static function _doFailUploadPage(args: { reason: String }) {
        new FileUploadDemo(Beluga.getInstance()).doFailUploadPage(args);
     }
@@ -191,6 +200,7 @@ class FileUploadDemo {
         Sys.print(html);
     }
 
+    @bTrigger("beluga_fileupload_notify_upload_success")
     public function _doNotifyUploadSuccess(args : {title : String, text : String, user_id: Int}) {
         var notification = Beluga.getInstance().getModuleInstance(Notification);
         notification.create(args);

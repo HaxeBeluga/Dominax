@@ -4,6 +4,7 @@ import haxe.Resource;
 import haxe.web.Dispatch;
 import beluga.core.Beluga;
 import beluga.core.Widget;
+import beluga.core.macro.MetadataReader;
 import beluga.module.account.model.User;
 import beluga.module.account.ESubscribeFailCause;
 import beluga.module.account.Account;
@@ -20,7 +21,7 @@ import php.Web;
  * @author brissa_A
  */
 
-class AccountDemoApi
+class AccountDemoApi implements MetadataReader
 {
 	public var beluga(default, null) : Beluga;
 	public var acc(default, null) : Account;
@@ -74,6 +75,7 @@ class AccountDemoApi
 		Sys.print(html);
 	}
 
+	@bTrigger("beluga_account_edit")
 	public static function _doEdit() {
 		new AccountDemoApi(Beluga.getInstance()).doEdit();
 	}
@@ -95,6 +97,7 @@ class AccountDemoApi
 		Sys.print(html);
 	}
 
+	@bTrigger("beluga_account_save")
 	public static function _doSave(args : {email : String}) {
 		new AccountDemoApi(Beluga.getInstance()).doSave(args);
 	}
@@ -103,6 +106,7 @@ class AccountDemoApi
 		this.acc.edit(args.email);
 	}
 
+	@bTrigger("beluga_account_edit_success")
 	public static function _doEditSuccess() {
 		new AccountDemoApi(Beluga.getInstance()).doEditSuccess();
 	}
@@ -112,6 +116,7 @@ class AccountDemoApi
 		Sys.print(html);
 	}
 
+	@bTrigger("beluga_account_edit_fail")
 	public static function _doEditFail() {
 		new AccountDemoApi(Beluga.getInstance()).doEditSuccess();
 	}

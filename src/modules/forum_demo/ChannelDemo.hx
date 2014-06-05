@@ -10,6 +10,7 @@ import main_view.Renderer;
 // Beluga
 import beluga.core.Beluga;
 import beluga.core.Widget;
+import beluga.core.macro.MetadataReader;
 import beluga.module.forum.Forum;
 
 #if php
@@ -18,7 +19,7 @@ import php.Web;
 import neko.Web;
 #end
 
-class ChannelDemo
+class ChannelDemo implements MetadataReader
 {
   public var beluga(default, null) : Beluga;
   public var frm(default, null) : Forum;
@@ -29,6 +30,7 @@ class ChannelDemo
     this.frm = beluga.getModuleInstance(Forum);
   }
 
+  @bTrigger("request_beluga_forum_channel_display")
   public static function _doDisplayChannelPage()
   {
     new ChannelDemo(Beluga.getInstance()).doDisplayChannelPage();
@@ -45,6 +47,7 @@ class ChannelDemo
     Sys.print(html);
   }
 
+  @bTrigger("request_beluga_forum_add_channel_display")
   public static function _doDisplayAddChannelPage()
   {
     new ChannelDemo(Beluga.getInstance()).doDisplayAddChannelPage();
@@ -61,6 +64,7 @@ class ChannelDemo
     Sys.print(html);
   }
 
+  @bTrigger("request_beluga_forum_modify_channel_display")
   public static function _doDisplayModifyChannelPage()
   {
     new ChannelDemo(Beluga.getInstance()).doDisplayModifyChannelPage();
@@ -77,6 +81,7 @@ class ChannelDemo
     Sys.print(html);
   }
 
+  @bTrigger("request_beluga_forum_delete_channel_display")
   public static function _doDisplayDeleteChannelPage()
   {
     new ChannelDemo(Beluga.getInstance()).doDisplayDeleteChannelPage();
@@ -95,10 +100,10 @@ class ChannelDemo
 
   public function doDefault(d : Dispatch) {
     Web.setHeader("Content-Type", "text/plain");
-    Sys.println("No action available for: " + d.parts[0]);  
-    Sys.println("Available actions are:");  
-    Sys.println("addChannel"); 
+    Sys.println("No action available for: " + d.parts[0]);
+    Sys.println("Available actions are:");
+    Sys.println("addChannel");
     Sys.println("modifyChannel");
-    Sys.println("deleteChannel");  
+    Sys.println("deleteChannel");
   }
 }
