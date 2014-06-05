@@ -30,7 +30,7 @@ class WalletService implements MetadataReader {
         this.wallet = beluga.getModuleInstance(Wallet);
     }
 
-    @btrigger("beluga_wallet_create_success",
+    @bTrigger("beluga_wallet_create_success",
              "beluga_wallet_create_fail")
     public static function _doDemoPage() {
        new WalletService(Beluga.getInstance()).doDemoPage();

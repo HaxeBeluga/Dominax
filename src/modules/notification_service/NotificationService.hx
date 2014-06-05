@@ -35,7 +35,7 @@ class NotificationService implements MetadataReader {
         this.success_msg = "";
     }
 
-    @btrigger("beluga_notif_default")
+    @bTrigger("beluga_notif_default")
     public static function _doDefault() {
         new NotificationService(Beluga.getInstance()).doDefault();
     }
@@ -58,7 +58,7 @@ class NotificationService implements MetadataReader {
         Sys.print(html);
     }
 
-    @btrigger("beluga_notif_printx")
+    @bTrigger("beluga_notif_printx")
     public static function _doPrint(args : {notif : NotificationModel}) {
         new NotificationService(Beluga.getInstance()).doPrint(args);
     }
@@ -85,7 +85,7 @@ class NotificationService implements MetadataReader {
         Sys.print(html);
     }
 
-    @btrigger("beluga_notif_create_fail")
+    @bTrigger("beluga_notif_create_fail")
     public static function _doCreateFail() {
         new NotificationService(Beluga.getInstance()).doCreateFail();
     }
@@ -95,14 +95,14 @@ class NotificationService implements MetadataReader {
         this.doDefault();
     }
 
-    @btrigger("beluga_notif_create_success")
+    @bTrigger("beluga_notif_create_success")
     public static function _doCreateSuccess() {
         new NotificationService(Beluga.getInstance()).doCreateSuccess();
     }
 
     public function doCreateSuccess() {}
 
-    @btrigger("beluga_notif_delete_success")
+    @bTrigger("beluga_notif_delete_success")
     public static function _doDeleteSuccess() {
         new NotificationService(Beluga.getInstance()).doDeleteSuccess();
     }
@@ -112,7 +112,7 @@ class NotificationService implements MetadataReader {
         this.doDefault();
     }
 
-    @btrigger("beluga_notif_delete_fail")
+    @bTrigger("beluga_notif_delete_fail")
     public static function _doDeleteFail() {
         new NotificationService(Beluga.getInstance()).doDeleteFail();
     }

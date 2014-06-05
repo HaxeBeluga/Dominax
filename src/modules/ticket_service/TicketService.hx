@@ -30,7 +30,7 @@ class TicketService implements MetadataReader {
         this.ticket = beluga.getModuleInstance(Ticket);
     }
 
-    @btrigger("beluga_ticket_show_browse")
+    @bTrigger("beluga_ticket_show_browse")
     public static function _doBrowsePage() {
        new TicketService(Beluga.getInstance()).doBrowsePage();
     }
@@ -45,7 +45,7 @@ class TicketService implements MetadataReader {
         Sys.print(html);
     }
 
-    @btrigger("beluga_ticket_show_create")
+    @bTrigger("beluga_ticket_show_create")
     public static function _doCreatePage() {
        new TicketService(Beluga.getInstance()).doCreatePage();
     }
@@ -60,7 +60,7 @@ class TicketService implements MetadataReader {
         Sys.print(html);
     }
 
-    @btrigger("beluga_ticket_show_show")
+    @bTrigger("beluga_ticket_show_show")
     public static function _doShowPage() {
        new TicketService(Beluga.getInstance()).doShowPage();
     }
@@ -94,7 +94,7 @@ class TicketService implements MetadataReader {
         Sys.print(html);
     }
 
-    @btrigger("beluga_ticket_assign_notify")
+    @bTrigger("beluga_ticket_assign_notify")
     public function _doNotifyAssign(args : {title : String, text : String, user_id: Int}) {
         var notification = Beluga.getInstance().getModuleInstance(Notification);
         notification.create(args);
