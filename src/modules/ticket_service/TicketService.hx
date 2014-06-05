@@ -3,6 +3,7 @@ package modules.ticket_service;
 // Beluga
 import beluga.core.Beluga;
 import beluga.core.Widget;
+import beluga.core.macro.MetadataReader;
 import beluga.module.ticket.Ticket;
 import beluga.module.notification.Notification;
 
@@ -20,7 +21,7 @@ import php.Web;
 import neko.Web;
 #end
 
-class TicketService {
+class TicketService implements MetadataReader {
     public var beluga(default, null) : Beluga;
     public var ticket(default, null) : Ticket;
 
@@ -29,7 +30,7 @@ class TicketService {
         this.ticket = beluga.getModuleInstance(Ticket);
     }
 
-    @trigger("beluga_ticket_show_browse")
+    @btrigger("beluga_ticket_show_browse")
     public static function _doBrowsePage() {
        new TicketService(Beluga.getInstance()).doBrowsePage();
     }
@@ -44,7 +45,7 @@ class TicketService {
         Sys.print(html);
     }
 
-    @trigger("beluga_ticket_show_create")
+    @btrigger("beluga_ticket_show_create")
     public static function _doCreatePage() {
        new TicketService(Beluga.getInstance()).doCreatePage();
     }
@@ -59,7 +60,7 @@ class TicketService {
         Sys.print(html);
     }
 
-    @trigger("beluga_ticket_show_show")
+    @btrigger("beluga_ticket_show_show")
     public static function _doShowPage() {
        new TicketService(Beluga.getInstance()).doShowPage();
     }
@@ -93,9 +94,8 @@ class TicketService {
         Sys.print(html);
     }
 
-    @trigger("beluga_ticket_assign_notify")
+    @btrigger("beluga_ticket_assign_notify")
     public function _doNotifyAssign(args : {title : String, text : String, user_id: Int}) {
-        Sys.print("NEW NOTIF");
         var notification = Beluga.getInstance().getModuleInstance(Notification);
         notification.create(args);
     }

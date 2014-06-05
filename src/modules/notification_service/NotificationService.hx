@@ -2,6 +2,7 @@ package modules.notification_service;
 
 import beluga.core.Beluga;
 import beluga.core.Widget;
+import beluga.core.macro.MetadataReader;
 import beluga.module.account.model.User;
 import beluga.module.account.Account;
 import beluga.module.notification.Notification;
@@ -21,8 +22,7 @@ import neko.Web;
  * @author Guillaume Gomez
  */
 
-class NotificationService
-{
+class NotificationService implements MetadataReader {
     public var beluga(default, null) : Beluga;
     public var notif(default, null) : Notification;
     private var error_msg : String;
@@ -35,7 +35,7 @@ class NotificationService
         this.success_msg = "";
     }
 
-    @trigger("beluga_notif_default")
+    @btrigger("beluga_notif_default")
     public static function _doDefault() {
         new NotificationService(Beluga.getInstance()).doDefault();
     }
@@ -58,7 +58,7 @@ class NotificationService
         Sys.print(html);
     }
 
-    @trigger("beluga_notif_printx")
+    @btrigger("beluga_notif_printx")
     public static function _doPrint(args : {notif : NotificationModel}) {
         new NotificationService(Beluga.getInstance()).doPrint(args);
     }
@@ -85,7 +85,7 @@ class NotificationService
         Sys.print(html);
     }
 
-    @trigger("beluga_notif_create_fail")
+    @btrigger("beluga_notif_create_fail")
     public static function _doCreateFail() {
         new NotificationService(Beluga.getInstance()).doCreateFail();
     }
@@ -95,14 +95,14 @@ class NotificationService
         this.doDefault();
     }
 
-    @trigger("beluga_notif_create_success")
+    @btrigger("beluga_notif_create_success")
     public static function _doCreateSuccess() {
         new NotificationService(Beluga.getInstance()).doCreateSuccess();
     }
 
     public function doCreateSuccess() {}
 
-    @trigger("beluga_notif_delete_success")
+    @btrigger("beluga_notif_delete_success")
     public static function _doDeleteSuccess() {
         new NotificationService(Beluga.getInstance()).doDeleteSuccess();
     }
@@ -112,7 +112,7 @@ class NotificationService
         this.doDefault();
     }
 
-    @trigger("beluga_notif_delete_fail")
+    @btrigger("beluga_notif_delete_fail")
     public static function _doDeleteFail() {
         new NotificationService(Beluga.getInstance()).doDeleteFail();
     }

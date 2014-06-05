@@ -3,6 +3,7 @@ package modules.wallet_service;
 // Beluga
 import beluga.core.Beluga;
 import beluga.core.Widget;
+import beluga.core.macro.MetadataReader;
 import beluga.module.wallet.Wallet;
 import beluga.module.account.Account;
 
@@ -20,7 +21,7 @@ import php.Web;
 import neko.Web;
 #end
 
-class WalletService {
+class WalletService implements MetadataReader {
     public var beluga(default, null) : Beluga;
     public var wallet(default, null) : Wallet;
 
@@ -29,7 +30,7 @@ class WalletService {
         this.wallet = beluga.getModuleInstance(Wallet);
     }
 
-    @trigger("beluga_wallet_create_success",
+    @btrigger("beluga_wallet_create_success",
              "beluga_wallet_create_fail")
     public static function _doDemoPage() {
        new WalletService(Beluga.getInstance()).doDemoPage();

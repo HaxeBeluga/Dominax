@@ -2,6 +2,7 @@ package modules.account_service;
 
 import beluga.core.Beluga;
 import beluga.core.Widget;
+import beluga.core.macro.MetadataReader;
 import beluga.module.account.model.User;
 import beluga.module.account.ESubscribeFailCause;
 import beluga.module.account.Account;
@@ -17,8 +18,7 @@ import php.Web;
  * @author Masadow
  */
 
-class AccountService
-{
+class AccountService implements MetadataReader {
 
     public var beluga(default, null) : Beluga;
     public var acc(default, null) : Account;
@@ -31,7 +31,7 @@ class AccountService
     /*
      * Logination
      */
-    @trigger("beluga_account_login_success")
+    @btrigger("beluga_account_login_success")
     public static function _loginSuccess(u:User) {
         new AccountService(Beluga.getInstance()).loginSuccess();
     }
@@ -44,7 +44,7 @@ class AccountService
         Sys.print(html);
     }
 
-    @trigger("beluga_account_login_fail")
+    @btrigger("beluga_account_login_fail")
     public static function _loginFail() {
         new AccountService(Beluga.getInstance()).loginFail();
     }
@@ -59,7 +59,7 @@ class AccountService
         Sys.print(html);
     }
 
-    @trigger("beluga_account_logout")
+    @btrigger("beluga_account_logout")
     public static function _logout() {
         new AccountService(Beluga.getInstance()).logout();
     }
@@ -75,7 +75,7 @@ class AccountService
     /*
      *  Subscription
      */
-    @trigger("beluga_account_subscribe_success")
+    @btrigger("beluga_account_subscribe_success")
     public static function _subscribeSuccess(user : User) {
         new AccountService(Beluga.getInstance()).subscribeSuccess(user);
     }
@@ -88,7 +88,7 @@ class AccountService
         Sys.print(html);
     }
 
-    @trigger("beluga_account_subscribe_fail")
+    @btrigger("beluga_account_subscribe_fail")
     public static function _subscribeFail(error : String) {
         new AccountService(Beluga.getInstance()).subscribeFail(error);
     }
@@ -103,7 +103,7 @@ class AccountService
         Sys.print(html);
     }
 
-    @trigger("beluga_account_show_user")
+    @btrigger("beluga_account_show_user")
     public function _printCustomUserInfo(args: { id: Int }) {
         new AccountService(Beluga.getInstance()).printCustomUserInfo(args);
     }
