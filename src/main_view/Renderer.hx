@@ -13,10 +13,7 @@ import beluga.core.Beluga;
 class Renderer
 {
 
-	public function new() 
-	{
-		
-	}
+	public function new() {}
 
 	/*
 	 * Render a page with the default template
@@ -54,5 +51,5 @@ class Renderer
 		});
 		return bodyhtml;
 	}
-	
+
 }

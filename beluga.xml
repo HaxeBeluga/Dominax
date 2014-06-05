@@ -5,5 +5,9 @@
 <include path="config/url.xml" />
 <include path="config/module.xml" />
 
-
-<loadmetadata class="modules.account_demo.AccountDemo"/>
+<loadmetadata class="modules.account_service.AccountService"/>
+<loadmetadata class="modules.ticket_service.TicketService"/>
+<loadmetadata class="modules.survey_service.SurveyService"/>
+<loadmetadata class="modules.notification_service.NotificationService"/>
+<loadmetadata class="modules.wallet_service.WalletService"/>
+<loadmetadata class="modules.market_service.MarketService"/>
