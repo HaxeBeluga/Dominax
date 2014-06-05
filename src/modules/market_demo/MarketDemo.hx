@@ -30,7 +30,7 @@ class MarketDemo implements MetadataReader {
         this.market = beluga.getModuleInstance(Market);
     }
 
-    @btrigger("beluga_market_add_product_to_cart_success",
+    @bTrigger("beluga_market_add_product_to_cart_success",
               "beluga_market_add_product_to_cart_fail")
     public static function _doDemoPage() {
        new MarketDemo(Beluga.getInstance()).doDemoPage();
@@ -56,7 +56,7 @@ class MarketDemo implements MetadataReader {
         Sys.print(html);
     }
 
-    @btrigger("beluga_market_remove_product_in_cart_fail",
+    @bTrigger("beluga_market_remove_product_in_cart_fail",
               "beluga_market_remove_product_in_cart_success",
               "beluga_market_checkout_cart_fail")
     public static function _doCartPage() {
@@ -73,7 +73,7 @@ class MarketDemo implements MetadataReader {
         Sys.print(html);
     }
 
-    @btrigger("beluga_market_checkout_cart_success")
+    @bTrigger("beluga_market_checkout_cart_success")
     public static function _doCheckoutSuccess() {
         new MarketDemo(Beluga.getInstance()).doCartPage();
     }

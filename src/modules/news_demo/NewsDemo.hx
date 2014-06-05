@@ -66,7 +66,7 @@ class NewsDemo
 		this.success_msg = "";
 	}
 
-	@btrigger("beluga_news_default")
+	@bTrigger("beluga_news_default")
 	public static function _doDefault() {
 		new NewsDemo(Beluga.getInstance()).doDefault();
 	}
@@ -96,7 +96,7 @@ class NewsDemo
 		Sys.print(html);
 	}
 
-	@btrigger("beluga_news_print")
+	@bTrigger("beluga_news_print")
 	public static function _doPrint(args : {news_id : Int}) {
 		new NewsDemo(Beluga.getInstance()).doPrint(args);
 	}
@@ -128,7 +128,7 @@ class NewsDemo
 		Sys.print(html);
 	}
 
-	@btrigger("beluga_news_redirect")
+	@bTrigger("beluga_news_redirect")
 	public static function _doRedirect() {
 		new NewsDemo(Beluga.getInstance()).doRedirect();
 	}
@@ -150,7 +150,7 @@ class NewsDemo
 		Sys.print(html);
 	}
 
-	@btrigger("beluga_news_redirectEdit")
+	@bTrigger("beluga_news_redirectEdit")
 	public static function _doRedirectEdit(args : {news_id : Int}) {
 		new NewsDemo(Beluga.getInstance()).doRedirectEdit(args);
 	}
@@ -179,7 +179,7 @@ class NewsDemo
 		Sys.print(html);
 	}
 
-	@btrigger("beluga_news_create")
+	@bTrigger("beluga_news_create")
 	public static function _doCreate(args : {title : String, text : String}) {
 		new NewsDemo(Beluga.getInstance()).doCreate(args);
 	}
@@ -188,7 +188,7 @@ class NewsDemo
 		this.news.create(args);
 	}
 
-	@btrigger("beluga_news_delete")
+	@bTrigger("beluga_news_delete")
 	public static function _doDelete(args : {news_id : Int}) {
 		new NewsDemo(Beluga.getInstance()).doDelete(args);
 	}
@@ -197,7 +197,7 @@ class NewsDemo
 		this.news.delete(args);
 	}
 
-	@btrigger("beluga_news_deleteCom")
+	@bTrigger("beluga_news_deleteCom")
 	public static function _doDeleteCom(args : {com_id : Int, news_id : Int}) {
 		new NewsDemo(Beluga.getInstance()).doDeleteCom(args);
 	}
@@ -206,7 +206,7 @@ class NewsDemo
 		this.news.deleteComment({news_id : args.news_id, comment_id : args.com_id});
 	}
 
-	@btrigger("beluga_news_deleteComment_fail")
+	@bTrigger("beluga_news_deleteComment_fail")
 	public static function _doDeleteCommentFail(args : {news_id : Int, error : String}) {
 		new NewsDemo(Beluga.getInstance()).doDeleteCommentFail(args);
 	}
@@ -216,7 +216,7 @@ class NewsDemo
 		this.doPrint({news_id : args.news_id});
 	}
 
-	@btrigger("beluga_news_deleteComment_success")
+	@bTrigger("beluga_news_deleteComment_success")
 	public static function _doDeleteCommentSuccess(args : {news_id : Int}) {
 		new NewsDemo(Beluga.getInstance()).doDeleteCommentSuccess(args);
 	}
@@ -226,7 +226,7 @@ class NewsDemo
 		this.doPrint({news_id : args.news_id});
 	}
 
-	@btrigger("beluga_news_create_fail")
+	@bTrigger("beluga_news_create_fail")
 	public static function _doCreateFail(args : {title : String, data : String, error : String}) {
 		new NewsDemo(Beluga.getInstance()).doCreateFail(args);
 	}
@@ -244,7 +244,7 @@ class NewsDemo
 		Sys.print(html);
 	}
 
-	@btrigger("beluga_news_create_success")
+	@bTrigger("beluga_news_create_success")
 	public static function _doCreateSuccess() {
 		new NewsDemo(Beluga.getInstance()).doCreateSuccess();
 	}
@@ -254,7 +254,7 @@ class NewsDemo
 		this.doDefault();
 	}
 
-	@btrigger("beluga_news_edit_fail")
+	@bTrigger("beluga_news_edit_fail")
 	public static function _doEditFail(args : {news_id : Int, error : String}) {
 		new NewsDemo(Beluga.getInstance()).doEditFail(args);
 	}
@@ -264,7 +264,7 @@ class NewsDemo
 		this.doRedirectEdit({news_id : args.news_id});
 	}
 
-	@btrigger("beluga_news_edit_success")
+	@bTrigger("beluga_news_edit_success")
 	public static function _doEditSuccess(args : {news_id : Int}) {
 		new NewsDemo(Beluga.getInstance()).doEditSuccess(args);
 	}
@@ -274,7 +274,7 @@ class NewsDemo
 		this.doPrint(args);
 	}
 
-	@btrigger("beluga_news_addComment_success")
+	@bTrigger("beluga_news_addComment_success")
 	public static function _doAddCommentSuccess(args : {news_id : Int}) {
 		new NewsDemo(Beluga.getInstance()).doAddCommentSuccess(args);
 	}
@@ -284,7 +284,7 @@ class NewsDemo
 		this.doPrint(args);
 	}
 
-	@btrigger("beluga_news_addComment_fail")
+	@bTrigger("beluga_news_addComment_fail")
 	public static function _doAddCommentFail(args : {news_id : Int}) {
 		new NewsDemo(Beluga.getInstance()).doAddCommentSuccess(args);
 	}
@@ -294,7 +294,7 @@ class NewsDemo
 		this.doPrint(args);
 	}
 
-	@btrigger("beluga_news_delete_success")
+	@bTrigger("beluga_news_delete_success")
 	public static function _doDeleteSuccess() {
 		new NewsDemo(Beluga.getInstance()).doDeleteSuccess();
 	}
@@ -304,7 +304,7 @@ class NewsDemo
 		this.doDefault();
 	}
 
-	@btrigger("beluga_news_delete_fail")
+	@bTrigger("beluga_news_delete_fail")
 	public static function _doDeleteFail() {
 		new NewsDemo(Beluga.getInstance()).doDeleteFail();
 	}
@@ -314,7 +314,7 @@ class NewsDemo
 		this.doDefault();
 	}
 
-	@btrigger("beluga_news_createComment")
+	@bTrigger("beluga_news_createComment")
 	public static function _doCreateComment(args : {news_id : Int, text : String}) {
 		new NewsDemo(Beluga.getInstance()).doCreateComment(args);
 	}
@@ -324,7 +324,7 @@ class NewsDemo
 		this.doPrint({news_id: args.news_id});
 	}
 
-	@btrigger("beluga_news_edit")
+	@bTrigger("beluga_news_edit")
 	public static function _doEdit(args : {news_id : Int, title : String, text : String}) {
 		new NewsDemo(Beluga.getInstance()).doEdit(args);
 	}

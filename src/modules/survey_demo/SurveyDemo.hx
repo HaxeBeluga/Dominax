@@ -39,7 +39,7 @@ class SurveyDemo implements MetadataReader
 		this.success_msg = "";
 	}
 
-	@btrigger("beluga_survey_default")
+	@bTrigger("beluga_survey_default")
 	public static function _doDefault() {
 		new SurveyDemo(Beluga.getInstance()).doDefault();
 	}
@@ -63,7 +63,7 @@ class SurveyDemo implements MetadataReader
 		Sys.print(html);
 	}
 
-	@btrigger("beluga_survey_redirect")
+	@bTrigger("beluga_survey_redirect")
 	public static function _doRedirectPage() {
 		new SurveyDemo(Beluga.getInstance()).doRedirectPage();
 	}
@@ -85,7 +85,7 @@ class SurveyDemo implements MetadataReader
 		Sys.print(html);
 	}
 
-	@btrigger("beluga_survey_create_fail")
+	@bTrigger("beluga_survey_create_fail")
 	public static function _doCreateFail() {
 		new SurveyDemo(Beluga.getInstance()).doCreateFail();
 	}
@@ -95,7 +95,7 @@ class SurveyDemo implements MetadataReader
 		this.doDefault();
 	}
 
-	@btrigger("beluga_survey_create_success")
+	@bTrigger("beluga_survey_create_success")
 	public static function _doCreateSuccess() {
 		new SurveyDemo(Beluga.getInstance()).doCreateSuccess();
 	}
@@ -105,7 +105,7 @@ class SurveyDemo implements MetadataReader
 		this.doDefault();
 	}
 
-	@btrigger("beluga_survey_delete_success")
+	@bTrigger("beluga_survey_delete_success")
 	public static function _doDeleteSuccess() {
 		new SurveyDemo(Beluga.getInstance()).doDeleteSuccess();
 	}
@@ -115,7 +115,7 @@ class SurveyDemo implements MetadataReader
 		this.doDefault();
 	}
 
-	@btrigger("beluga_survey_delete_fail")
+	@bTrigger("beluga_survey_delete_fail")
 	public static function _doDeleteFail() {
 		new SurveyDemo(Beluga.getInstance()).doDeleteFail();
 	}
@@ -141,7 +141,7 @@ class SurveyDemo implements MetadataReader
 		Sys.print(html);
 	}
 
-	@btrigger("beluga_survey_vote_success")
+	@bTrigger("beluga_survey_vote_success")
 	public static function _doVoteSuccess() {
 		new SurveyDemo(Beluga.getInstance()).doVoteSuccess();
 	}
@@ -151,7 +151,7 @@ class SurveyDemo implements MetadataReader
 	 	this.doDefault();
 	}
 
-	@btrigger("beluga_survey_vote_fail")
+	@bTrigger("beluga_survey_vote_fail")
 	public static function _doVoteFail() {
 		new SurveyDemo(Beluga.getInstance()).doVoteFail();
 	}
@@ -188,7 +188,7 @@ class SurveyDemo implements MetadataReader
 		Sys.print(html);
 	}
 
-	@btrigger("beluga_survey_printx")
+	@bTrigger("beluga_survey_printx")
 	public static function _doPrintPage(args : {survey : SurveyModel}) {
 		new SurveyDemo(Beluga.getInstance()).doPrintPage(args);
 	}
@@ -242,7 +242,7 @@ class SurveyDemo implements MetadataReader
 		Sys.print(html);
 	}
 
-	@btrigger("beluga_survey_answer_notify")
+	@bTrigger("beluga_survey_answer_notify")
 	public function _doAnswerNotify(args : {title : String, text : String, user_id: Int}) {
         var notification = Beluga.getInstance().getModuleInstance(Notification);
         notification.create(args);

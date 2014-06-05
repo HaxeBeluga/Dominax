@@ -30,7 +30,7 @@ class WalletDemo implements MetadataReader {
         this.wallet = beluga.getModuleInstance(Wallet);
     }
 
-    @btrigger("beluga_wallet_create_currency_success",
+    @bTrigger("beluga_wallet_create_currency_success",
               "beluga_wallet_create_currency_fail",
               "beluga_wallet_remove_currency_success",
               "beluga_wallet_remove_currency_fail",

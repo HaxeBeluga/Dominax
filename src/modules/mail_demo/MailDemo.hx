@@ -50,7 +50,7 @@ class MailDemo implements MetadataReader {
         Sys.print(html);
     }
 
-    @btrigger("beluga_mail_create")
+    @bTrigger("beluga_mail_create")
     public static function _doCreate() {
        new MailDemo(Beluga.getInstance()).subCreate({receiver : "", subject : "", message : ""});
     }
@@ -78,7 +78,7 @@ class MailDemo implements MetadataReader {
         this.subCreate({receiver : "", subject : "", message : ""});
     }
 
-    @btrigger("beluga_mail_send")
+    @bTrigger("beluga_mail_send")
     public static function _doSend(args : {receiver : String, subject : String, message : String}) {
         new MailDemo(Beluga.getInstance()).doSend(args);
     }
@@ -87,7 +87,7 @@ class MailDemo implements MetadataReader {
         this.mail.sendMail(args);
     }
 
-    @btrigger("beluga_mail_send_fail")
+    @bTrigger("beluga_mail_send_fail")
     public static function _doSendFail(args : {error : String, receiver : String, subject : String, message : String}) {
         new MailDemo(Beluga.getInstance()).doSendFail(args);
     }
@@ -97,7 +97,7 @@ class MailDemo implements MetadataReader {
         this.subCreate({receiver : args.receiver, subject : args.subject, message : args.message});
     }
 
-    // @btrigger("beluga_mail_send_success")
+    // @bTrigger("beluga_mail_send_success")
     public static function _doSendSuccess() {
         new MailDemo(Beluga.getInstance()).doSendSuccess();
     }
@@ -107,7 +107,7 @@ class MailDemo implements MetadataReader {
         this.doDefault();
     }
 
-    @btrigger("beluga_mail_print")
+    @bTrigger("beluga_mail_print")
     public static function _doPrint(args : {id : Int}) {
         new MailDemo(Beluga.getInstance()).doPrint(args);
     }

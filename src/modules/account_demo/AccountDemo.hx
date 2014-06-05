@@ -32,7 +32,7 @@ class AccountDemo implements MetadataReader
     /*
      * Logination
      */
-    @btrigger("beluga_account_login_success")
+    @bTrigger("beluga_account_login_success")
     public static function _loginSuccess(u:User) {
         new AccountDemo(Beluga.getInstance()).loginSuccess();
     }
@@ -42,7 +42,7 @@ class AccountDemo implements MetadataReader
         Sys.print(html);
     }
 
-    @btrigger("beluga_account_login_fail")
+    @bTrigger("beluga_account_login_fail")
     public static function _loginFail() {
         new AccountDemo(Beluga.getInstance()).loginFail();
     }
@@ -57,7 +57,7 @@ class AccountDemo implements MetadataReader
         Sys.print(html);
     }
 
-    @btrigger("beluga_account_logout")
+    @bTrigger("beluga_account_logout")
     public static function _logout() {
         new AccountDemo(Beluga.getInstance()).logout();
     }
@@ -70,7 +70,7 @@ class AccountDemo implements MetadataReader
     /*
      *  Subscription
      */
-    @btrigger("beluga_account_subscribe_success")
+    @bTrigger("beluga_account_subscribe_success")
     public static function _subscribeSuccess(user : User) {
         new AccountDemo(Beluga.getInstance()).subscribeSuccess(user);
     }
@@ -80,7 +80,7 @@ class AccountDemo implements MetadataReader
         Sys.print(html);
     }
 
-    @btrigger("beluga_account_subscribe_fail")
+    @bTrigger("beluga_account_subscribe_fail")
     public static function _subscribeFail(error : String) {
         new AccountDemo(Beluga.getInstance()).subscribeFail(error);
     }
@@ -95,12 +95,12 @@ class AccountDemo implements MetadataReader
         Sys.print(html);
     }
 
-    @btrigger("beluga_account_show_user")
+    @bTrigger("beluga_account_show_user")
     public function _printCustomUserInfo(args: { id: Int }) {
         new AccountDemo(Beluga.getInstance()).printCustomUserInfo(args);
     }
 
-    @btrigger("beluga_account_show_user")
+    @bTrigger("beluga_account_show_user")
     public function printCustomUserInfo(args: { id: Int }) {
         var user = Beluga.getInstance().getModuleInstance(Account).getLoggedUser();
 

@@ -75,7 +75,7 @@ class AccountDemoApi implements MetadataReader
 		Sys.print(html);
 	}
 
-	@btrigger("beluga_account_edit")
+	@bTrigger("beluga_account_edit")
 	public static function _doEdit() {
 		new AccountDemoApi(Beluga.getInstance()).doEdit();
 	}
@@ -97,7 +97,7 @@ class AccountDemoApi implements MetadataReader
 		Sys.print(html);
 	}
 
-	@btrigger("beluga_account_save")
+	@bTrigger("beluga_account_save")
 	public static function _doSave(args : {email : String}) {
 		new AccountDemoApi(Beluga.getInstance()).doSave(args);
 	}
@@ -106,7 +106,7 @@ class AccountDemoApi implements MetadataReader
 		this.acc.edit(args.email);
 	}
 
-	@btrigger("beluga_account_edit_success")
+	@bTrigger("beluga_account_edit_success")
 	public static function _doEditSuccess() {
 		new AccountDemoApi(Beluga.getInstance()).doEditSuccess();
 	}
@@ -116,7 +116,7 @@ class AccountDemoApi implements MetadataReader
 		Sys.print(html);
 	}
 
-	@btrigger("beluga_account_edit_fail")
+	@bTrigger("beluga_account_edit_fail")
 	public static function _doEditFail() {
 		new AccountDemoApi(Beluga.getInstance()).doEditSuccess();
 	}

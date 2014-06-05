@@ -30,7 +30,7 @@ class ChannelDemo implements MetadataReader
     this.frm = beluga.getModuleInstance(Forum);
   }
 
-  @btrigger("request_beluga_forum_channel_display")
+  @bTrigger("request_beluga_forum_channel_display")
   public static function _doDisplayChannelPage()
   {
     new ChannelDemo(Beluga.getInstance()).doDisplayChannelPage();
@@ -47,7 +47,7 @@ class ChannelDemo implements MetadataReader
     Sys.print(html);
   }
 
-  @btrigger("request_beluga_forum_add_channel_display")
+  @bTrigger("request_beluga_forum_add_channel_display")
   public static function _doDisplayAddChannelPage()
   {
     new ChannelDemo(Beluga.getInstance()).doDisplayAddChannelPage();
@@ -64,7 +64,7 @@ class ChannelDemo implements MetadataReader
     Sys.print(html);
   }
 
-  @btrigger("request_beluga_forum_modify_channel_display")
+  @bTrigger("request_beluga_forum_modify_channel_display")
   public static function _doDisplayModifyChannelPage()
   {
     new ChannelDemo(Beluga.getInstance()).doDisplayModifyChannelPage();
@@ -81,7 +81,7 @@ class ChannelDemo implements MetadataReader
     Sys.print(html);
   }
 
-  @btrigger("request_beluga_forum_delete_channel_display")
+  @bTrigger("request_beluga_forum_delete_channel_display")
   public static function _doDisplayDeleteChannelPage()
   {
     new ChannelDemo(Beluga.getInstance()).doDisplayDeleteChannelPage();
