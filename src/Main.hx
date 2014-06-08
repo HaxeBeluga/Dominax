@@ -42,6 +42,7 @@ class Main
 			}
 			else
 			{
+				Assets.build();
 				Dispatch.run(beluga.getDispatchUri(), Web.getParams(), new Main());
 			}
 		} catch (e : BelugaException) {

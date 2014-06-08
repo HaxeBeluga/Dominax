@@ -102,7 +102,7 @@ class Assets
         Context.addResource("page_market_widget", File.getBytes("src/modules/market_service/tpl/market_widget.mtt"));
 		//#----Game page----#
 		Context.addResource("game.mtt", File.getBytes("src/page/game.mtt"));
-		Context.addResource("game_forbid.mtt", "src/page/game_forbid.mtt"));
+		Context.addResource("game_forbid.mtt", File.getBytes("src/page/game_forbid.mtt"));
 
         return macro "Done";
     }
