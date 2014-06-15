@@ -15,6 +15,13 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         
+		<!-- Play -->
+		::if (user)::
+		<li>
+			<a href="::base_url::/game">Play !</a>
+		</li>
+		::end::
+		  
 		<!-- Account -->  
 		<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>

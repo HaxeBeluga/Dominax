@@ -13,10 +13,7 @@ import beluga.core.Beluga;
 class Renderer
 {
 
-	public function new() 
-	{
-		
-	}
+	public function new() {}
 
 	/*
 	 * Render a page with the default template
@@ -31,7 +28,7 @@ class Renderer
 		var login = "";
 
 		if (user != null) {
-			login = "Logged as " + Beluga.getInstance().getModuleInstance(Account).getLoggedUser().login;
+			login = "Logged as " + user.login;
 		}
 		var templateheader = (new haxe.Template(Resource.getString("template_default_header"))).execute( {
 			base_url: ctx.base_url,
@@ -54,5 +51,5 @@ class Renderer
 		});
 		return bodyhtml;
 	}
-	
+
 }

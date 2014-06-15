@@ -4,6 +4,3 @@
 <include path="config/trigger.xml" />
 <include path="config/url.xml" />
 <include path="config/module.xml" />
-
-
-<loadmetadata class="modules.account_demo.AccountDemo"/>

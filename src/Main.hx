@@ -4,22 +4,19 @@ import beluga.core.Beluga;
 import beluga.core.api.BelugaApi;
 import beluga.core.Widget;
 import beluga.core.BelugaException;
+import beluga.module.account.Account;
 import haxe.web.Dispatch;
 import haxe.Resource;
 import haxe.crypto.Md5;
 import beluga.module.account.model.User;
-import modules.account_demo.AccountDemo;
-import modules.account_demo.AccountDemoApi;
-import modules.ticket_demo.TicketDemo;
-import modules.survey_demo.SurveyDemo;
-import modules.fileupload_demo.FileUploadDemo;
-import modules.notification_demo.NotificationDemo;
-import modules.wallet_demo.WalletDemo;
-import modules.market_demo.MarketDemo;
+import modules.account_service.AccountService;
+import modules.ticket_service.TicketService;
+import modules.notification_service.NotificationService;
+import modules.survey_service.SurveyService;
+import modules.wallet_service.WalletService;
+import modules.market_service.MarketService;
+import modules.account_service.AccountServiceApi;
 import main_view.Renderer;
-import modules.forum_demo.ChannelDemo;
-import modules.news_demo.NewsDemo;
-import modules.mail_demo.MailDemo;
 
 #if php
 import php.Web;
@@ -27,95 +24,91 @@ import php.Web;
 import neko.Web;
 #end
 
-/**
- * Beluga #1
- * Load the account class
- * Use it to generate login form, subscribe form, logged homepage
- * @author Masadow
- */
-
 class Main
 {
-	public static var beluga : Beluga;
-
+    public static var beluga : Beluga;
 
 	static function main()
 	{
-		Assets.build();
-		
 		try {
 			beluga = Beluga.getInstance();
-			Dispatch.run(beluga.getDispatchUri(), Web.getParams(), new Main());
-			beluga.cleanup();
+			//Is it an async request or a user who navigate through the website ?
+			if (Web.getClientHeader("X_HAXE_REMOTING") == "1")
+			{
+				var ctx = new haxe.remoting.Context();
+				ctx.addObject("Server",new Server());
+				if( haxe.remoting.HttpConnection.handleRequest(ctx) )
+					return;
+			}
+			else
+			{
+				Assets.build();
+				Dispatch.run(beluga.getDispatchUri(), Web.getParams(), new Main());
+			}
 		} catch (e : BelugaException) {
 			trace(e);
 		}
+		beluga.cleanup();
 	}
 
-	public function new() {
+    public function new() {
 
-	}
+    }
 
-	public function doBeluga(d : Dispatch) {
-		d.dispatch(beluga.api);
-	}
+    public function doBeluga(d : Dispatch) {
+        d.dispatch(beluga.api);
+    }
 
-	public function doDebug(d : Dispatch) {
-		Web.setHeader("Content-Type", "text/plain");
-		trace(Web.getParamsString());
-	}
+    public function doDebug(d : Dispatch) {
+        Web.setHeader("Content-Type", "text/plain");
+        trace(Web.getParamsString());
+    }
 
-	public function doDefault(d : Dispatch) {
-		if (d.parts[0] != "" ) {
-			d.dispatch(beluga.api);
-		} else {
-			doAccueil();
-		}
-	}
+    public function doDefault(d : Dispatch) {
+        if (d.parts[0] != "" ) {
+            d.dispatch(beluga.api);
+        } else {
+            doAccueil(d);
+        }
+    }
 
-	public function doAccountDemo(d : Dispatch) {
-		d.dispatch(new AccountDemoApi(beluga));
-	}
+    public function doAccountService(d : Dispatch) {
+        d.dispatch(new AccountServiceApi(beluga));
+    }
 
-	public function doTicketDemo(d : Dispatch) {
-		d.dispatch(new TicketDemo(beluga));
-	}
+    public function doTicketService(d : Dispatch) {
+        d.dispatch(new TicketService(beluga));
+    }
 
-	public function doSurveyDemo(d : Dispatch) {
-		d.dispatch(new SurveyDemo(beluga));
-	}
+    public function doSurveyService(d : Dispatch) {
+        d.dispatch(new SurveyService(beluga));
+    }
 
-	public function doFileUploadDemo(d : Dispatch) {
-		d.dispatch(new FileUploadDemo(beluga));
-	}
+    public function doNotificationService(d : Dispatch) {
+        d.dispatch(new NotificationService(beluga));
+    }
 
-	public function doNotificationDemo(d : Dispatch) {
-		d.dispatch(new NotificationDemo(beluga));
-	}
+    public function doWalletService(d : Dispatch) {
+        d.dispatch(new WalletService(beluga));
+    }
 
-	public function doForumDemo(d : Dispatch) {
-		d.dispatch(new ChannelDemo(beluga));
-	}
+    public function doMarketService(d : Dispatch) {
+        d.dispatch(new MarketService(beluga));
+    }
 
-	public function doNewsDemo(d : Dispatch) {
-		d.dispatch(new NewsDemo(beluga));
-	}
+    public function doAccueil(d : Dispatch) {
+        var account_service = new AccountServiceApi(beluga);
+        account_service.doDefault(d);
+    }
 
-	public function doWalletDemo(d : Dispatch) {
-		d.dispatch(new WalletDemo(beluga));
-	}
-
-	public function doMailDemo(d : Dispatch) {
-		d.dispatch(new MailDemo(beluga));
-	}
-
-	public function doMarketDemo(d : Dispatch) {
-		d.dispatch(new MarketDemo(beluga));
-	}
-
-	public function doAccueil() {
-		var html = Renderer.renderDefault("page_accueil", "Accueil",{});
+	public function doGame() {
+		var user = Beluga.getInstance().getModuleInstance(Account).getLoggedUser();
+		var html = "";
+		if (user != null)
+			html = Renderer.renderDefault("game.mtt", "Play Dominax", {host : Web.getHostName(), user: user});
+		else
+			html = Renderer.renderDefault("game_forbid.mtt", "Play Dominax", {});
 		Sys.print(html);
 	}
-
+//
 }

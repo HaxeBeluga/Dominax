@@ -1,0 +1,23 @@
+<section style="margin-left: 260px;padding-top:20px">
+    ::if (success)::
+    ::if (success != "")::
+        <div class="alert alert-success" style="margin-top:10px;">::success::</div>
+    ::end::
+    ::end::
+    ::if (error)::
+    ::if (error != "")::
+        <div class="alert alert-danger" style="margin-top:10px;">::error::</div>
+    ::end::
+    ::end::
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="">
+                <p>Welcome, <strong>::login::</strong> !</p>
+                <button type="button" class="btn btn-primary btn-lg"
+                style="width:150px;">play</button>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</section>
