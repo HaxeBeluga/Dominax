@@ -1,0 +1,12 @@
+<section style="margin-left:260px;padding-top:20px;">
+::walletWidget::
+::if (has_wallet == 1)::
+<div class="container wallet-display-widget" style="padding-top:10px;">
+    <div class="container-fluid">
+          <li class="list-group-item">Buy some ::site_currency:: !
+          <a href="::base_url::/walletService/buyCurrency" class="btn btn-info btn-xs pull-right">Buy 10 ::site_currency::</a></li>
+        </ul>
+    </div>
+</div>
+::end::
+</section>

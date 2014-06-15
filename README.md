@@ -1,4 +1,4 @@
-BelugaDemo
+Dominax
 ==========
 
 Demo repository for Beluga framework
