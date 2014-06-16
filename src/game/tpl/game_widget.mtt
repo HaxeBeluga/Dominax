@@ -1,3 +1,15 @@
 <section style="margin-left:260px;padding-top:20px;">
-<p> Your flash game here i think ?</p>
+
+	<!-- <h2>You must be logged to play</h2> -->
+	
+	<style>
+		div#dominax { text-align:left; }
+		object#dominax { display:block; margin:0 auto; }
+	</style>
+	<div id="dominax" style="text-align:center"></div>
+
+	<script>
+	swfobject.embedSWF("::base_url::/game/dominax.swf", "dominax", 640, 480, "13", false, {host: "::host::::base_url::", uid: "::user.id::"});
+	</script>
+
 </section>
