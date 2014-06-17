@@ -14,10 +14,10 @@ class Server
 	{
 	}
 	
-	public function login(id : String)
+	public function login(id : Int)
 	{
 		var acc = Beluga.getInstance().getModuleInstance(Account);
-		var usr = acc.getUser(Std.parseInt(id));
+		var usr = acc.getUser(id);
 		return usr != null ? {id: usr.id, name: usr.login} : null;
 	}
 	

@@ -16,7 +16,6 @@ class Player
 	//Asynchronous call
 	public static function login(result : Dynamic, done : Void -> Void)
 	{
-		trace(result);
 		if (result != null)
 			logged = new Player(result.id, result.name);
 		done();

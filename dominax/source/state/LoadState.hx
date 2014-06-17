@@ -37,7 +37,6 @@ class LoadState extends FlxSubState
 
 		//Prepare the request
 		var cnx = haxe.remoting.HttpAsyncConnection.urlConnect("http://" + GameClass.host + "/index.php");
-//		var cnx = haxe.remoting.HttpAsyncConnection.urlConnect("http://haxe/BelugaDemo/bin");
 		// setup error handler
 		cnx.setErrorHandler( function(err) FlxG.log.error(Std.string(err)) );
 		cnx.Server.resolve(cmd).call(args, function(v) cb(v, done));
