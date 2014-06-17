@@ -10,7 +10,7 @@ before_script:
   - haxelib install session
 
 script:
-  - haxe BelugaDemo.hxml
+  - haxe Dominax.hxml
 
 notifications:
   slack: beluga:TnSEYGr5VTjnqJkbFKMhJorQ
