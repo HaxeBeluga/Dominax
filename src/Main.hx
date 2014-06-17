@@ -31,15 +31,25 @@ class Main {
 
     static function main()
     {
-        Assets.build();
-
-        try {
-            beluga = Beluga.getInstance();
-            Dispatch.run(beluga.getDispatchUri(), Web.getParams(), new Main());
-            beluga.cleanup();
-        } catch (e : BelugaException) {
-            trace(e);
-        }
+		try {
+			beluga = Beluga.getInstance();
+			//Is it an async request or a user who navigate through the website ?
+			if (Web.getClientHeader("X_HAXE_REMOTING") == "1")
+			{
+				var ctx = new haxe.remoting.Context();
+				ctx.addObject("Server",new Server());
+				if( haxe.remoting.HttpConnection.handleRequest(ctx) )
+					return;
+			}
+			else
+			{
+				Assets.build();
+				Dispatch.run(beluga.getDispatchUri(), Web.getParams(), new Main());
+			}
+		} catch (e : BelugaException) {
+			trace(e);
+		}
+		beluga.cleanup();
     }
 
     public function new() {

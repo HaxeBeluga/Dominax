@@ -4,6 +4,7 @@ package game;
 import beluga.core.Beluga;
 import beluga.core.Widget;
 import beluga.core.macro.MetadataReader;
+import beluga.module.account.Account;
 
 // BelugaDemo
 import main_view.Renderer;
@@ -27,7 +28,8 @@ class Game implements MetadataReader {
     }
 
     public function doDefault(d: Dispatch) {
-        var html = Renderer.renderDefault("game_page", "Dominax", {});
+		var user = Beluga.getInstance().getModuleInstance(Account).getLoggedUser();
+        var html = Renderer.renderDefault("game_page", "Dominax", {host : Web.getHostName(), user: user});
         Sys.print(html);
     }
 }
