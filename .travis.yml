@@ -8,6 +8,7 @@ before_script:
   - haxelib setup ~/haxelib
   - haxelib git beluga https://github.com/HaxeBeluga/Beluga
   - haxelib install session
+  - haxelib install tink_macro
 
 script:
   - haxe dominax.hxml
