@@ -29,7 +29,7 @@ class Game implements MetadataReader {
 
     public function doDefault(d: Dispatch) {
 		var user = Beluga.getInstance().getModuleInstance(Account).getLoggedUser();
-        var html = Renderer.renderDefault("game_page", "Dominax", {host : Web.getHostName(), user: user});
+        var html = Renderer.renderDefault("game_page", "Dominax", {host : Web.getClientHeader("Host"), user: user});
         Sys.print(html);
     }
 }
