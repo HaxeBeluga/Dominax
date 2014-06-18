@@ -34,7 +34,6 @@ class Main {
 		try {
 			beluga = Beluga.getInstance();
 			//Is it an async request or a user who navigate through the website ?
-			trace("<pre>" + Web.getClientHeaders() + "</pre>");
 			if (Web.getClientHeader("X_HAXE_REMOTING") == "1")
 			{
 				var ctx = new haxe.remoting.Context();
