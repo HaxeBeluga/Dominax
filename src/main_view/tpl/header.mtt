@@ -1,71 +1,277 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle">
+<header class="header">
+            <a href="::base_url::/" class="logo">
+                <!-- Add the class icon to your logo image or logo icon to add the margining -->
+                Dominax
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="::base_url::/">Dominax</a>
-                <a class="navbar-brand" href="::base_url::/">::login::</a>
-                ::if (!user)::
-                <a class="navbar-brand" href="::base_url::/accountService/subscribePage"><i class="fa fa-user fa-fw"></i> Inscription</a>
-                <a class="navbar-brand" href="::base_url::/accountService/loginPage"><i class="fa fa-sign-in fa-fw"></i> Authentification</a>
-                ::end::
+                </a>
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav">
+                        ::if (user)::
+                        <!-- Messages: style can be found in dropdown.less-->
+                        <li class="dropdown messages-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-envelope"></i>
+                                <span class="label label-success">4</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">You have 4 messages</li>
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu">
+                                        <li><!-- start message -->
+                                            <a href="#">
+                                                <div class="pull-left">
+                                                    <img src="http://placehold.it/50x50" class="img-circle" alt="User Image"/>
+                                                </div>
+                                                <h4>
+                                                    Support Team
+                                                    <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                                </h4>
+                                                <p>Why not buy a new awesome theme?</p>
+                                            </a>
+                                        </li><!-- end message -->
+                                        <li>
+                                            <a href="#">
+                                                <div class="pull-left">
+                                                    <img src="../../img/avatar2.png" class="img-circle" alt="user image"/>
+                                                </div>
+                                                <h4>
+                                                    AdminLTE Design Team
+                                                    <small><i class="fa fa-clock-o"></i> 2 hours</small>
+                                                </h4>
+                                                <p>Why not buy a new awesome theme?</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="pull-left">
+                                                    <img src="../../img/avatar.png" class="img-circle" alt="user image"/>
+                                                </div>
+                                                <h4>
+                                                    Developers
+                                                    <small><i class="fa fa-clock-o"></i> Today</small>
+                                                </h4>
+                                                <p>Why not buy a new awesome theme?</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="pull-left">
+                                                    <img src="../../img/avatar2.png" class="img-circle" alt="user image"/>
+                                                </div>
+                                                <h4>
+                                                    Sales Department
+                                                    <small><i class="fa fa-clock-o"></i> Yesterday</small>
+                                                </h4>
+                                                <p>Why not buy a new awesome theme?</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="pull-left">
+                                                    <img src="../../img/avatar.png" class="img-circle" alt="user image"/>
+                                                </div>
+                                                <h4>
+                                                    Reviewers
+                                                    <small><i class="fa fa-clock-o"></i> 2 days</small>
+                                                </h4>
+                                                <p>Why not buy a new awesome theme?</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="footer"><a href="#">See All Messages</a></li>
+                            </ul>
+                        </li>
+                        <!-- Notifications: style can be found in dropdown.less -->
+                        <li class="dropdown notifications-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-warning"></i>
+                                <span class="label label-warning">10</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">You have 10 notifications</li>
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu">
+                                        <li>
+                                            <a href="#">
+                                                <i class="ion ion-ios7-people info"></i> 5 new members joined today
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-warning danger"></i> Very long description here that may not fit into the page and may cause design problems
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-users warning"></i> 5 new members joined
+                                            </a>
+                                        </li>
 
-               <a class="navbar-brand navbar-right" href="https://github.com/HaxeBeluga/Beluga"><i class="fa fa-bug fa-fw"></i> Github</a>
-            </div>
-            <!-- /.navbar-header -->
+                                        <li>
+                                            <a href="#">
+                                                <i class="ion ion-ios7-cart success"></i> 25 sales made
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="ion ion-ios7-person danger"></i> You changed your username
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="footer"><a href="#">View all</a></li>
+                            </ul>
+                        </li>
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <!-- <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="glyphicon glyphicon-user"></i>
+                                <span>Jane Doe <i class="caret"></i></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="user-header bg-light-blue">
+                                    <img src="http://placehold.it/50x50" class="img-circle" alt="User Image" />
+                                    <p>
+                                        Jane Doe - Web Developer
+                                        <small>Member since Nov. 2012</small>
+                                    </p>
+                                </li>
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="::base_url::/accountService/printInfo" class="btn btn-default btn-flat">Profile</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="::base_url::/accountService/logout" class="btn btn-default btn-flat">Sign out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li> -->
+                        ::else::
+                        <li class="user user-menu">
+                            <a href="::base_url::/accountService/loginPage" class="dropdown-toggle">
+                                Connection
+                                <span></span>
+                            </a>
+                        </li>
+                        <li class="user user-menu">
+                            <a href="::base_url::/accountService/SubscribePage" class="dropdown-toggle">
+                                Inscription
+                                <span></span>
+                            </a>
+                        </li>
+                        ::end::
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="left-side sidebar-offcanvas">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    ::if (user)::
+                    <div class="user-panel">
+                        <div class="pull-left image">
+                            <img src="http://placehold.it/50x50" class="img-circle" alt="User Image" />
+                        </div>
+                        <div class="pull-left info">
+                            <p>Hello, ::user.login::</p>
 
-            <div class="navbar-default navbar-static-side" role="navigation">
-                <div class="sidebar-collapse">
-                    <ul class="nav" id="side-menu">
+                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                        </div>
+                    </div>
+                    ::end::
+                    <!-- search form -->
+                    <form action="#" method="get" class="sidebar-form">
+                        <div class="input-group">
+                            <input type="text" name="q" class="form-control" placeholder="Search..."/>
+                            <span class="input-group-btn">
+                                <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
+                    <!-- /.search form -->
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu">
                         <li>
-                            <a href="::base_url::/"><i class="fa fa-home"></i> Home</a>
+                            <a href="::base_url::/">
+                                <i class="fa fa-dashboard"></i> <span>Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="::base_url::/newsService">
+                                <i class="fa fa-th"></i> <span>News</span> <small class="badge pull-right bg-green">new !</small>
+                            </a>
                         </li>
                         ::if (user)::
-                        <li>
-                            <a href="#"><i class="fa fa-user"></i> User<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li><a href="::base_url::/accountService/printInfo">Profile</a>
-                                <li><a href="::base_url::/notificationService">Notifications</a></li>
-                                <li><a href="::base_url::/walletService">Wallet</a>
-                                <li><a href="::base_url::/accountService/logout">Logout</a>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-user"></i>
+                                <span>User</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="::base_url::/accountService/printInfo"><i class="fa fa-angle-double-right"></i> Profile</a>
+                                <li><a href="::base_url::/notificationService"><i class="fa fa-angle-double-right"></i> Notifications</a></li>
+                                <li><a href="::base_url::/walletService"><i class="fa fa-angle-double-right"></i> Wallet</a>
+                                <li><a href="::base_url::/accountService/logout"><i class="fa fa-angle-double-right"></i> Logout</a>
                             </ul>
                         </li>
                         ::end::
-                        <li>
-                            <a href="#"><i class="fa fa-gamepad"></i> The Game<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li><a href="::base_url::/playGame"> Play</a></li>
-                                <li><a href="#">Rules</a></li>
-                                <li><a href="#">Inventory</a></li>
-                                <li><a href="#">Guilds</a></li>
-                                <li><a href="::base_url::/marketService">Market</a></li>
-                                <li><a href="::base_url::/marketService/cartPage">Cart</a></li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-laptop"></i>
+                                <span>The Game</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="::base_url::/playGame"><i class="fa fa-angle-double-right"></i> Play</a></li>
+                                <li><a href="::base_url::/"><i class="fa fa-angle-double-right"></i> Rules</a></li>
+                                <li><a href="::base_url::/"><i class="fa fa-angle-double-right"></i> Guilds</a></li>
+                                <li><a href="::base_url::/marketService"><i class="fa fa-angle-double-right"></i> Market</a></li>
+                                <li><a href="::base_url::/marketService/cartPage"><i class="fa fa-angle-double-right"></i> Cart</a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="::base_url::/newsService"><i class="fa fa-envelope"></i> News</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-info-circle"></i> Help<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li><a href="::base_url::/forumService">Forum</a></li>
-                                <li><a href="::base_url::/ticketService/doBrowse">Tickets</a></li>
-                                <li><a href="::base_url::/faqService">FAQ</a></li>
-                                <li><a href="#">Contact</a></li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-edit"></i> <span>Help</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="::base_url::/forumService"><i class="fa fa-angle-double-right"></i> Forum</a></li>
+                                <li><a href="::base_url::/ticketService/doBrowse"><i class="fa fa-angle-double-right"></i> Tickets</a></li>
+                                <li><a href="::base_url::/faqService"><i class="fa fa-angle-double-right"></i> Faq</a></li>
+                                <li><a href="::base_url::/surveyService"><i class="fa fa-angle-double-right"></i> Surveys</a></li>
                             </ul>
-                        </li>
-                        <li>
-                        <a href="::base_url::/surveyService"><i class="fa fa-file-text"></i> Survey</a>
                         </li>
                     </ul>
-                    <!-- /#side-menu -->
-                </div>
-                <!-- /.sidebar-collapse -->
-                <div class="space">
-                </div>
-            </div>
-            <!-- /.navbar-static-side -->
-        </nav>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        Blank page
+                        <small>it all starts here</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li><a href="#">Examples</a></li>
+                        <li class="active">Blank page</li>
+                    </ol>
+                </section>

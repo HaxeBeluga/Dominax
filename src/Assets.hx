@@ -85,6 +85,8 @@ class Assets {
         Context.addResource("page_accueil", File.getBytes("src/services/account/tpl/accueil.mtt"));
         Context.addResource("page_subscribe", File.getBytes("src/services/account/tpl/subscribe.mtt"));
         Context.addResource("page_login", File.getBytes("src/services/account/tpl/login.mtt"));
+        Context.addResource("page_404", File.getBytes("src/services/account/tpl/404.mtt"));
+        Context.addResource("page_print", File.getBytes("src/services/account/tpl/print.mtt"));
         //#----TicketService Pages----#
         Context.addResource("page_ticket_widget", File.getBytes("src/services/ticket/tpl/ticket_widget.mtt"));
         //#----SurveyService Pages----#

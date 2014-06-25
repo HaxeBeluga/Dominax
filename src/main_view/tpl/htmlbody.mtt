@@ -6,20 +6,23 @@
     <head>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-        <title>dominaxe - ::title::</title>
+        <title>dominax - ::title::</title>
         <meta name="description" content=""/>
         <meta name="viewport" content="width=device-width"/>
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <!-- <link rel="stylesheet" href="::base_url::/css/normalize.css"/> -->
-        <link rel="stylesheet" href="::base_url::/css/main.css"/>
+        <!-- <link rel="stylesheet" href="::base_url::/css/main.css"/> -->
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet"/>
+        <link href="::base_url::css/ionicons.min.css" rel="stylesheet" type="text/css" />
+        <!-- Theme style -->
+        <link href="::base_url::/css/AdminLTE.css" rel="stylesheet" type="text/css" />
         <!--link rel="stylesheet"/-->
         <!-- <script src="::base_url::/js/vendor/modernizr-2.6.2.min.js"></script> -->
     </head>
-    <body>
+    <body  class="skin-blue">
         <!--[if lt IE 7]>
             <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css" rel="stylesheet">
           <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>

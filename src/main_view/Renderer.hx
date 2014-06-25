@@ -49,4 +49,14 @@ class Renderer {
         return bodyhtml;
     }
 
+    public static function renderPage(page : String, title: String, ctx : Dynamic) {
+        if (ConfigLoader.config.hasNode.url && ConfigLoader.config.node.url.hasNode.base && ConfigLoader.config.node.url.node.base.has.value)
+            ctx.base_url = ConfigLoader.config.node.url.node.base.att.value;
+        else
+            ctx.base_url = "";
+        var page_res = (new haxe.Template(Resource.getString(page))).execute(ctx);
+
+        return page_res;
+    }
+
 }

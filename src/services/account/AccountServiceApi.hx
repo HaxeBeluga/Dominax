@@ -24,20 +24,15 @@ class AccountServiceApi {
 	}
 
 	public function doLoginPage() {
-        var loginWidget = acc.getWidget("login");
-        loginWidget.context = {error : ""};
-
-		var html = Renderer.renderDefault("page_login", "Authentification", {
-			loginWidget: loginWidget.render()
-		});
+		var html = Renderer.renderPage("page_login", "Authentification", {
+			error: ""
+			});
 		Sys.print(html);
 	}
 
+
 	public function doSubscribePage() {
-        var subscribeWidget = acc.getWidget("subscribe").render();
-		var html = Renderer.renderDefault("page_subscribe", "Inscription", {
-			subscribeWidget: subscribeWidget
-		});
+		var html = Renderer.renderPage("page_subscribe", "Inscription", {});
 		Sys.print(html);
 	}
 
@@ -52,8 +47,8 @@ class AccountServiceApi {
 		var subscribeWidget = acc.getWidget("info");
 		subscribeWidget.context = {user : user, path : "/accountService/"};
 
-		var html = Renderer.renderDefault("page_subscribe", "Information", {
-			subscribeWidget: subscribeWidget.render()
+		var html = Renderer.renderDefault("page_print", "Information", {
+			loginWidget: subscribeWidget.render()
 		});
 		Sys.print(html);
 	}
@@ -91,8 +86,8 @@ class AccountServiceApi {
 		var subscribeWidget = acc.getWidget("edit");
 		subscribeWidget.context = {email : user.email, path : "/accountService/"};
 
-		var html = Renderer.renderDefault("page_subscribe", "Information", {
-			subscribeWidget: subscribeWidget.render()
+		var html = Renderer.renderDefault("page_print", "Information", {
+			loginWidget: subscribeWidget.render()
 		});
 		Sys.print(html);
 	}

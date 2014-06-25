@@ -1,7 +1,6 @@
-<div>
-	::header::
-
-	::content::
-
-	::footer::
-</div>
+::header::
+<!-- Main content -->
+<section class="content">
+    ::content::
+</section><!-- /.content -->
+::footer::

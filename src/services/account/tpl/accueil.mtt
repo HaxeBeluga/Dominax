@@ -1,4 +1,4 @@
-<section style="margin-left: 260px;padding-top:20px">
+<section>
     ::if (success)::
     ::if (success != "")::
         <div class="alert alert-success" style="margin-top:10px;">::success::</div>
