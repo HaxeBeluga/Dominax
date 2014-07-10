@@ -37,13 +37,18 @@ class Main {
             beluga = Beluga.getInstance();
             Dispatch.run(beluga.getDispatchUri(), Web.getParams(), new Main());
             beluga.cleanup();
-        } catch (e : BelugaException) {
-            trace(e);
+        } catch (e : Dynamic) {
+            new Main().do404Error();
         }
     }
 
     public function new() {
 
+    }
+
+    public function do404Error() {
+        var html = Renderer.renderDefault("page_404", "404 not found", {});
+        Sys.print(html);
     }
 
     public function doBeluga(d : Dispatch) {

@@ -1,4 +1,4 @@
-<section style="margin-left:260px;padding-top:20px;">
+<section>
 ::walletWidget::
 ::if (has_wallet == 1)::
 <div class="container wallet-display-widget" style="padding-top:10px;">

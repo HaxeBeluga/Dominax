@@ -45,12 +45,9 @@ class AccountService implements MetadataReader {
     }
 
     public function loginFail() {
-        var widget = acc.getWidget("login");
-        widget.context = {error : "Invalid login and/or password"};
-        var loginWidget = widget.render();
-        var html = Renderer.renderDefault("page_login", "Authentification", {
-            loginWidget: loginWidget
-        });
+        var html = Renderer.renderPage("page_login", "Authentification", {
+            error: "Invalid login and / or password"
+            });
         Sys.print(html);
     }
 
@@ -78,7 +75,7 @@ class AccountService implements MetadataReader {
     public function subscribeSuccess(user : User) {
         var html = Renderer.renderDefault("page_accueil", "Home", {
             success : "Subscribe succeeded !",
-            login: Beluga.getInstance().getModuleInstance(Account).getLoggedUser().login
+            login: user.login
         });
         Sys.print(html);
     }
@@ -89,11 +86,8 @@ class AccountService implements MetadataReader {
     }
 
     public function subscribeFail(error : String) {
-        var subscribeWidget = acc.getWidget("subscribe");
-
-        subscribeWidget.context = {error : error};
-        var html = Renderer.renderDefault("page_subscribe", "Inscription", {
-            subscribeWidget: subscribeWidget.render(), error : error
+        var html = Renderer.renderPage("page_subscribe", "Inscription", {
+            error : error
         });
         Sys.print(html);
     }
@@ -114,7 +108,7 @@ class AccountService implements MetadataReader {
         var subscribeWidget = acc.getWidget("info");
         subscribeWidget.context = {user : user, path : "/accountService/"};
 
-        var html = Renderer.renderDefault("page_subscribe", "Information", {
+        var html = Renderer.renderDefault("page_print", "Information", {
             subscribeWidget: subscribeWidget.render()
         });
         Sys.print(html);
