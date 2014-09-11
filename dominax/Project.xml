@@ -15,6 +15,8 @@
 	<set name="BUILD_DIR" value="../bin/dominax" />
 	<classpath name="source" />
 	
+	<haxedef name="network-sandbox" />
+	
 	<!--You can use rename="newName" to shorten the paths to the individual subdirectories!-->
 	<assets path="assets" />
 	<assets path="assets/images" rename="images" include="*.jpg|*.png" />

@@ -21,16 +21,19 @@ class AccountService implements MetadataReader {
     public function new(beluga : Beluga) {
         this.beluga = beluga;
         this.acc = beluga.getModuleInstance(Account);
+		
+		//Setting triggers
+		acc.triggers.loginSuccess.add(this.loginSuccess);
+		acc.triggers.loginFail.add(this.loginFail);
+		acc.triggers.afterLogout.add(this.logout);
+		acc.triggers.subscribeSuccess.add(this.subscribeSuccess);
+		acc.triggers.subscribeFail.add(this.subscribeFail);
+		acc.triggers.showUser.add(this.printCustomUserInfo);
     }
 
     /*
-     * Logination
+     * Login
      */
-    @bTrigger("beluga_account_login_success")
-    public static function _loginSuccess(u:User) {
-        new AccountService(Beluga.getInstance()).loginSuccess();
-    }
-
     public function loginSuccess() {
         var html = Renderer.renderDefault("page_accueil", "Home", {
             success : "Authentification succeeded !",
@@ -39,12 +42,7 @@ class AccountService implements MetadataReader {
         Sys.print(html);
     }
 
-    @bTrigger("beluga_account_login_fail")
-    public static function _loginFail() {
-        new AccountService(Beluga.getInstance()).loginFail();
-    }
-
-    public function loginFail() {
+    public function loginFail(_ : {err : String}) {
         var widget = acc.getWidget("login");
         widget.context = {error : "Invalid login and/or password"};
         var loginWidget = widget.render();
@@ -52,11 +50,6 @@ class AccountService implements MetadataReader {
             loginWidget: loginWidget
         });
         Sys.print(html);
-    }
-
-    @bTrigger("beluga_account_logout")
-    public static function _logout() {
-        new AccountService(Beluga.getInstance()).logout();
     }
 
     public function logout() {
@@ -67,42 +60,24 @@ class AccountService implements MetadataReader {
         Sys.print(html);
     }
 
-    /*
-     *  Subscription
-     */
-    @bTrigger("beluga_account_subscribe_success")
-    public static function _subscribeSuccess(user : User) {
-        new AccountService(Beluga.getInstance()).subscribeSuccess(user);
-    }
-
-    public function subscribeSuccess(user : User) {
+    public function subscribeSuccess(user : {user : User}) {
         var html = Renderer.renderDefault("page_accueil", "Home", {
             success : "Subscribe succeeded !",
-            login: user.login
+            login: user.user.login
         });
 		//Autologin
-		Beluga.getInstance().getModuleInstance(Account).setLoggedUser(user);
+		Beluga.getInstance().getModuleInstance(Account).loggedUser = user.user;
         Sys.print(html);
     }
 
-    @bTrigger("beluga_account_subscribe_fail")
-    public static function _subscribeFail(error : String) {
-        new AccountService(Beluga.getInstance()).subscribeFail(error);
-    }
-
-    public function subscribeFail(error : String) {
+    public function subscribeFail(error : {err : String}) {
         var subscribeWidget = acc.getWidget("subscribe");
 
-        subscribeWidget.context = {error : error};
+        subscribeWidget.context = {error : error.err};
         var html = Renderer.renderDefault("page_subscribe", "Inscription", {
-            subscribeWidget: subscribeWidget.render(), error : error
+            subscribeWidget: subscribeWidget.render(), error : error.err
         });
         Sys.print(html);
-    }
-
-    @bTrigger("beluga_account_show_user")
-    public function _printCustomUserInfo(args: { id: Int }) {
-        new AccountService(Beluga.getInstance()).printCustomUserInfo(args);
     }
 
     public function printCustomUserInfo(args: { id: Int }) {

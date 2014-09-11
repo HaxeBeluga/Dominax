@@ -28,11 +28,11 @@ class TicketService implements MetadataReader {
     public function new(beluga : Beluga) {
         this.beluga = beluga;
         this.ticket = beluga.getModuleInstance(Ticket);
-    }
 
-    @bTrigger("beluga_ticket_show_browse")
-    public static function _doBrowsePage() {
-       new TicketService(Beluga.getInstance()).doBrowsePage();
+		this.ticket.triggers.browse.add(doBrowsePage);
+		this.ticket.triggers.create.add(doCreatePage);
+		this.ticket.triggers.show.add(doShowPage);
+		this.ticket.triggers.assignNotify.add(doNotifyAssign);
     }
 
     public function doBrowsePage() {
@@ -45,11 +45,6 @@ class TicketService implements MetadataReader {
         Sys.print(html);
     }
 
-    @bTrigger("beluga_ticket_show_create")
-    public static function _doCreatePage() {
-       new TicketService(Beluga.getInstance()).doCreatePage();
-    }
-
     public function doCreatePage() {
         var ticketWidget = ticket.getWidget("create");
         ticketWidget.context = ticket.getCreateContext();
@@ -58,11 +53,6 @@ class TicketService implements MetadataReader {
             ticketWidget: ticketWidget.render()
         });
         Sys.print(html);
-    }
-
-    @bTrigger("beluga_ticket_show_show")
-    public static function _doShowPage() {
-       new TicketService(Beluga.getInstance()).doShowPage();
     }
 
     public function doShowPage() {
@@ -76,7 +66,7 @@ class TicketService implements MetadataReader {
     }
 
     public function doDefault(d : Dispatch) {
-        TicketService._doBrowsePage();
+        doBrowsePage();
     }
 
     public static function _doAdminPage() {
@@ -94,8 +84,7 @@ class TicketService implements MetadataReader {
         Sys.print(html);
     }
 
-    @bTrigger("beluga_ticket_assign_notify")
-    public function _doNotifyAssign(args : {title : String, text : String, user_id: Int}) {
+    public function doNotifyAssign(args : {title : String, text : String, user_id: Int}) {
         var notification = Beluga.getInstance().getModuleInstance(Notification);
         notification.create(args);
     }

@@ -63,7 +63,7 @@ class AccountServiceApi {
 	}
 
 	public function doDefault(d : Dispatch) {
-		var login = if (Beluga.getInstance().getModuleInstance(Account).isLogged()) {
+		var login = if (Beluga.getInstance().getModuleInstance(Account).isLogged) {
 			Beluga.getInstance().getModuleInstance(Account).getLoggedUser().login;
 		} else {
 			"unknown user";
@@ -102,7 +102,7 @@ class AccountServiceApi {
 	}
 
 	public function doSave(args : {email : String}) {
-		this.acc.edit(args.email);
+		this.acc.edit(Beluga.getInstance().getModuleInstance(Account).getLoggedUser().id, args.email);
 	}
 
 	public static function _doEditSuccess() {

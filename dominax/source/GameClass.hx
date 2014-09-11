@@ -22,6 +22,6 @@ class GameClass extends FlxGame
 		host = Lib.current.loaderInfo.parameters.host;
 		playerId = Std.parseInt(Lib.current.loaderInfo.parameters.uid);
 		
-		super(Math.ceil(stageWidth / ratio), Math.ceil(stageHeight / ratio), state.PlayState, ratio, fps, fps);
+		super(Math.ceil(stageWidth / ratio), Math.ceil(stageHeight / ratio), state.MenuState, ratio, fps, fps);
 	}
 }

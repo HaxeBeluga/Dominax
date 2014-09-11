@@ -1,52 +1,100 @@
 package state;
-
-import flash.Lib;
-import flixel.FlxCamera;
+import flash.text.GridFitType;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
-import flixel.FlxObject;
 import flixel.text.FlxText;
-import openfl.Assets;
+import flixel.util.FlxColor;
+import ia.Random;
+import game.Domino;
+import game.Grid;
 
 /**
- * A FlxState which can be used for the actual gameplay.
+ * ...
+ * @author Masadow
  */
 class PlayState extends FlxState
 {
-	/**
-	 * Function that is called up when to state is created to set it up. 
-	 */
+	public var cursor : FlxSprite;
+	public var select : FlxSprite;
+	
+	private var turn : Null<IPlayer>;
+	private var computer : Random;
+	private var human : Player;
+	private var stack : Array<Domino>;
+	
+	//texts
+	private var txtScoreHuman : FlxText;
+	private var txtScoreComputer : FlxText;
+	private var txtTurn : FlxText;
+	
 	override public function create():Void
 	{
-		// Set a background color
-		FlxG.cameras.bgColor = 0xff131c1b;
-		// Show the mouse (in case it hasn't been disabled)
-		#if !FLX_NO_MOUSE
-		FlxG.mouse.visible = true;
-		#end
-
 		super.create();
+		
+		bgColor = FlxColor.GRAY;
+		
+		add(new Grid(120, 80));
+		
+		cursor = new FlxSprite();
+		cursor.visible = false;
+		cursor.makeGraphic(32, 64, FlxColor.fromRGB(100, 100, 100, 100));
 
-		var loadState = new LoadState("Connecting to the server ...", Player.login, "login", [GameClass.playerId]);
-		loadState.closeCallback = init;
-		this.openSubState(loadState);
+		select = new FlxSprite();
+		select.visible = false;
+		select.makeGraphic(32, 64, FlxColor.fromRGB(70, 70, 70, 100));
+		
+		computer = new Random();
+		human = Player.logged;
+		turn = null; //Not started yet
+
+		stack = Domino.makeStack();
+		
+		add(txtScoreComputer = new FlxText(10, 10));
+		add(txtScoreHuman = new FlxText(10, 20));
+		add(txtTurn = new FlxText(150, 10, 0, "", 32));
 	}
 	
-	public function init()
+	override public function update(elapsed:Float):Void
 	{
-		if (Player.logged == null)
+		super.update(elapsed);
+
+		//Init the game
+		if (turn == null)
 		{
-			var error = new FlxText(0, 200, 640, "Unable to connect to the server, please make sure you are logged in", 32);
-			error.alignment = "center";
-			add(error);
+			fillHand(human);
+			fillHand(computer);
+			//Randomly determine the starting player
+			turn = FlxG.random.bool() ? human : computer;
+			turn = human; //TEMP !
+			txtTurn.text = turn == human ? "It's your turn !" : "Wait for your opponent...";
 		}
-		else
-			add(new FlxText(50, 50, 0, "Welcome " + Player.logged.name, 16));
+		//Let's play the current turn
+		turn.play(this);
+		//Update the displayed score
+		txtScoreComputer.text = "Computer : " + computer.getScore();
+		txtScoreHuman.text = "Human : " + human.getScore();
 	}
 
-	override public function update():Void 
+	override public function draw():Void
 	{
-		super.update();
+		super.draw();
+		
+		human.getHand().draw();
+		
+		if (cursor.visible)
+			cursor.draw();
+		
+		if (select.visible)
+			select.draw();
+	}
+	
+	private function fillHand(p : IPlayer)
+	{ //Draw up to 5 cards
+		var hand = p.getHand();
+		while (hand.size() < 5 && stack.length > 0)
+		{
+			hand.takeDomino(stack.pop());
+		}
 	}
 }
