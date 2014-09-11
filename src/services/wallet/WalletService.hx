@@ -29,18 +29,15 @@ class WalletService implements MetadataReader {
     public function new(beluga : Beluga) {
         this.beluga = beluga;
         this.wallet = beluga.getModuleInstance(Wallet);
-    }
-
-    @bTrigger("beluga_wallet_create_success",
-             "beluga_wallet_create_fail")
-    public static function _doDemoPage() {
-       new WalletService(Beluga.getInstance()).doDemoPage();
+		
+		this.wallet.triggers.creationSuccess.add(this.doDemoPage);
+		this.wallet.triggers.creationFail.add(this.doDemoPage);
     }
 
     public function doDemoPage() {
         var walletWidget = this.wallet.getWidget("display");
-        walletWidget.context = this.wallet.getDisplayContext();
-        var has_wallet = if (Beluga.getInstance().getModuleInstance(Account).isLogged()) {
+        walletWidget.context = this.wallet.getShowContext();
+        var has_wallet = if (Beluga.getInstance().getModuleInstance(Account).isLogged) {
             1;
         } else {
             0;
@@ -55,12 +52,12 @@ class WalletService implements MetadataReader {
     }
 
     public function doBuyCurrency() {
-        if (Beluga.getInstance().getModuleInstance(Account).isLogged()) {
+        if (Beluga.getInstance().getModuleInstance(Account).isLogged) {
             this.wallet.addRealFunds(Beluga.getInstance().getModuleInstance(Account).getLoggedUser(), 10.);
         }
 
         this.doDemoPage();
     }
 
-    public function doDefault(d : Dispatch) { WalletService._doDemoPage(); }
+    public function doDefault(d : Dispatch) { doDemoPage(); }
 }

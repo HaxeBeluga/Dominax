@@ -4,6 +4,7 @@ import beluga.core.Beluga;
 import beluga.core.api.BelugaApi;
 import beluga.core.Widget;
 import beluga.core.BelugaException;
+import haxe.remoting.HttpConnection;
 import haxe.web.Dispatch;
 import haxe.Resource;
 import haxe.crypto.Md5;
@@ -27,19 +28,34 @@ import neko.Web;
 
 class Main {
     public static var beluga : Beluga;
+	
+	//public static var socket;
+	//public static var cnx;
 
 
     static function main()
     {
-        Assets.build();
-
-        try {
-            beluga = Beluga.getInstance();
-            Dispatch.run(beluga.getDispatchUri(), Web.getParams(), new Main());
-            beluga.cleanup();
-        } catch (e : BelugaException) {
-            trace(e);
-        }
+		try {
+			beluga = Beluga.getInstance();
+			//Is it an async request or a user who navigate through the website ?
+			if (Web.getClientHeader("X_HAXE_REMOTING") == "1")
+			{
+				var ctx = new haxe.remoting.Context();
+				ctx.addObject("Server", new HttpServer());
+				if (HttpConnection.handleRequest(ctx))
+					return ;
+			}
+			else
+			{
+				Assets.build();
+				Dispatch.run(beluga.getDispatchUri(), Web.getParams(), new Main());
+			}
+		} catch (e : Dynamic) {
+			Dispatch.run("/", Web.getParams(), new Main());
+//			trace(e);
+		}
+//		socket.close();
+		beluga.cleanup();
     }
 
     public function new() {

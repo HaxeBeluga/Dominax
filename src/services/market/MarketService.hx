@@ -28,12 +28,13 @@ class MarketService implements MetadataReader {
     public function new(beluga : Beluga) {
         this.beluga = beluga;
         this.market = beluga.getModuleInstance(Market);
-    }
-
-    @bTrigger("beluga_market_add_product_to_cart_success",
-             "beluga_market_add_product_to_cart_fail")
-    public static function _doMarketPage() {
-       new MarketService(Beluga.getInstance()).doMarketPage();
+		
+		market.triggers.addProductSuccess.add(this.doMarketPage);
+		market.triggers.addProductFail.add(this.doMarketPage);
+		market.triggers.removeProductFail.add(this.doCartPage);
+		market.triggers.removeProductSuccess.add(this.doCartPage);
+		market.triggers.checkoutCartFail.add(this.doCartPage);
+		market.triggers.checkoutCartSuccess.add(this.doCartPage);
     }
 
     public function doMarketPage() {
@@ -41,16 +42,10 @@ class MarketService implements MetadataReader {
         marketWidget.context = this.market.getDisplayContext();
 
         var html = Renderer.renderDefault("page_market_widget", "The market", {
-            marketWidget: marketWidget.render(),
+			marketWidget: market.widgets.display.render()
         });
+		trace(market.widgets.display.render());
         Sys.print(html);
-    }
-
-    @bTrigger("beluga_market_remove_product_in_cart_fail",
-             "beluga_market_remove_product_in_cart_success",
-             "beluga_market_checkout_cart_fail")
-    public static function _doCartPage() {
-       new MarketService(Beluga.getInstance()).doCartPage();
     }
 
     public function doCartPage() {
@@ -73,10 +68,5 @@ class MarketService implements MetadataReader {
         Sys.print(html);
     }
 
-    @bTrigger("beluga_market_checkout_cart_success")
-    public static function _doCheckoutSuccess() {
-        new MarketService(Beluga.getInstance()).doCartPage();
-    }
-
-    public function doDefault(d : Dispatch) { MarketService._doMarketPage(); }
+    public function doDefault(d : Dispatch) { doMarketPage(); }
 }

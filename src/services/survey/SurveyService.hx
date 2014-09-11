@@ -34,11 +34,18 @@ class SurveyService implements MetadataReader {
         this.survey = beluga.getModuleInstance(Survey);
         this.error_msg = "";
         this.success_msg = "";
-    }
-
-    @bTrigger("beluga_survey_default")
-    public static function _doDefault() {
-        new SurveyService(Beluga.getInstance()).doDefault();
+		
+		survey.triggers.redirect.add(doRedirectPage);
+		survey.triggers.answerNotify.add(this.doAnswerNotify);
+		survey.triggers.createFail.add(this.doCreateFail);
+		survey.triggers.createSuccess.add(this.doCreateSuccess);
+		survey.triggers.defaultSurvey.add(this.doDefault);
+		survey.triggers.deleteFail.add(this.doDeleteFail);
+		survey.triggers.deleteSuccess.add(this.doDeleteSuccess);
+		survey.triggers.printSurvey.add(this.doPrintPage);
+		survey.triggers.redirect.add(this.doRedirectPage);
+		survey.triggers.voteFail.add(this.doVoteFail);
+		survey.triggers.voteSuccess.add(this.doVoteSuccess);
     }
 
     public function doDefault() {
@@ -61,11 +68,6 @@ class SurveyService implements MetadataReader {
         Sys.print(html);
     }
 
-    @bTrigger("beluga_survey_redirect")
-    public static function _doRedirectPage() {
-        new SurveyService(Beluga.getInstance()).doRedirectPage();
-    }
-
     public function doRedirectPage() {
         if (Beluga.getInstance().getModuleInstance(Account).getLoggedUser() == null) {
             Web.setHeader("Content-Type", "text/plain");
@@ -83,19 +85,9 @@ class SurveyService implements MetadataReader {
         Sys.print(html);
     }
 
-    @bTrigger("beluga_survey_create_fail")
-    public static function _doCreateFail() {
-        new SurveyService(Beluga.getInstance()).doCreateFail();
-    }
-
     public function doCreateFail() {
         error_msg = "Error ! Survey has not been created...";
         this.doDefault();
-    }
-
-    @bTrigger("beluga_survey_create_success")
-    public static function _doCreateSuccess() {
-        new SurveyService(Beluga.getInstance()).doCreateSuccess();
     }
 
     public function doCreateSuccess() {
@@ -103,19 +95,9 @@ class SurveyService implements MetadataReader {
         this.doDefault();
     }
 
-    @bTrigger("beluga_survey_delete_success")
-    public static function _doDeleteSuccess() {
-        new SurveyService(Beluga.getInstance()).doDeleteSuccess();
-    }
-
     public function doDeleteSuccess() {
         success_msg = "Survey has been successfully deleted !";
         this.doDefault();
-    }
-
-    @bTrigger("beluga_survey_delete_success")
-    public static function _doDeleteFail() {
-        new SurveyService(Beluga.getInstance()).doDeleteFail();
     }
 
     public function doDeleteFail() {
@@ -139,28 +121,18 @@ class SurveyService implements MetadataReader {
         Sys.print(html);
     }
 
-    @bTrigger("beluga_survey_vote_success")
-    public static function _doVoteSuccess() {
-        new SurveyService(Beluga.getInstance()).doVoteSuccess();
-    }
-
      public function doVoteSuccess() {
         success_msg = "Your vote has been registered";
         this.doDefault();
     }
 
-    @bTrigger("beluga_survey_vote_fail")
-    public static function _doVoteFail() {
-        new SurveyService(Beluga.getInstance()).doVoteFail();
-    }
-
-    public function doVoteFail() {
-        error_msg = "Error when registering your vote...";
+    public function doVoteFail(args : {err: String}) {
+        error_msg = args.err;
         this.doDefault();
     }
 
     public function doVotePage(args : {survey : SurveyModel}) {
-        if (Beluga.getInstance().getModuleInstance(Account).isLogged() == false) {
+        if (Beluga.getInstance().getModuleInstance(Account).isLogged == false) {
             Web.setHeader("Content-Type", "text/plain");
             Sys.println("Please log in !");
             return;
@@ -186,26 +158,21 @@ class SurveyService implements MetadataReader {
         Sys.print(html);
     }
 
-    @bTrigger("beluga_survey_printx")
-    public static function _doPrintPage(args : {survey : SurveyModel}) {
-        new SurveyService(Beluga.getInstance()).doPrintPage(args);
-    }
-
-    public function doPrintPage(args : {survey : SurveyModel}) {
-        if (Beluga.getInstance().getModuleInstance(Account).isLogged() == false) {
+    public function doPrintPage(args : {survey_id : Int}) {
+        if (Beluga.getInstance().getModuleInstance(Account).isLogged == false) {
             Web.setHeader("Content-Type", "text/plain");
             Sys.println("Please log in !");
             return;
         }
-        if (this.survey.canVote({id : args.survey.id})) {
-            doVotePage({survey : args.survey});
+        if (this.survey.canVote({survey_id : args.survey_id})) {
+            doVotePage({survey : this.survey.getSurvey(args.survey_id)});
             return;
         }
         var arr = new Array<Dynamic>();
         var choices = new Array<Dynamic>();
         var tot = 0;
 
-        for (tmp_r in Result.manager.dynamicSearch( { survey_id : args.survey.id } )) {
+        for (tmp_r in Result.manager.dynamicSearch( { survey_id : args.survey_id } )) {
             tot += 1;
             var found = false;
             for (t in arr) {
@@ -217,7 +184,7 @@ class SurveyService implements MetadataReader {
             if (found == false)
                 arr.push({id : tmp_r.choice_id, pourcent : 1});
         }
-        for (tmp_c in Choice.manager.dynamicSearch( { survey_id : args.survey.id } )) {
+        for (tmp_c in Choice.manager.dynamicSearch( { survey_id : args.survey_id } )) {
             var done = false;
             for (tmp in arr) {
                 if (tmp.id == tmp_c.id) {
@@ -230,7 +197,7 @@ class SurveyService implements MetadataReader {
             }
         }
         var widget = survey.getWidget("print_survey");
-        widget.context = {survey : args.survey, choices : choices, path : "/beluga/survey/"};
+        widget.context = {survey : this.survey.getSurvey(args.survey_id), choices : choices, path : "/beluga/survey/"};
 
         var surveyWidget = widget.render();
 
@@ -240,8 +207,7 @@ class SurveyService implements MetadataReader {
         Sys.print(html);
     }
 
-    // @bTrigger("beluga_survey_answer_notify")
-    public function _doAnswerNotify(args : {title : String, text : String, user_id: Int}) {
+    public function doAnswerNotify(args : {title : String, text : String, user_id: Int}) {
         var notification = Beluga.getInstance().getModuleInstance(Notification);
         notification.create(args);
     }

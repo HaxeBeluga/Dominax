@@ -15,3 +15,13 @@
 -neko bin/neko/index.n
 -main Main
 -D target=neko
+
+--next
+
+-cp dominax
+-lib session
+-lib beluga
+-lib tink_macro
+-neko bin/server.n
+-main net.Server
+-D target=neko
