@@ -78,8 +78,10 @@ class AccountService implements MetadataReader {
     public function subscribeSuccess(user : User) {
         var html = Renderer.renderDefault("page_accueil", "Home", {
             success : "Subscribe succeeded !",
-            login: Beluga.getInstance().getModuleInstance(Account).getLoggedUser().login
+            login: user.login
         });
+		//Autologin
+		Beluga.getInstance().getModuleInstance(Account).setLoggedUser(user);
         Sys.print(html);
     }
 
